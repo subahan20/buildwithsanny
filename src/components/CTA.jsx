@@ -39,19 +39,19 @@ const TailoredCollaborations = () => {
   ];
 
   return (
-    <section id="pricing" className="py-2 md:py-5 bg-[#020617] relative overflow-hidden border-t border-white/5">
+    <section id="pricing" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Header */}
-        <div className="mb-3">
-          <span className="text-yellow-400 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">
+        <div className="mb-6 md:mb-10">
+          <span className="text-yellow-400 font-black uppercase tracking-[0.4em] text-[9px] md:text-[10px] block mb-3 md:mb-4">
             // WORK WITH US
           </span>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black italic tracking-tighter text-white mb-6 max-w-4xl">
+          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-black italic tracking-tighter text-text mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-bold leading-relaxed max-w-2xl">
+          <p className="text-text/60 text-sm md:text-lg font-bold leading-relaxed max-w-2xl transition-colors duration-500">
             Pricing varies based on project complexity and requirements. Contact our sales team for a custom discovery call.
           </p>
         </div>
@@ -61,7 +61,7 @@ const TailoredCollaborations = () => {
           {engagementModels.map((model, idx) => (
             <div 
               key={idx}
-              className="group relative bg-slate-900/40 backdrop-blur-xl rounded-[2rem] p-8 lg:p-10 border border-white/5 shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
+              className="group relative bg-card backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
             >
               {/* Watermark Icon */}
               <div className="absolute top-12 right-12 transition-transform duration-700 group-hover:scale-110">
@@ -69,13 +69,13 @@ const TailoredCollaborations = () => {
               </div>
 
               <div className="relative z-10">
-                <span className="text-[10px] font-black text-slate-500 tracking-[0.3em] uppercase mb-4 block">
+                <span className="text-[10px] font-black text-text/50 tracking-[0.3em] uppercase mb-4 block transition-colors">
                   {model.label}
                 </span>
-                <h3 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
+                <h3 className="text-4xl sm:text-5xl font-black text-text tracking-tight mb-4 transition-colors">
                   {model.title}
                 </h3>
-                <p className="text-slate-400 text-lg font-bold leading-relaxed mb-8 max-w-sm">
+                <p className="text-text/70 text-lg font-bold leading-relaxed mb-8 max-w-sm transition-colors">
                   {model.description}
                 </p>
 
@@ -87,7 +87,7 @@ const TailoredCollaborations = () => {
                           <path d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-slate-300 font-bold text-sm tracking-tight">{feature}</span>
+                      <span className="text-text/80 font-bold text-sm tracking-tight transition-colors">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -98,7 +98,7 @@ const TailoredCollaborations = () => {
                     w-full py-5 rounded-xl text-center font-black tracking-[0.2em] text-xs transition-all duration-500 block cursor-pointer
                     ${model.buttonVariant === 'solid' 
                       ? 'bg-yellow-500 text-slate-900 shadow-lg shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
-                      : 'bg-slate-800/50 text-slate-200 hover:bg-yellow-500/10 border border-white/5 hover:border-yellow-500/50'}
+                      : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50'}
                   `}
                 >
                   {model.buttonLabel}

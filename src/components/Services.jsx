@@ -51,26 +51,26 @@ const Services = () => {
   return (
     <section 
       id="expertise" 
-      className="py-2 md:py-5 bg-slate-950 relative overflow-hidden transition-colors duration-500"
+      className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-[2px] bg-yellow-500 rounded-full"></div>
-            <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[10px]">Expertise</span>
+        <div className="mb-6 md:mb-10">
+          <div className="flex items-center gap-4 mb-3 md:mb-4">
+            <div className="w-10 md:w-12 h-[2.5px] bg-yellow-500 rounded-full"></div>
+            <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[9px] md:text-[10px]">Expertise</span>
           </div>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] transition-colors">
-            We build the <span className="text-yellow-400">Neural Architecture</span> of modern business.
+          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-black text-text tracking-tighter leading-[1.05] transition-colors">
+            We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span> of modern business.
           </h2>
         </div>
 
         {/* Vertical Rows Wrapper */}
-        <div className="flex flex-col border-t border-white/10">
+        <div className="flex flex-col">
           {SERVICES_DATA.map((service, idx) => (
             <ServiceCard 
               key={idx} 
@@ -83,7 +83,7 @@ const Services = () => {
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-2 md:mt-3">
           <Button 
             variant="yellow" 
             className="px-12 py-4 shadow-xl shadow-yellow-500/20"

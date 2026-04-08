@@ -28,7 +28,7 @@ const About = () => {
             </h2>
           </div>
           <p className="text-xl font-medium text-slate-600 leading-relaxed">
-            For the past 10 years, I’ve been building software products — not just coding, but solving real business problems.
+            For the past 10 years, I’ve been building software products - not just coding, but solving real business problems.
           </p>
           <div className="space-y-4">
             <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">
@@ -41,7 +41,7 @@ const About = () => {
             </ul>
           </div>
           <p className="text-2xl font-black text-yellow-600 leading-tight pt-8 border-t border-slate-100">
-            "I don’t just write code — I think like a product builder."
+            "I don’t just write code - I think like a product builder."
           </p>
         </div>
       </div>

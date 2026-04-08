@@ -91,18 +91,18 @@ const TechStack = () => {
 
   return (
     <section 
-      className="py- bg-[#020617] relative overflow-hidden transition-colors duration-500"
+      className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 mb-8 relative z-20 transition-all duration-500">
+      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 mb-6 md:mb-10 relative z-20 transition-all duration-500">
         <div className="max-w-4xl">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] mb-6 transition-all duration-300">
+          <h2 className="text-3xl md:text-6xl font-black text-text tracking-tight leading-[1.05] mb-4 md:mb-5 transition-all duration-300">
             Custom Tech Architectures
           </h2>
-          <p className="text-slate-100 text-lg md:text-xl font-bold max-w-2xl leading-relaxed opacity-90 transition-all duration-300">
-            We build with a foundation designed for scale, speed, and absolute reliability.
+          <p className="text-text/90 text-base md:text-xl font-bold max-w-2xl leading-relaxed opacity-90 transition-all duration-300">
+            I build with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>
       </div>
@@ -123,13 +123,13 @@ const TechStack = () => {
       </div>
 
       {/* Decorative gradient overlays */}
-      <div className="absolute inset-y-0 left-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
-      <div className="absolute inset-y-0 right-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-l from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
+      <div className="absolute inset-y-0 left-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-r from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
+      <div className="absolute inset-y-0 right-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-l from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
 
-      <div className="relative z-20 flex justify-center mt-10">
+      <div className="relative z-20 flex justify-center mt-6 md:mt-8">
         <Button 
           variant="yellow" 
-          className="px-12 py-4 shadow-2xl shadow-yellow-500/20 text-xs tracking-widest uppercase hover:scale-105"
+          className="px-10 md:px-12 py-3 md:py-4 shadow-2xl shadow-yellow-500/20 text-[10px] md:text-xs tracking-widest uppercase hover:scale-105"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           GET IN TOUCH

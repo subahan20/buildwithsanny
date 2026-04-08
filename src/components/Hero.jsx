@@ -38,7 +38,7 @@ const Hero = () => {
             onClick={() => navigate('/dashboard')} 
             className="w-full mt-4 py-4 text-base"
           >
-            Get in Touch
+            LET'S SCOPE YOUR MVP
           </Button>
         </div>
         

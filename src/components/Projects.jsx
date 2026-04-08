@@ -11,103 +11,150 @@ import scrapqLogo from '../assets/projects/scrapq.png';
 import nextskills360Logo from '../assets/projects/nextskills360.png';
 import sahasraLogo from '../assets/projects/sahasra.png';
 import click2cleanLogo from '../assets/projects/click2clean.png';
+import hireLogo from '../assets/projects/outfit-ai-logo.png';
+import styleaiLogo from '../assets/projects/styleai-mockup.png';
+import firstmatchLogo from '../assets/projects/firstmatch-star-logo.png';
+import touchUILogo from '../assets/projects/touch-ui-logo.png';
+import zastraLogo from '../assets/projects/zastra-logo.png';
+import almaLogo from '../assets/projects/alma-clinics-logo.png';
+import adelphoiLogo from '../assets/projects/adelphoi-logo.png';
 
 const PROJECTS_DATA = [
   {
-    name: "Medmate",
-    type: "Healthcare Platform",
-    duration: "22 Months",
-    description: "A comprehensive healthcare management ecosystem designed to streamline patient records and appointment scheduling for modern clinics.",
-    logo: medmateLogo,
-    demoLink: "#",
-    codeLink: "#"
+    name: "Hirecruite",
+    type: "AI Recruitment",
+    duration: "Built in 8 Weeks",
+    description: "AI-powered recruitment platform designed to streamline hiring processes for startups and enterprises.",
+    logo: hireLogo,
+    demoLink: "https://hirecruitai.com/",
   },
   {
-    name: "ZAAP",
-    type: "Link Infrastructure",
-    duration: "6K+ Monthly",
-    description: "High-performance link-in-bio tool for creators, optimized for conversion and rapid page loads with deep analytics integration.",
-    logo: zaapLogo,
-    demoLink: "#",
-    codeLink: "#"
+    name: "OutFit.Ai",
+    type: "AI Fashion",
+    duration: "Built in 4 Weeks",
+    description: "Intelligent fashion recommendation engine that suggests outfits based on user preferences and style trends.",
+    logo: styleaiLogo,
+    demoLink: "https://styleai-xi.vercel.app/",
+  },
+  {
+    name: "FirstMatch",
+    type: "Healthcare Tech",
+    duration: "Built in 12 Weeks",
+    description: "Advanced healthcare data ecosystem featuring Power BI analytics, predictive scoring, and dynamic organizational management (Provider, County, Foster) built with React and Redux Toolkit.",
+    logo: firstmatchLogo,
+    demoLink: "https://www.firstmatch.com/",
+  },
+  {
+    name: "Touch UI",
+    type: "Social Media Platform",
+    duration: "Built in 10 Weeks",
+    description: "Social media ecosystem with React Native mobile app and TypeScript admin dashboard, supporting real-time ZegoCloud connectivity.",
+    logo: touchUILogo,
+    demoLink: "https://touch.net.in/",
+  },
+  {
+    name: "Zastra",
+    type: "AI Vision Platform",
+    duration: "Built in 14 Weeks",
+    description: "AI curation platform accelerating model development through active learning, 3D annotation, and scalable microservices.",
+    logo: zastraLogo,
+    demoLink: "https://zastraa.com/",
+  },
+  {
+    name: "Alma Clinics",
+    type: "Digital Healthcare",
+    duration: "Built in 12 Weeks",
+    description: "Technology strategy for a digital healthcare platform optimizing clinical operations and patient workflows.",
+    logo: almaLogo,
+    demoLink: "https://alma-clinic.com/",
+  },
+  {
+    name: "Adelphoi",
+    type: "Healthcare Tech",
+    duration: "Built in 16 Weeks",
+    description: "Full Stack Lead for healthcare domain applications serving at-risk youth and families, focused on scalable system architecture.",
+    logo: adelphoiLogo,
+    demoLink: "https://adelphoi.org/",
   },
   {
     name: "Expertrons",
     type: "AI Career Platform",
-    duration: "50K+ Active",
+    duration: "Built in 8 Weeks",
     description: "World's largest AI video bot-assisted career platform, connecting job seekers with industry experts through immersive tech.",
     logo: expertronsLogo,
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://www.expertrons.com/",
   },
   {
     name: "Touch",
     type: "Encrypted Social",
-    duration: "Security First",
+    duration: "Built in 6 Weeks",
     description: "A next-generation social networking application focused on privacy and real-time community engagement through encrypted channels.",
     logo: touchLogo,
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://touch.net.in/",
   },
   {
     name: "ScrapQ",
     type: "Recycling Marketplace",
-    duration: "Consumer App",
+    duration: "Built in 10 Weeks",
     description: "Smart waste collection system providing a digital marketplace for scrap materials, bridging the gap between households and recyclers.",
     logo: scrapqLogo,
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://scrapq.com/",
   },
   {
     name: "Next Skills 360",
     type: "Ed-Tech Dashboard",
-    duration: "Curriculum Focus",
+    duration: "Built in 8 Weeks",
     description: "A robust ed-tech dashboard for tracking student progress and curriculum delivery across diverse learning environments.",
     logo: nextskills360Logo,
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://nextskills360.com/",
   },
   {
     name: "Click2Clean",
     type: "Service Marketplace",
-    duration: "On-Demand",
+    duration: "Built in 6 Weeks",
     description: "On-demand home cleaning service marketplace connecting professional cleaners with local residential clients.",
     logo: click2cleanLogo,
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://click2clean.in/",
   },
   {
-    name: "Sahasra Seva Samithi",
-    type: "Charitable Org",
-    duration: "Non-Profit",
-    description: "Digital presence and donation management system for a non-profit organization dedicated to community welfare and education.",
-    logo: sahasraLogo,
-    demoLink: "#",
-    codeLink: "#"
+    name: "Medmate",
+    type: "Healthcare Marketplace",
+    duration: "Built in 12 Weeks",
+    description: "Australia's leading healthcare app for prescription delivery and e-health services, connecting patients with local pharmacies.",
+    logo: medmateLogo,
+    demoLink: "https://medmate.com.au/",
+  },
+  {
+    name: "Zaap",
+    type: "On-Demand Delivery",
+    duration: "Built in 10 Weeks",
+    description: "Multi-service on-demand delivery platform for the Canadian market, streamlining logistics and local commerce.",
+    logo: zaapLogo,
+    demoLink: "https://zaapondemand.ca/",
   }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-12 md:py-15 bg-mesh-dark relative overflow-hidden transition-colors duration-500">
+    <section id="projects" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
-        <div className="mb-5">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none transition-colors">
-            Selected Mandates.
+        <div className="mb-6 md:mb-10">
+          <h2 className="text-3xl md:text-6xl lg:text-7xl font-black text-text tracking-tighter leading-none transition-colors">
+            What I've shipped.
           </h2>
-          <div className="w-24 h-2 bg-yellow-500 rounded-full mt-6"></div>
+          <div className="w-16 md:w-20 h-1.5 md:h-2 bg-yellow-500 rounded-full mt-2 md:mt-3 transition-all"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {PROJECTS_DATA.map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-5">
           <Button 
             variant="yellow" 
             className="px-12 py-4 shadow-xl shadow-yellow-500/20"
