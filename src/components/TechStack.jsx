@@ -91,7 +91,7 @@ const TechStack = () => {
 
   return (
     <section 
-      className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="pt-0 pb-3 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
@@ -102,7 +102,7 @@ const TechStack = () => {
             Custom Tech Architectures
           </h2>
           <p className="text-text/90 text-base md:text-xl font-bold max-w-2xl leading-relaxed opacity-90 transition-all duration-300">
-            I build with a foundation designed for scale, speed, and absolute reliability.
+             build with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>
       </div>

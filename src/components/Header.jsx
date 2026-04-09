@@ -70,13 +70,13 @@ const Header = () => {
         </div>
 
         {/* Center Navigation Suite (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center lg:gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setActiveSection(link.name)}
-              className={`text-[9px] font-black tracking-[0.25em] uppercase transition-all duration-300 relative py-1.5 ${
+              className={`text-[9px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative py-1.5 ${
                 activeSection === link.name 
                   ? 'text-yellow-500' 
                   : 'text-text/60 hover:text-text'
@@ -92,7 +92,7 @@ const Header = () => {
 
         {/* Right Tools & Action Button */}
           <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10">
+          <div className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-green"></div>
             <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em]">
               Available {dynamicDate}

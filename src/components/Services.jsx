@@ -13,7 +13,7 @@ const SERVICES_DATA = [
     title: "AI Products",
     icon: "📦",
     thumbnail: "/expertise/ai_products.png",
-    items: ["AYUGPT", "Email Outreach Tools", "Market Intelligence"]
+    items: ["hirecruite", "Style.ai", "Zastra"]
   },
   {
     title: "AI Calling Agents",
