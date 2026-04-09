@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer className="py-10 md:py-14 bg-bg text-text/50 relative overflow-hidden transition-colors duration-500">
       {/* Concentric Decorative Arcs */}
-      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] border border-slate-900/5 dark:border-slate-900/40 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Main Information Layer */}

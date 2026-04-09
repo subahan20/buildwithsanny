@@ -64,7 +64,7 @@ const Services = () => {
             <div className="w-10 md:w-12 h-[2.5px] bg-yellow-500 rounded-full"></div>
             <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[9px] md:text-[10px]">Expertise</span>
           </div>
-          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-black text-text tracking-tighter leading-[1.05] transition-colors">
+          <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black text-text tracking-tighter leading-[1.05] transition-colors">
             We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span> of modern business.
           </h2>
         </div>

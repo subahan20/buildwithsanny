@@ -63,7 +63,7 @@ const HeroForm = () => {
       <div className="absolute top-20 -left-10 w-[600px] h-[600px] bg-yellow-500/5 dark:bg-yellow-500/[0.03] rounded-full filter blur-[120px] animate-pulse"></div>
       <div className="absolute bottom-20 -right-10 w-[600px] h-[600px] bg-orange-500/5 dark:bg-orange-500/[0.03] rounded-full filter blur-[120px] animate-pulse delay-700"></div>
 
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center relative z-10">
+      <div className="w-full max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center relative z-10">
         <div className="space-y-5 animate-in fade-in slide-in-from-left-12 duration-1000">
 
           {/* Main Heading Group */}
