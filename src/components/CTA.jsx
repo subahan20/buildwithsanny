@@ -95,10 +95,10 @@ const TailoredCollaborations = () => {
                 <a 
                   href="#contact"
                   className={`
-                    w-full py-5 rounded-xl text-center font-black tracking-[0.2em] text-xs transition-all duration-500 block cursor-pointer
+                    w-full h-14 md:h-16 flex items-center justify-center rounded-2xl text-center font-black tracking-widest md:tracking-[0.2em] text-[10px] md:text-xs transition-all duration-500 block cursor-pointer uppercase shadow-lg
                     ${model.buttonVariant === 'solid' 
-                      ? 'bg-yellow-500 text-slate-900 shadow-lg shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
-                      : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50'}
+                      ? 'bg-yellow-500 text-slate-900 shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
+                      : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50 hover:scale-[1.02]'}
                   `}
                 >
                   {model.buttonLabel}

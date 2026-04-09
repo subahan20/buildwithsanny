@@ -50,7 +50,7 @@ const SERVICES_DATA = [
 const Services = () => {
   return (
     <section 
-      id="expertise" 
+      id="services" 
       className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >

@@ -11,7 +11,7 @@ const ServiceCard = ({ title, items, icon, thumbnail }) => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12 flex-1 pt-1.5 lg:pt-0">
             {/* Title Area */}
             <div className="relative flex items-center gap-1">
-              <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 whitespace-nowrap">
+              <h3 className="text-md md:text-lg lg:text-xl xl:text-2xl font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 whitespace-nowrap">
                 {title}
               </h3>
 

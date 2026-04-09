@@ -41,7 +41,7 @@ const DailyCycle = () => {
   ];
 
   return (
-    <section id="daily-cycle" className="py-2 md:py-3 bg-bg dark:bg-gradient-to-b dark:from-bg dark:via-[#030a1f] dark:to-bg text-text relative overflow-hidden transition-colors duration-500">
+    <section id="process" className="py-2 md:py-3 bg-bg dark:bg-gradient-to-b dark:from-bg dark:via-[#030a1f] dark:to-bg text-text relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
       
       {/* Soft Ethereal Blooms */}

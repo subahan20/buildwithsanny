@@ -23,10 +23,11 @@ const ContactForm = () => {
     setLoading(true);
     setError(null);
 
-    // Combine country code and phone number for storage
+    // Concatenate country code and phone number, then remove country_code from the payload
+    const { country_code, ...dataToSubmit } = formData;
     const submissionData = {
-      ...formData,
-      phone_number: `${formData.country_code} ${formData.phone_number}`
+      ...dataToSubmit,
+      phone_number: `${country_code} ${formData.phone_number}`
     };
 
     try {
@@ -238,12 +239,11 @@ const ContactForm = () => {
                   <label className="text-[9px] md:text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest px-1">How can we assist you?</label>
                   <textarea 
                     name="message"
-                    required
                     value={formData.message}
                     onChange={handleInputChange}
                     rows="3" 
                     placeholder="DESCRIBE YOUR ARCHITECTURAL VISION..." 
-                    className="w-full bg-bg border border-border px-5 md:px-6 py-4 md:py-4 rounded-2xl text-text font-medium focus:ring-yellow-400/20 focus:border-yellow-500 dark:focus:border-yellow-400 outline-none transition-all placeholder:text-text/30 text-sm md:text-sm"
+                    className="w-full bg-bg border border-border px-5 md:px-6 py-4 md:py-4 rounded-2xl text-text font-medium focus:ring-yellow-400/20 focus:border-yellow-500 dark:focus:border-yellow-400 outline-none transition-all placeholder:text-text/30 text-sm md:text-sm resize-none"
                   ></textarea>
                 </div>
 
@@ -255,16 +255,18 @@ const ContactForm = () => {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 py-4 md:py-4.5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs md:text-xs shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
+                  className="w-full lg:max-w-2xl mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 h-14 md:h-16 lg:h-20 px-6 md:px-10 lg:px-12 rounded-2xl font-black uppercase tracking-widest md:tracking-[0.1em] lg:tracking-[0.15em] text-[10px] md:text-sm lg:text-lg shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-between group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
                 >
                   {loading ? (
-                    <div className="w-5 h-5 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin"></div>
+                    <div className="w-6 h-6 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin mx-auto"></div>
                   ) : (
                     <>
-                      <span>Talk with me about your ideas</span>
-                      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current group-hover:translate-x-1 transition-transform">
-                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"/>
-                      </svg>
+                      <span className="flex-1 text-center pr-4 transition-all duration-500 whitespace-nowrap">Talk with me about your ideas</span>
+                      <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-slate-900/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-slate-900 group-hover:text-yellow-500 transition-all duration-500">
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 fill-current transition-transform group-hover:translate-x-1">
+                          <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"/>
+                        </svg>
+                      </div>
                     </>
                   )}
                 </button>

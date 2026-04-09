@@ -37,11 +37,11 @@ const Header = () => {
   if (location.pathname.startsWith('/dashboard')) return null;
 
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'SERVICES', href: '#expertise' },
+    { name: 'Home', href: '/' },
+    { name: 'SERVICES', href: '#services' },
     { name: 'PROJECTS', href: '#projects' },
     { name: 'STATS', href: '#stats' },
-    { name: 'PROCESS', href: '#daily-cycle' },
+    { name: 'PROCESS', href: '#process' },
     { name: 'PRICING', href: '#pricing' },
     { name: 'CONTACT', href: '#contact' }
   ];
@@ -73,17 +73,27 @@ const Header = () => {
         <nav className="hidden lg:flex items-center lg:gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setActiveSection(link.name)}
-              className={`text-[9px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative py-1.5 ${
-                activeSection === link.name 
+              key={link?.name}
+              href={link?.href}
+              onClick={(e) => {
+                if (location.pathname === '/' && link.href.startsWith('#')) {
+                  e.preventDefault();
+                  const element = document.getElementById(link.href.substring(1));
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                } else if (link.name.toLowerCase() === 'home' && location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                setActiveSection(link.name);
+              }}
+              className={`text-[9px] lg:text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative py-1.5 ${
+                activeSection === link?.name 
                   ? 'text-yellow-500' 
                   : 'text-text/60 hover:text-text'
               }`}
             >
-              {link.name}
-              {activeSection === link.name && (
+              {link?.name}
+              {activeSection === link?.name && (
                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-yellow-500 rounded-full animate-in fade-in slide-in-from-bottom-1 scale-x-100 transition-transform duration-300"></span>
               )}
             </a>

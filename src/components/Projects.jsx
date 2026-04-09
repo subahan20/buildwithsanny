@@ -27,6 +27,7 @@ const PROJECTS_DATA = [
     description: "AI-powered recruitment platform designed to streamline hiring processes for startups and enterprises.",
     logo: hireLogo,
     demoLink: "https://hirecruitai.com/",
+    studyLink: "#"
   },
   {
     name: "OutFit.Ai",
@@ -35,6 +36,7 @@ const PROJECTS_DATA = [
     description: "Intelligent fashion recommendation engine that suggests outfits based on user preferences and style trends.",
     logo: styleaiLogo,
     demoLink: "https://styleai-xi.vercel.app/",
+    studyLink: "#"
   },
   {
     name: "FirstMatch",
@@ -43,6 +45,7 @@ const PROJECTS_DATA = [
     description: "Advanced healthcare data ecosystem featuring Power BI analytics, predictive scoring, and dynamic organizational management (Provider, County, Foster) built with React and Redux Toolkit.",
     logo: firstmatchLogo,
     demoLink: "https://www.firstmatch.com/",
+    studyLink: "#"
   },
   {
     name: "Touch UI",
@@ -51,6 +54,7 @@ const PROJECTS_DATA = [
     description: "Social media ecosystem with React Native mobile app and TypeScript admin dashboard, supporting real-time ZegoCloud connectivity.",
     logo: touchUILogo,
     demoLink: "https://touch.net.in/",
+    studyLink: "#"
   },
   {
     name: "Zastra",
@@ -59,6 +63,7 @@ const PROJECTS_DATA = [
     description: "AI curation platform accelerating model development through active learning, 3D annotation, and scalable microservices.",
     logo: zastraLogo,
     demoLink: "https://zastraa.com/",
+    studyLink: "#"
   },
   {
     name: "Alma Clinics",
@@ -67,6 +72,7 @@ const PROJECTS_DATA = [
     description: "Technology strategy for a digital healthcare platform optimizing clinical operations and patient workflows.",
     logo: almaLogo,
     demoLink: "https://alma-clinic.com/",
+    studyLink: "#"
   },
   {
     name: "Adelphoi",
@@ -75,6 +81,7 @@ const PROJECTS_DATA = [
     description: "Full Stack Lead for healthcare domain applications serving at-risk youth and families, focused on scalable system architecture.",
     logo: adelphoiLogo,
     demoLink: "https://adelphoi.org/",
+    studyLink: "#"
   },
   {
     name: "Expertrons",
@@ -83,6 +90,7 @@ const PROJECTS_DATA = [
     description: "World's largest AI video bot-assisted career platform, connecting job seekers with industry experts through immersive tech.",
     logo: expertronsLogo,
     demoLink: "https://www.expertrons.com/",
+    studyLink: "#"
   },
   {
     name: "Touch",
@@ -91,6 +99,7 @@ const PROJECTS_DATA = [
     description: "A next-generation social networking application focused on privacy and real-time community engagement through encrypted channels.",
     logo: touchLogo,
     demoLink: "https://touch.net.in/",
+    studyLink: "#"
   },
   {
     name: "ScrapQ",
@@ -99,6 +108,7 @@ const PROJECTS_DATA = [
     description: "Smart waste collection system providing a digital marketplace for scrap materials, bridging the gap between households and recyclers.",
     logo: scrapqLogo,
     demoLink: "https://scrapq.com/",
+    studyLink: "#"
   },
   {
     name: "Next Skills 360",
@@ -107,6 +117,7 @@ const PROJECTS_DATA = [
     description: "A robust ed-tech dashboard for tracking student progress and curriculum delivery across diverse learning environments.",
     logo: nextskills360Logo,
     demoLink: "https://nextskills360.com/",
+    studyLink: "#"
   },
   {
     name: "Click2Clean",
@@ -115,6 +126,7 @@ const PROJECTS_DATA = [
     description: "On-demand home cleaning service marketplace connecting professional cleaners with local residential clients.",
     logo: click2cleanLogo,
     demoLink: "https://click2clean.in/",
+    studyLink: "#"
   },
   {
     name: "Medmate",
@@ -123,6 +135,7 @@ const PROJECTS_DATA = [
     description: "Australia's leading healthcare app for prescription delivery and e-health services, connecting patients with local pharmacies.",
     logo: medmateLogo,
     demoLink: "https://medmate.com.au/",
+    studyLink: "#"
   },
   {
     name: "Zaap",
@@ -131,6 +144,7 @@ const PROJECTS_DATA = [
     description: "Multi-service on-demand delivery platform for the Canadian market, streamlining logistics and local commerce.",
     logo: zaapLogo,
     demoLink: "https://zaapondemand.ca/",
+    studyLink: "#"
   }
 ];
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({ children, onClick, type = "button", variant = "primary", className = "" }) => {
-  const baseStyles = "px-8 py-3.5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-2 cursor-pointer";
+  const baseStyles = "px-6 md:px-8 py-3.5 md:py-4 rounded-2xl font-black text-[10px] md:text-[11px] lg:text-xs tracking-widest md:tracking-[0.2em] uppercase transition-all duration-500 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-2 cursor-pointer";
   
   const variants = {
     primary: "bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-xl shadow-slate-900/10 dark:shadow-white/10",
