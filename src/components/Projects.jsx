@@ -191,7 +191,7 @@ const Projects = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 md:mt-12">
           <Button 
             variant="outline" 
-            className="px-12 py-4 w-full sm:w-auto min-w-[200px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white !text-black !dark:text-black font-black"
+            className="px-12 py-4 w-full sm:w-auto min-w-[200px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white text-slate-950 dark:text-white font-black"
             onClick={handleToggleVisible}
           >
             {isExpanding ? 'VIEW MORE' : 'VIEW LESS'}
