@@ -14,10 +14,10 @@ const VisionStatement = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 text-left mb-10 md:mb-12">
-            <p className="text-sm md:text-base font-bold text-slate-200 leading-relaxed max-w-md">
+            <p className="text-sm md:text-base font-bold text-text/70 leading-relaxed max-w-md opacity-95 transition-colors">
               Technology shouldn't just be a tool; it should be an extension of human intent. We bridge the gap between complex AI and practical, high-impact business operations.
             </p>
-            <p className="text-sm md:text-base font-bold text-slate-200 leading-relaxed max-w-md">
+            <p className="text-sm md:text-base font-bold text-text/70 leading-relaxed max-w-md opacity-95 transition-colors">
               By building custom architectural foundations, we allow visionaries to focus on what matters most: innovation, growth, and the human element of building something great.
             </p>
           </div>

@@ -110,7 +110,7 @@ const HeroForm = () => {
               </Button>
               <Button  
                 variant="outline"
-                className="px-8 md:px-10 py-4 border-border text-text/80 hover:bg-card hover:border-text/30 shadow-sm text-[10px] md:text-xs tracking-widest uppercase transition-colors"
+                className="px-8 md:px-10 py-4 border-2 border-slate-900/10 dark:border-white/20 !text-black font-black hover:bg-slate-100 dark:hover:bg-white/10 shadow-sm text-[10px] md:text-xs tracking-widest uppercase transition-all"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 LET'S SCOPE YOUR MVP

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import Button from './ui/Button';
 
@@ -149,6 +149,26 @@ const PROJECTS_DATA = [
 ];
 
 const Projects = () => {
+  const INITIAL_COUNT = 6;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const [isExpanding, setIsExpanding] = useState(true);
+
+  const handleToggleVisible = () => {
+    if (isExpanding) {
+      const nextCount = Math.min(visibleCount + 6, PROJECTS_DATA.length);
+      setVisibleCount(nextCount);
+      if (nextCount >= PROJECTS_DATA.length) {
+        setIsExpanding(false);
+      }
+    } else {
+      const nextCount = Math.max(visibleCount - 6, INITIAL_COUNT);
+      setVisibleCount(nextCount);
+      if (nextCount <= INITIAL_COUNT) {
+        setIsExpanding(true);
+      }
+    }
+  };
+
   return (
     <section id="projects" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
@@ -162,16 +182,23 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {PROJECTS_DATA.map((project, idx) => (
+          {PROJECTS_DATA.slice(0, visibleCount).map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex justify-center mt-5">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 md:mt-12">
+          <Button 
+            variant="outline" 
+            className="px-12 py-4 w-full sm:w-auto min-w-[200px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white !text-black !dark:text-black font-black"
+            onClick={handleToggleVisible}
+          >
+            {isExpanding ? 'VIEW MORE' : 'VIEW LESS'}
+          </Button>
           <Button 
             variant="yellow" 
-            className="px-12 py-4 shadow-xl shadow-yellow-500/20"
+            className="px-12 py-4 shadow-xl shadow-yellow-500/20 w-full sm:w-auto border-2 border-yellow-600/50 font-black"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             GET IN TOUCH
