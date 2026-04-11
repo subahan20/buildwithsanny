@@ -51,7 +51,7 @@ const Services = () => {
   return (
     <section 
       id="services" 
-      className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="py-1 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       {/* Background patterns */}
@@ -59,13 +59,13 @@ const Services = () => {
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Section Header */}
-        <div className="mb-6 md:mb-10">
-          <div className="flex items-center gap-4 mb-3 md:mb-4">
-            <div className="w-10 md:w-12 h-[2.5px] bg-yellow-500 rounded-full"></div>
-            <span className="text-yellow-500 font-black uppercase tracking-[0.3em] text-[9px] md:text-[10px]">Expertise</span>
+        <div className="mb-0.5 md:mb-1">
+          <div className="flex items-center gap-4 mb-0.5">
+            <div className="w-10 md:w-12 h-[2px] bg-yellow-500 rounded-full"></div>
+            <span className="text-yellow-500 font-bold uppercase tracking-[0.4em] text-[7px] md:text-[8px]">Expertise</span>
           </div>
-          <h2 className="text-2xl sm:text-5xl lg:text-6xl font-black text-text tracking-tighter leading-[1.05] transition-colors">
-            We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span> of modern business.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-text tracking-tighter leading-[1.15] transition-colors max-w-2xl">
+            We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span><br className="md:block" /> of modern business.
           </h2>
         </div>
 
@@ -83,10 +83,10 @@ const Services = () => {
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex justify-center mt-2 md:mt-3">
+        <div className="flex justify-center py-4 md:py-6">
           <Button 
             variant="yellow" 
-            className="px-12 py-4 shadow-xl shadow-yellow-500/20"
+            className="px-12 py-4 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             GET IN TOUCH

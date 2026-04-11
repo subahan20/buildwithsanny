@@ -38,16 +38,16 @@ const SocialProof = () => {
   const dynamicDate = getCurrentMonthYear();
 
   return (
-    <section id="stats" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-all duration-500">
+    <section id="stats" className="py-2 bg-bg relative overflow-hidden transition-all duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.15]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Section Header */}
-        <div className="mb-8 md:mb-12">
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-text tracking-[0.1em] md:tracking-[0.2em] uppercase leading-none transition-all duration-500">
+        <div className="mb-2 md:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight uppercase leading-none transition-all duration-500">
             Impact Numbers
           </h2>
-          <div className="w-16 md:w-24 h-1.5 md:h-2 bg-yellow-500 rounded-full mt-2 md:mt-3"></div>
+          <div className="w-16 md:w-24 h-1.5 md:h-1.5 bg-yellow-500 rounded-full mt-1.5 md:mt-2"></div>
         </div>
 
         {/* Metrics Grid */}
@@ -55,7 +55,7 @@ const SocialProof = () => {
           {SOCIAL_METRICS.map((metric, idx) => (
             <div 
               key={idx} 
-              className="relative overflow-hidden p-6 md:p-8 rounded-[2rem] min-h-[260px] md:min-h-[300px] flex flex-col justify-between transition-all duration-700 group cursor-default bg-card border border-border hover:border-yellow-500 hover:shadow-2xl"
+              className="relative overflow-hidden p-4 md:p-6 rounded-[2rem] min-h-[200px] md:min-h-[220px] flex flex-col justify-between transition-all duration-700 group cursor-default bg-card border border-border hover:border-yellow-500 hover:shadow-2xl"
             >
               {/* Image Background (Subtle by default, full on hover) */}
               <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-80 transition-opacity duration-700">
@@ -79,7 +79,7 @@ const SocialProof = () => {
 
               {/* Large Value */}
               <div className="relative z-10">
-                <p className="text-5xl md:text-6xl font-black tracking-tighter leading-none text-text group-hover:text-slate-900 transition-colors duration-700">
+                <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-none text-text group-hover:text-slate-900 transition-colors duration-700">
                   {metric.value}
                 </p>
               </div>
@@ -88,10 +88,10 @@ const SocialProof = () => {
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-2">
           <Button 
             variant="yellow" 
-            className="px-12 py-4 shadow-xl shadow-yellow-500/20"
+            className="px-12 py-4 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             LET'S SCOPE YOUR MVP

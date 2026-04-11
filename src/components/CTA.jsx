@@ -39,55 +39,55 @@ const TailoredCollaborations = () => {
   ];
 
   return (
-    <section id="pricing" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section id="pricing" className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         {/* Header */}
-        <div className="mb-6 md:mb-10">
-          <span className="text-yellow-400 font-black uppercase tracking-[0.4em] text-[9px] md:text-[10px] block mb-3 md:mb-4">
+        <div className="mb-2 md:mb-3">
+          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[7px] md:text-[8px] block mb-0.5">
             // WORK WITH US
           </span>
-          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-black italic tracking-tighter text-text mb-4 md:mb-6 max-w-4xl leading-tight transition-all duration-500">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter text-text mb-1 max-w-4xl leading-none transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-text/60 text-sm md:text-lg font-bold leading-relaxed max-w-2xl transition-colors duration-500">
-            Pricing varies based on project complexity and requirements. Contact our sales team for a custom discovery call.
+          <p className="text-text/60 text-[13px] md:text-sm font-bold leading-relaxed max-w-2xl transition-colors duration-500">
+            Pricing varies based on project complexity. Contact our sales team for a custom discovery call.
           </p>
         </div>
 
         {/* Engagement Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
           {engagementModels.map((model, idx) => (
             <div 
               key={idx}
-              className="group relative bg-card backdrop-blur-xl rounded-[2rem] p-6 lg:p-8 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
+              className="group relative bg-card backdrop-blur-xl rounded-[1.5rem] p-3.5 lg:p-4 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
             >
               {/* Watermark Icon */}
-              <div className="absolute top-12 right-12 transition-transform duration-700 group-hover:scale-110">
+              <div className="absolute top-8 right-8 transition-transform duration-700 group-hover:scale-110">
                 {model.icon}
               </div>
 
               <div className="relative z-10">
-                <span className="text-[10px] font-black text-text/50 tracking-[0.3em] uppercase mb-4 block transition-colors">
+                <span className="text-[9px] font-black text-text/50 tracking-[0.3em] uppercase mb-0.5 block transition-colors">
                   {model.label}
                 </span>
-                <h3 className="text-4xl sm:text-5xl font-black text-text tracking-tight mb-4 transition-colors">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-text tracking-tighter mb-1 transition-colors">
                   {model.title}
                 </h3>
-                <p className="text-text/70 text-lg font-bold leading-relaxed mb-8 max-w-sm transition-colors">
+                <p className="text-text/70 text-[12px] md:text-[13px] font-bold leading-relaxed mb-2.5 max-w-sm transition-colors">
                   {model.description}
                 </p>
 
-                <div className="space-y-6 mb-10">
+                <div className="space-y-1.5 mb-4">
                   {model.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-4">
-                      <div className="w-5 h-5 rounded-full bg-yellow-500/10 flex items-center justify-center border border-yellow-500/20">
-                        <svg className="w-3 h-3 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <div key={fIdx} className="flex items-center gap-3">
+                      <div className="w-4 h-4 rounded-full bg-yellow-500/10 flex items-center justify-center border border-yellow-500/20">
+                        <svg className="w-2.5 h-2.5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                           <path d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-text/80 font-bold text-sm tracking-tight transition-colors">{feature}</span>
+                      <span className="text-[11px] md:text-xs font-bold text-text/80 tracking-tight transition-colors">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -95,7 +95,7 @@ const TailoredCollaborations = () => {
                 <a 
                   href="#contact"
                   className={`
-                    w-full h-14 md:h-16 flex items-center justify-center rounded-2xl text-center font-black tracking-widest md:tracking-[0.2em] text-[10px] md:text-xs transition-all duration-500 block cursor-pointer uppercase shadow-lg
+                    w-full h-11 md:h-12 flex items-center justify-center rounded-xl text-center font-black tracking-widest text-[9px] sm:text-[10px] md:text-xs transition-all duration-500 block cursor-pointer uppercase shadow-lg
                     ${model.buttonVariant === 'solid' 
                       ? 'bg-yellow-500 text-slate-900 shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
                       : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50 hover:scale-[1.02]'}

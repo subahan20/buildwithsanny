@@ -149,61 +149,76 @@ const PROJECTS_DATA = [
 ];
 
 const Projects = () => {
-  const INITIAL_COUNT = 6;
-  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const [isExpanding, setIsExpanding] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1440);
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleToggleVisible = () => {
-    if (isExpanding) {
-      const nextCount = Math.min(visibleCount + 6, PROJECTS_DATA.length);
-      setVisibleCount(nextCount);
-      if (nextCount >= PROJECTS_DATA.length) {
-        setIsExpanding(false);
-      }
-    } else {
-      const nextCount = Math.max(visibleCount - 6, INITIAL_COUNT);
-      setVisibleCount(nextCount);
-      if (nextCount <= INITIAL_COUNT) {
-        setIsExpanding(true);
-      }
-    }
+    setIsExpanded(!isExpanded);
+  };
+  // Determine how many to show based on screen size and expansion state
+  // On mobile (< 768px), we show 2 if not expanded.
+  // On desktop, we show 6 if not expanded.
+  // We'll calculate this dynamically or just use a state that the button toggles to 'all'
+  
+  const getVisibleProjects = () => {
+    if (isExpanded) return PROJECTS_DATA;
+    
+    if (windowWidth < 768) return PROJECTS_DATA.slice(0, 2);   // Mobile: 2 cards
+    if (windowWidth < 1024) return PROJECTS_DATA.slice(0, 4);  // Tablet (2 cols): 4 cards
+    return PROJECTS_DATA.slice(0, 6);                        // LG/Desktop (3 cols): 6 cards
   };
 
+  const visibleProjects = getVisibleProjects();
+  const getRequiredCount = () => {
+    if (windowWidth < 768) return 2;
+    if (windowWidth < 1024) return 4;
+    return 6;
+  };
+  const hasMore = PROJECTS_DATA.length > getRequiredCount();
+
   return (
-    <section id="projects" className="py-2 md:py-3 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section id="projects" className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
-        <div className="mb-6 md:mb-10">
-          <h2 className="text-3xl md:text-6xl lg:text-7xl font-black text-text tracking-tighter leading-none transition-colors">
+        <div className="mb-2 md:mb-3">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-0.5">Showcase</h3>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text tracking-tight leading-none transition-colors">
             What I've shipped.
           </h2>
-          <div className="w-16 md:w-20 h-1.5 md:h-2 bg-yellow-500 rounded-full mt-2 md:mt-3 transition-all"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {PROJECTS_DATA.slice(0, visibleCount).map((project, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+          {visibleProjects.map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>
 
         {/* Section Bottom CTA */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 md:mt-12">
-          <Button 
-            variant="outline" 
-            className="px-12 py-4 w-full sm:w-auto min-w-[200px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white text-slate-950 dark:text-white font-black"
-            onClick={handleToggleVisible}
-          >
-            {isExpanding ? 'VIEW MORE' : 'VIEW LESS'}
-          </Button>
-          <Button 
-            variant="yellow" 
-            className="px-12 py-4 shadow-xl shadow-yellow-500/20 w-full sm:w-auto border-2 border-yellow-600/50 font-black"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            GET IN TOUCH
-          </Button>
-        </div>
+         {hasMore && (
+          <div className="flex flex-row justify-center items-center gap-2 md:gap-4 mt-2 md:mt-4">
+            <Button 
+              variant="outline" 
+              className="px-6 sm:px-10 py-3 md:py-3.5 sm:w-auto min-w-[140px] md:min-w-[180px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white text-slate-950 dark:text-white text-[9px] sm:text-xs md:text-sm font-black tracking-widest uppercase shadow-sm whitespace-nowrap lg:flex-none"
+              onClick={handleToggleVisible}
+            >
+              {isExpanded ? 'VIEW LESS' : 'VIEW MORE'}
+            </Button>
+            <Button 
+              variant="yellow" 
+              className="px-6 sm:px-10 py-3 md:py-3.5 shadow-xl shadow-yellow-500/20 sm:w-auto min-w-[140px] md:min-w-[180px] border-2 border-yellow-600/50 text-[9px] sm:text-xs md:text-sm font-black tracking-widest uppercase whitespace-nowrap lg:flex-none"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              GET IN TOUCH
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

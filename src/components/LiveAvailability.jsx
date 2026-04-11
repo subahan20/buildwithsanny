@@ -2,7 +2,7 @@ import React from 'react';
 
 const LiveAvailability = () => {
   return (
-    <section className="py-6 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
@@ -21,7 +21,7 @@ const LiveAvailability = () => {
               </div>
               
               <div className="text-center md:text-left">
-                <h5 className="text-green-500 font-black tracking-tight text-lg md:text-xl leading-none mb-1 md:mb-2">
+                <h5 className="text-green-500 font-black tracking-tight text-lg sm:text-xl md:text-2xl leading-none mb-1 md:mb-2 transition-all">
                   Available for new projects
                 </h5>
                 <p className="text-text/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
@@ -33,7 +33,7 @@ const LiveAvailability = () => {
             {/* Right Side: CTA Button */}
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full md:w-auto px-10 py-3.5 rounded-xl border border-text/10 text-[10px] md:text-[11px] font-black text-text uppercase tracking-widest hover:bg-text hover:text-bg transition-all duration-500 active:scale-95 cursor-pointer shadow-lg whitespace-nowrap group"
+              className="w-full md:w-auto px-10 py-3.5 rounded-xl border border-text/10 text-[10px] sm:text-xs md:text-sm font-black text-text uppercase tracking-widest hover:bg-text hover:text-bg transition-all duration-500 active:scale-95 cursor-pointer shadow-lg whitespace-nowrap group"
             >
               <span className="flex items-center justify-center gap-2">
                 Book a call 

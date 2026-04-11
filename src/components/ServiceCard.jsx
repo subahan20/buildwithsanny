@@ -1,17 +1,17 @@
 const ServiceCard = ({ title, items, icon, thumbnail }) => {
   return (
-    <div className="group relative w-full py-2.5 md:py-4 border-b border-border last:border-0 hover:bg-card transition-all duration-500 cursor-default overflow-visible">
+    <div className="group relative w-full py-1 border-b border-border/50 last:border-0 hover:bg-card/40 transition-all duration-500 cursor-default overflow-visible">
       <div className="w-full max-w-[1440px] mx-auto flex items-center gap-4 md:gap-8">
         
         {/* Left: Icon - Hidden on small mobile */}
-        <div className="hidden sm:flex w-14 h-14 bg-card border border-border rounded-xl items-center justify-center text-xl shadow-sm group-hover:bg-gradient-to-br group-hover:from-yellow-400 group-hover:to-orange-600 group-hover:text-slate-900 transition-all duration-500 shrink-0 uppercase font-black text-[10px]">
+        <div className="hidden sm:flex w-10 h-10 md:w-12 md:h-12 bg-card border border-border/50 rounded-xl items-center justify-center text-xl shadow-sm group-hover:bg-gradient-to-br group-hover:from-yellow-400 group-hover:to-orange-600 group-hover:text-slate-900 transition-all duration-700 shrink-0 select-none">
           {icon || "⚡"}
         </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12 flex-1 pt-1.5 lg:pt-0">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-12 flex-1 pt-0.5 lg:pt-0">
             {/* Title Area */}
             <div className="relative flex items-center gap-1">
-              <h3 className="text-md md:text-lg lg:text-xl xl:text-2xl font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 whitespace-nowrap">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-black text-text tracking-tighter group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 whitespace-nowrap">
                 {title}
               </h3>
 
@@ -28,11 +28,11 @@ const ServiceCard = ({ title, items, icon, thumbnail }) => {
             </div>
 
             {/* Capabilities: Vertical (Mobile) -> Horizontal Single (tablet/desktop) */}
-            <div className="flex flex-col md:flex-row md:flex-nowrap items-start md:items-center gap-x-6 gap-y-2.5 overflow-x-auto no-scrollbar lg:justify-end">
+            <div className="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-0.5 lg:justify-end">
               {items.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 group/item">
-                  <span className="w-1 h-1 rounded-full bg-yellow-500 transition-colors shrink-0"></span>
-                  <span className="text-[8.5px] md:text-[10px] lg:text-[11.5px] font-black uppercase tracking-widest text-text/60 group-hover:text-text transition-colors whitespace-nowrap">
+                <div key={idx} className="flex items-center gap-1.5 group/item">
+                  <span className="w-1 h-1 rounded-full bg-yellow-500 transition-colors shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.4)]"></span>
+                  <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-text/60 group-hover:text-text transition-colors whitespace-nowrap">
                     {item}
                   </span>
                 </div>

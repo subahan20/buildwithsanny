@@ -91,18 +91,18 @@ const TechStack = () => {
 
   return (
     <section 
-      className="pt-0 pb-3 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="pt-1 pb-6 md:pb-8 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 mb-6 md:mb-10 relative z-20 transition-all duration-500">
-        <div className="max-w-4xl">
-          <h2 className="text-3xl md:text-6xl font-black text-text tracking-tight leading-[1.05] mb-4 md:mb-5 transition-all duration-300">
-            Custom Tech Architectures
+        <div className="max-w-6xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight leading-none mb-4 md:mb-5 transition-all duration-300">
+            Custom Tech <span className="text-yellow-500">Architectures</span>
           </h2>
-          <p className="text-text/90 text-base md:text-xl font-bold max-w-2xl leading-relaxed opacity-90 transition-all duration-300">
-             build with a foundation designed for scale, speed, and absolute reliability.
+          <p className="text-text/70 text-xs sm:text-sm md:text-base font-bold max-w-2xl leading-relaxed transition-all duration-300">
+             Built with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>
       </div>
@@ -129,7 +129,7 @@ const TechStack = () => {
       <div className="relative z-20 flex justify-center mt-6 md:mt-8">
         <Button 
           variant="yellow" 
-          className="px-10 md:px-12 py-3 md:py-4 shadow-2xl shadow-yellow-500/20 text-[10px] md:text-xs tracking-widest uppercase hover:scale-105"
+          className="px-10 md:px-12 py-3 md:py-4 shadow-2xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase hover:scale-105"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           GET IN TOUCH
