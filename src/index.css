@@ -44,6 +44,12 @@
   animation: var(--animate-marquee-reverse);
 }
 
+/* Pause marquee on hover */
+.group\/marquee:hover .animate-marquee,
+.group\/marquee:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
 @keyframes pulse-green {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
   70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }

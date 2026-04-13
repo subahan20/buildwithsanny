@@ -8,14 +8,14 @@ const LiveAvailability = () => {
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
         
         {/* Simplified Availability Bar - Full Width */}
-        <div className="w-full bg-slate-900/40 dark:bg-card/40 backdrop-blur-3xl rounded-2xl md:rounded-3xl border border-border shadow-2xl p-4 md:p-6 transition-all duration-500">
+        <div className="w-full bg-card/60 dark:bg-card/20 backdrop-blur-3xl rounded-2xl md:rounded-3xl border border-border shadow-xl p-4 md:p-6 transition-all duration-500 hover:border-yellow-500/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             
             {/* Left Side: Status */}
             <div className="flex items-center gap-5">
               <div className="relative">
                 <div className="absolute inset-0 bg-green-500/40 blur-xl rounded-full animate-pulse"></div>
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-green-500/30 flex items-center justify-center relative z-10 bg-black">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-green-500/30 flex items-center justify-center relative z-10 bg-slate-900 dark:bg-black">
                   <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"></div>
                 </div>
               </div>
@@ -24,7 +24,7 @@ const LiveAvailability = () => {
                 <h5 className="text-green-500 font-black tracking-tight text-lg sm:text-xl md:text-2xl leading-none mb-1 md:mb-2 transition-all">
                   Available for new projects
                 </h5>
-                <p className="text-text/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
+                <p className="text-text/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
                   2 spots open · Onboarding from May 2025
                 </p>
               </div>

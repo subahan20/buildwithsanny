@@ -12,6 +12,7 @@ import DailyCycle from '../components/DailyCycle';
 import VisionStatement from '../components/VisionStatement';
 import CostComparison from '../components/CostComparison';
 import CTA from '../components/CTA';
+import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 
@@ -42,6 +43,7 @@ const LandingPage = () => {
 
       <CTA />
 
+      <Testimonials />
 
       <DigitalVoid />
 

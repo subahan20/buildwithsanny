@@ -1,49 +1,98 @@
 import React from 'react';
 import TestimonialCard from './TestimonialCard';
+import shawnAvatar from '../assets/testomonials/first_match_founder.jpeg';
+import almaClinicsLogo from '../assets/projects/alma-clinics-logo.png';
 
 const TESTIMONIALS_DATA = [
   {
-    text: "Sanny helped us launch our product in 30 days. Super fast & reliable.",
-    author: "Founder, Startup"
+    text: (
+      <>
+        <span className="font-black text-text">"I think you are very proactive in your thinking and you communicate very well.</span>
+        <span className="text-text/60"> Your English is easy for me to understand. I regret that you are not going to be on this project. Let me know if you ever need me for a work reference."</span>
+      </>
+    ),
+    author: "Shawn",
+    role: "Founder, First Match",
+    avatar: shawnAvatar
   },
   {
-    text: "Best developer I worked with. Understands business, not just code.",
-    author: "Client"
+    text: (
+      <>
+        <span className="font-black text-text">"Sanny did not just restore our access; he fundamentally transformed our platform.</span>
+        <span className="text-text/60"> He successfully redesigned our software architecture, overhauled our security protocols, and significantly enhanced application performance."</span>
+      </>
+    ),
+    author: "Collen Ngubeni",
+    role: "ALMA CLINICS",
+    avatar: almaClinicsLogo
   },
   {
-    text: "Highly professional and delivers on time. Great experience working together.",
-    author: "Product Manager"
+    text: (
+      <>
+        <span className="font-black text-text">"Your creativity and clear vision have always stood out to me.</span>
+        <span className="text-text/60"> I've learned so much from the way you simplify complex problems and turn them into well-structured, manageable tasks. Your constant drive to grow and upskill has been truly inspiring."</span>
+      </>
+    ),
+    author: "Ankit JCC",
+    role: "Founder, Mumbai Design Club",
+    avatar: "https://ui-avatars.com/api/?name=Mumbai+Design+Club&background=020617&color=fde047&bold=true&size=200"
   }
 ];
 
 const Testimonials = () => {
+  // Triple the items to ensure the marquee is long enough for a seamless loop
+  const marqueeItems = [...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA];
+
   return (
-    <section className="py-24 bg-mesh-light relative overflow-hidden border-t border-slate-50">
-      {/* Background patterns to cover space */}
-      <div className="absolute inset-0 bg-dot-grid opacity-[0.25]"></div>
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-purple-50/50 blur-[100px] rounded-full"></div>
+    <section className="py-12 md:py-16 bg-bg relative overflow-hidden transition-colors duration-500">
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 relative z-10">
-        <div className="mb-20 text-left sm:text-center max-w-3xl sm:mx-auto">
-          <span className="text-purple-600 bg-purple-50 border border-purple-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.3em] leading-none">Social Proof</span>
-          <h2 className="text-4xl sm:text-7xl font-black text-slate-900 mt-6 tracking-tighter leading-none">What Clients Say</h2>
-          <p className="text-slate-500 mt-6 text-xl font-medium leading-relaxed">
-            Real stories from startups and teams built on trust and professional performance.
+      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10 mb-8 md:mb-12">
+        {/* Header */}
+        <div>
+          <h3 className="text-yellow-500 font-extrabold uppercase tracking-[0.4em] text-[10px] mb-2">
+            // Client Voices
+          </h3>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-text tracking-tighter leading-tight mb-4 transition-colors">
+            What clients say
+          </h2>
+          <p className="text-text/50 text-sm md:text-base lg:text-lg font-bold max-w-2xl transition-colors leading-relaxed">
+            A few words from the people I've worked closely with.
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TESTIMONIALS_DATA.map((testimonial, idx) => (
-            <TestimonialCard 
-              key={idx} 
-              text={testimonial.text} 
-              author={testimonial.author} 
-            />
-          ))}
+      <div className="relative w-full">
+        {/* Gradient Overlays for smooth entry/exit */}
+        <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-bg via-bg/80 to-transparent z-20 pointer-events-none transition-all duration-500"></div>
+        <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-bg via-bg/80 to-transparent z-20 pointer-events-none transition-all duration-500"></div>
+
+        <div className="flex overflow-hidden group/marquee select-none">
+          {/* Marquee Row 1 */}
+          <div className="flex animate-marquee py-2 group-hover/marquee:[animation-play-state:paused]">
+            {marqueeItems.map((testimonial, idx) => (
+              <TestimonialCard 
+                key={`m1-${idx}`} 
+                {...testimonial}
+              />
+            ))}
+          </div>
+          {/* Duplicate Row for Seamless Loop */}
+          <div className="flex animate-marquee py-2 group-hover/marquee:[animation-play-state:paused]" aria-hidden="true">
+            {marqueeItems.map((testimonial, idx) => (
+              <TestimonialCard 
+                key={`m2-${idx}`} 
+                {...testimonial}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
+
+
 export default Testimonials;
+

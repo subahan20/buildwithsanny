@@ -52,7 +52,7 @@ const Header = () => {
         ? 'bg-bg/95 backdrop-blur-md py-2 shadow-2xl shadow-yellow-950/10' 
         : 'bg-bg py-4'
     }`}>
-      <div className="w-full max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 flex items-center justify-between transition-all duration-500">
+      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 flex items-center justify-between transition-all duration-500">
         
         {/* Brand Mark */}
         <div 
@@ -62,9 +62,9 @@ const Header = () => {
           <img 
             src="/sanny_profile.jpg" 
             alt="ScaleBySanny Logo" 
-            className="w-10 h-10 rounded-full border border-border group-hover:border-yellow-500/50 transition-all duration-300 object-cover shadow-lg"
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-border group-hover:border-yellow-500/50 transition-all duration-300 object-cover shadow-lg"
           />
-          <span className="text-xl font-black tracking-tighter text-text drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-all duration-300">
+          <span className="text-lg md:text-xl font-black tracking-tighter text-text drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-all duration-300">
             ScaleBySanny
           </span>
         </div>
@@ -101,7 +101,7 @@ const Header = () => {
         </nav>
 
         {/* Right Tools & Action Button */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
           <div className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-green"></div>
             <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em]">

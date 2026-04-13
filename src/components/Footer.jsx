@@ -21,24 +21,24 @@ const Footer = () => {
                 ScaleBySanny
               </span>
             </div>
-            <p className="text-text/70 text-[13px] md:text-sm font-bold leading-relaxed max-w-xl transition-colors">
+            <p className="text-text/70 text-[15px] font-bold leading-relaxed max-w-xl transition-colors">
               <span className="text-text">One builder. Any domain. Every founder.</span> I selected few clients at a time - giving each product the full attention it deserves. AI solutions, web apps, UI/UX, and complex backend systems - if it helps your business grow, I build it.
             </p>
           </div>
 
           {/* Contact Column */}
           <div className="space-y-1">
-            <h4 className="text-[11px] font-black text-text uppercase tracking-[0.3em] transition-colors mb-1">Contact Us</h4>
-            <div className="space-y-0.5">
-              <p className="text-text/70 text-[13px] hover:text-yellow-600 dark:hover:text-white transition-colors cursor-pointer">buildwithsanny7@gmail.com</p>
-              <p className="text-text/70 text-[13px] font-mono tracking-tight transition-colors">9546510540</p>
+            <h4 className="text-[13px] font-black text-text uppercase tracking-[0.3em] transition-colors mb-1">Contact Us</h4>
+            <div className="space-y-1">
+              <p className="text-text/70 text-[15px] hover:text-yellow-600 dark:hover:text-white transition-colors cursor-pointer">buildwithsanny7@gmail.com</p>
+              <p className="text-text/70 text-[15px] font-mono tracking-tight transition-colors">9546510540</p>
             </div>
           </div>
 
           {/* Location Column */}
           <div className="space-y-1">
-            <h4 className="text-[11px] font-black text-text uppercase tracking-[0.3em] transition-colors mb-1">Location</h4>
-            <div className="space-y-0.5 text-slate-500 dark:text-slate-400 text-[13px] leading-relaxed font-bold italic">
+            <h4 className="text-[13px] font-black text-text uppercase tracking-[0.3em] transition-colors mb-1">Location</h4>
+            <div className="space-y-1 text-slate-500 dark:text-slate-400 text-[15px] leading-relaxed font-bold italic">
               <p>Remote</p>
             </div>
           </div>
