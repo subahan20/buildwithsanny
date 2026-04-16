@@ -24,6 +24,11 @@
   /* Marquee Animation */
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+
+  /* Global Spacing System (8px scale) */
+  --space-lg: 64px; /* Section top/bottom outer spacing */
+  --space-md: 48px; /* Between header and content/sections */
+  --space-sm: 24px; /* Between grouped elements/internal gaps */
 }
 
 @keyframes marquee {
@@ -123,7 +128,7 @@
 
 /* Dark Theme Variables */
 [data-theme="dark"] {
-  --bg: #020617;
+  --bg: #010103;
   --text: #f1f5f9;
   --card: rgba(15, 23, 42, 0.4);
   --border: rgba(255, 255, 255, 0.05);

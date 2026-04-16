@@ -41,22 +41,22 @@ const DailyCycle = () => {
   ];
 
   return (
-    <section className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
       
       {/* Soft Ethereal Blooms */}
       <div className="absolute top-0 left-0 w-[1000px] h-[1000px] bg-yellow-500/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-orange-500/5 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
-        <div className="mb-2 md:mb-4">
+      <div className="max-w-[1440px] mx-auto relative z-10">
+        <div className="mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-2 text-text transition-colors">
             Our days consist of three things...
           </h2>
         </div>
 
         {/* Shifting Step Cards */}
-        <div className="max-w-6xl space-y-4 md:space-y-6">
+        <div className="max-w-6xl space-y-6">
           {steps.map((step, idx) => (
             <div 
               key={idx} 
@@ -86,7 +86,7 @@ const DailyCycle = () => {
         </div>
 
         {/* Final Action */}
-        <div className="mt-2 md:mt-3 flex flex-col items-center">
+        <div className="mt-12 flex flex-col items-center">
           <Button 
             variant="yellow" 
             className="px-12 md:px-16 py-4 md:py-5 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"

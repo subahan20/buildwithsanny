@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="py-1 bg-bg text-text/50 relative overflow-hidden transition-colors duration-500">
+    <footer className="py-4 px-4 md:px-8 bg-[#010101] text-text/50 relative overflow-hidden transition-colors duration-500">
       {/* Concentric Decorative Arcs */}
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Main Information Layer */}
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-4 md:gap-8 mb-4">
           
@@ -15,7 +15,7 @@ const Footer = () => {
               <img 
                 src="/sanny_profile.jpg" 
                 alt="ScaleBySanny Logo" 
-                className="w-8 h-8 rounded-full border border-border object-cover"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-border group-hover:border-yellow-500/50 transition-all duration-300 object-cover shadow-lg"
               />
               <span className="text-xl font-black text-text tracking-tighter transition-colors">
                 ScaleBySanny

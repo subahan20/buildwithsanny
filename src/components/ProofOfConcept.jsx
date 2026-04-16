@@ -3,12 +3,12 @@ import Button from './ui/Button';
 
 const ProofOfConcept = () => {
   return (
-    <section id="poc" className="py-1 bg-bg relative overflow-hidden transition-all duration-500">
+    <section id="poc" className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-1 md:mb-2 max-w-3xl mx-auto">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-0.5">
             <div className="w-10 h-[1.5px] bg-yellow-400 rounded-full"></div>
             <span className="text-yellow-400 font-bold uppercase tracking-[0.3em] text-[8px] md:text-[9px]">Case Study</span>
@@ -22,7 +22,7 @@ const ProofOfConcept = () => {
         </div>
 
         {/* Device Frame (The Reproduced Zastra Layout) */}
-        <div className="relative group max-w-7xl mx-auto mb-2 md:mb-3">
+        <div className="relative group max-w-7xl mx-auto mb-12">
           <div className="bg-card backdrop-blur-xl rounded-[1.5rem] p-3.5 md:p-4.5 shadow-2xl shadow-yellow-950/20 overflow-hidden border border-border transition-transform duration-700 hover:scale-[1.005]">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">

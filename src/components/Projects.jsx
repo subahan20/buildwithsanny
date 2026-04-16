@@ -183,7 +183,7 @@ const Projects = () => {
   const hasMore = PROJECTS_DATA.length > getRequiredCount();
 
   return (
-    <section id="projects" className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section id="projects" className="py-4 md:py-8 bg-bg relative transition-colors duration-500 overflow-visible">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">

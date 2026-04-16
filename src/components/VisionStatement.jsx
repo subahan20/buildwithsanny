@@ -3,17 +3,17 @@ import Button from './ui/Button';
 
 const VisionStatement = () => {
   return (
-    <section className="py-1 bg-bg relative overflow-hidden transition-all duration-500">
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10 flex justify-center text-center">
+    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500">
+      <div className="max-w-[1440px] mx-auto relative z-10 flex justify-center text-center">
         <div className="max-w-4xl animate-in fade-in slide-in-from-bottom-12 duration-1000">
           
           {/* Main Headline */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-6 md:mb-10 text-text transition-all">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-12 text-text transition-all">
             <span className="block">AI is here.</span>
             <span className="block text-yellow-500 font-serif italic font-normal tracking-tight">The few with a plan will lead.</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 text-left mb-10 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
             <p className="text-sm sm:text-base md:text-lg font-bold text-text/70 leading-relaxed max-w-md opacity-95 transition-colors">
               Technology shouldn't just be a tool; it should be an extension of human intent. We bridge the gap between complex AI and practical, high-impact business operations.
             </p>

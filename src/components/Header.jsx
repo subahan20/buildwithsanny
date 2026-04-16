@@ -102,7 +102,10 @@ const Header = () => {
 
         {/* Right Tools & Action Button */}
           <div className="flex items-center gap-2 md:gap-4">
-          <div className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10">
+          <div 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10 cursor-pointer hover:bg-green-500/10 transition-colors"
+          >
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-green"></div>
             <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em]">
               Available {dynamicDate}
@@ -142,7 +145,7 @@ const Header = () => {
           {/* Close Header */}
           <section className="px-8 md:px-12 lg:px-20 flex items-center justify-between py-6">
             <span className="text-xl font-black tracking-tighter text-text">
-              ScaleBySanny
+              BUILDWITH SANNY
             </span>
             <button 
               onClick={() => setIsMenuOpen(false)}

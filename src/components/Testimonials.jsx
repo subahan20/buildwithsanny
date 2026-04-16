@@ -7,6 +7,28 @@ const TESTIMONIALS_DATA = [
   {
     text: (
       <>
+        <span className="font-black text-text"><span className="text-text font-black tracking-widest text-[10px]">NEURAL ARCH</span> exceptional technical expertise and architectural redesign were pivotal for our platform's evolution.</span>
+        <span className="text-text/60"> He conducted a comprehensive analysis, identified key inefficiencies, and proposed a complete architectural redesign. He introduced scalable backend services and optimized database queries that significantly improved response times."</span>
+      </>
+    ),
+    author: "Mathew Wade",
+    role: "CTO, VESTIQ",
+    avatar: "https://ui-avatars.com/api/?name=Mathew+Wade&background=020617&color=fde047&bold=true&size=200"
+  },
+  {
+    text: (
+      <>
+        <span className="font-black text-text">"Sanny took complete ownership of modernizing our legacy systems and transitioning us to a scalable microservices architecture.</span>
+        <span className="text-text/60"> His ability to balance technical excellence with business priorities was outstanding. He worked closely with stakeholders to deliver production-ready systems that improved reliability and boosted team productivity."</span>
+      </>
+    ),
+    author: "Vicky Joseph",
+    role: "Head of Engineering, Gentechrise Analytics",
+    avatar: "https://ui-avatars.com/api/?name=Vicky+Joseph&background=020617&color=fde047&bold=true&size=200"
+  },
+  {
+    text: (
+      <>
         <span className="font-black text-text">"I think you are very proactive in your thinking and you communicate very well.</span>
         <span className="text-text/60"> Your English is easy for me to understand. I regret that you are not going to be on this project. Let me know if you ever need me for a work reference."</span>
       </>
@@ -44,10 +66,10 @@ const Testimonials = () => {
   const marqueeItems = [...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA];
 
   return (
-    <section className="py-12 md:py-16 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10 mb-8 md:mb-12">
+      <div className="max-w-[1440px] mx-auto relative z-10 mb-12">
         {/* Header */}
         <div>
           <h3 className="text-yellow-500 font-extrabold uppercase tracking-[0.4em] text-[10px] mb-2">
@@ -62,14 +84,14 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="relative w-full">
+      <div className="relative w-full max-w-[1440px] mx-auto mb-12">
         {/* Gradient Overlays for smooth entry/exit */}
         <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-bg via-bg/80 to-transparent z-20 pointer-events-none transition-all duration-500"></div>
         <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-bg via-bg/80 to-transparent z-20 pointer-events-none transition-all duration-500"></div>
 
         <div className="flex overflow-hidden group/marquee select-none">
           {/* Marquee Row 1 */}
-          <div className="flex animate-marquee py-2 group-hover/marquee:[animation-play-state:paused]">
+          <div className="flex gap-6 animate-marquee py-2 group-hover/marquee:[animation-play-state:paused] pr-6">
             {marqueeItems.map((testimonial, idx) => (
               <TestimonialCard 
                 key={`m1-${idx}`} 
@@ -78,7 +100,7 @@ const Testimonials = () => {
             ))}
           </div>
           {/* Duplicate Row for Seamless Loop */}
-          <div className="flex animate-marquee py-2 group-hover/marquee:[animation-play-state:paused]" aria-hidden="true">
+          <div className="flex gap-6 animate-marquee py-2 group-hover/marquee:[animation-play-state:paused] pr-6" aria-hidden="true">
             {marqueeItems.map((testimonial, idx) => (
               <TestimonialCard 
                 key={`m2-${idx}`} 

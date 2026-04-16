@@ -55,18 +55,18 @@ const HeroForm = () => {
   const { bio, features, ctaHint } = content ?? {};
 
   return (
-    <section id="hero" className="bg-bg flex items-center justify-center pt-24 md:pt-32 pb-1 relative overflow-hidden transition-colors duration-500">
+    <section id="hero" className="bg-bg flex items-center justify-center pt-16 pb-8 px-4 md:px-8 relative overflow-hidden transition-all duration-700">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
       
       {/* Cinematic Blooms */}
       <div className="absolute top-20 -left-10 w-[600px] h-[600px] bg-yellow-500/5 dark:bg-yellow-500/[0.03] rounded-full filter blur-[120px] animate-pulse"></div>
       <div className="absolute bottom-20 -right-10 w-[600px] h-[600px] bg-orange-500/5 dark:bg-orange-500/[0.03] rounded-full filter blur-[120px] animate-pulse delay-700"></div>
 
-      <div className="w-full max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-center relative z-10">
-        <div className="space-y-3 md:space-y-4 animate-in fade-in slide-in-from-left-12 duration-1000">
+      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center relative z-10">
+        <div className="flex flex-col gap-12 animate-in fade-in slide-in-from-left-12 duration-1000">
 
           {/* Main Heading Group - Mathematically Balanced Container */}
-          <div className="flex flex-col items-center lg:items-start p-0 m-0 py-2 md:py-3 mb-4 md:mb-6 gap-1 md:gap-1.5 border-b border-white/5 lg:border-none">
+          <div className="flex flex-col items-center lg:items-start p-0 m-0 gap-1 md:gap-1.5 border-b border-white/5 lg:border-none">
             <span className="text-slate-500 dark:text-slate-400 text-base sm:text-xl md:text-3xl lg:text-4xl font-black italic tracking-normal leading-none m-0 p-0 whitespace-nowrap">
               Helping founders ship
             </span>
@@ -79,8 +79,8 @@ const HeroForm = () => {
           </div>
  
           {/* Bio & Features */}
-          <div className="space-y-2 md:space-y-3">
-            <p className="text-text/70 text-[13px] md:text-[14px] mx-auto lg:mx-0 font-bold leading-relaxed max-w-xl transition-colors text-center lg:text-left drop-shadow-sm">
+          <div className="flex flex-col gap-6">
+            <p className="text-text/70 text-[13px] md:text-[14px] mx-auto lg:mx-0 font-bold leading-relaxed max-w-xl transition-colors text-center lg:text-left drop-shadow-sm mb-0">
               {bio}
             </p>
  
@@ -100,7 +100,7 @@ const HeroForm = () => {
             </div>
           </div>
 
-          <div className="pt-1.5 md:pt-2">
+          <div>
             <div className="flex flex-row justify-center lg:justify-start items-center gap-2 sm:gap-3 mx-auto sm:px-0">
               <Button 
                 variant="yellow"
@@ -111,7 +111,7 @@ const HeroForm = () => {
               </Button>
               <Button  
                 variant="outline"
-                className="px-4 sm:px-6 md:px-8 py-3 md:py-3.5 border-2 border-border text-text font-black hover:bg-text hover:text-bg dark:hover:bg-white dark:hover:text-slate-900 shadow-sm text-[9px] sm:text-[10px] md:text-xs tracking-widest uppercase transition-all sm:flex-none whitespace-nowrap"
+                className="px-4 sm:px-6 md:px-8 py-3 md:py-3.5 border-2 border-border text-text font-black hover:bg-slate-900 hover:text-white dark:hover:bg-white/10 dark:hover:text-white shadow-sm text-[9px] sm:text-[10px] md:text-xs tracking-widest uppercase transition-all sm:flex-none whitespace-nowrap"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 LET'S SCOPE MVP

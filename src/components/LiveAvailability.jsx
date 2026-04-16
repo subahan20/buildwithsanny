@@ -2,13 +2,13 @@ import React from 'react';
 
 const LiveAvailability = () => {
   return (
-    <section className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto relative z-10">
         
         {/* Simplified Availability Bar - Full Width */}
-        <div className="w-full bg-card/60 dark:bg-card/20 backdrop-blur-3xl rounded-2xl md:rounded-3xl border border-border shadow-xl p-4 md:p-6 transition-all duration-500 hover:border-yellow-500/30">
+        <div className="w-full bg-card/60 dark:bg-card/20 backdrop-blur-3xl rounded-2xl md:rounded-3xl border border-border shadow-xl p-6 transition-all duration-500 hover:border-yellow-500/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             
             {/* Left Side: Status */}
@@ -33,7 +33,7 @@ const LiveAvailability = () => {
             {/* Right Side: CTA Button */}
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full md:w-auto px-10 py-3.5 rounded-xl border border-text/10 text-[10px] sm:text-xs md:text-sm font-black text-text uppercase tracking-widest hover:bg-text hover:text-bg transition-all duration-500 active:scale-95 cursor-pointer shadow-lg whitespace-nowrap group"
+              className="w-full md:w-auto px-10 py-3.5 rounded-xl border border-text/10 text-[10px] sm:text-xs md:text-sm font-black text-text uppercase tracking-widest hover:bg-slate-900 hover:text-white dark:hover:bg-white/10 dark:hover:text-white transition-all duration-500 active:scale-95 cursor-pointer shadow-lg whitespace-nowrap group"
             >
               <span className="flex items-center justify-center gap-2">
                 Book a call 

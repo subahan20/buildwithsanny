@@ -91,12 +91,12 @@ const TechStack = () => {
 
   return (
     <section 
-      className="pt-1 pb-6 md:pb-8 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 mb-6 md:mb-10 relative z-20 transition-all duration-500">
+      <div className="max-w-[1440px] mx-auto mb-12 relative z-20 transition-all duration-500">
         <div className="max-w-6xl">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight leading-none mb-4 md:mb-5 transition-all duration-300">
             Custom Tech <span className="text-yellow-500">Architectures</span>
@@ -126,7 +126,7 @@ const TechStack = () => {
       <div className="absolute inset-y-0 left-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-r from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
       <div className="absolute inset-y-0 right-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-l from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
 
-      <div className="relative z-20 flex justify-center mt-6 md:mt-8">
+      <div className="relative z-20 flex justify-center mt-12">
         <Button 
           variant="yellow" 
           className="px-10 md:px-12 py-3 md:py-4 shadow-2xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase hover:scale-105"

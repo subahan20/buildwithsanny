@@ -1,7 +1,7 @@
 const ServiceCard = ({ title, items, icon, thumbnail }) => {
   return (
-    <div className="group relative w-full py-1 border-b border-border/50 last:border-0 hover:bg-card/40 transition-all duration-500 cursor-default overflow-visible">
-      <div className="w-full max-w-[1440px] mx-auto flex items-center gap-4 md:gap-8">
+    <div className="group relative w-full py-2 border-b border-border/50 last:border-0 hover:bg-card/40 transition-all duration-500 cursor-default overflow-visible">
+      <div className="w-full max-w-[1440px] mx-auto flex items-center gap-6">
         
         {/* Left: Icon - Hidden on small mobile */}
         <div className="hidden sm:flex w-10 h-10 md:w-12 md:h-12 bg-card border border-border/50 rounded-xl items-center justify-center text-xl shadow-sm group-hover:bg-gradient-to-br group-hover:from-yellow-400 group-hover:to-orange-600 group-hover:text-slate-900 transition-all duration-700 shrink-0 select-none">

@@ -32,12 +32,12 @@ const CostComparison = () => {
   ];
 
   return (
-    <section className="py-1 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-1 md:mb-2">
+        <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text tracking-tighter mb-1 leading-none transition-colors">
             Build your startup without hiring a team.
           </h2>
@@ -163,7 +163,7 @@ const CostComparison = () => {
         </div>
         
         {/* External Stats Footer */}
-        <div className="max-w-4xl mx-auto mt-2 flex flex-wrap justify-between items-center gap-1 border-t border-border/50 pt-1.5 md:pt-2">
+        <div className="max-w-4xl mx-auto mt-12 flex flex-wrap justify-between items-center gap-6 border-t border-border/50 pt-12">
           <div className="flex-1 min-w-[140px] text-center">
             <p className="text-lg sm:text-xl font-black text-text tracking-tighter mb-0.5">Trusted by 50+</p>
             <p className="text-[8px] md:text-[9px] font-bold text-text/40 uppercase tracking-widest">Global Founders</p>

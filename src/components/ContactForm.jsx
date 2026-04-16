@@ -9,7 +9,7 @@ const ContactForm = () => {
     phone_number: '',
     country_code: '+1',
     interested_in: '',
-    budget: '$25k - $50k',
+    budget: '$5k - $10k',
     timeline: 'IMMEDIATE',
     message: ''
   });
@@ -48,7 +48,7 @@ const ContactForm = () => {
           phone_number: '',
           country_code: '+1',
           interested_in: '',
-          budget: '$25k - $50k',
+          budget: '$5k - $10k',
           timeline: 'IMMEDIATE',
           message: ''
         });
@@ -67,19 +67,22 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-1 bg-bg relative overflow-hidden transition-all duration-500">
+    <section 
+      id="contact" 
+      className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500"
+    >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-2 lg:gap-12 items-start">
           
           {/* Left Column: Context */}
-          <div className="space-y-1 md:space-y-2">
+          <div className="space-y-12">
             <div>
               <span className="text-[9px] font-black tracking-[0.4em] text-yellow-600 dark:text-yellow-400 uppercase mb-0.5 block">
                 INQUIRY HUB
               </span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black italic tracking-tighter text-text leading-tight mb-1 transition-colors">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black italic tracking-tighter text-text leading-tight mb-6 transition-colors">
                 Initiate your<br />Project.
               </h2>
               <p className="text-text/70 text-[13px] md:text-sm font-bold leading-relaxed max-w-md transition-colors">
@@ -88,7 +91,7 @@ const ContactForm = () => {
             </div>
 
             {/* Contact Tiers */}
-            <div className="space-y-2 pt-1.5 md:pt-2">
+            <div className="space-y-6 pt-2">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 rounded-lg border border-yellow-500/20 shrink-0">
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -160,9 +163,81 @@ const ContactForm = () => {
                         onChange={handleInputChange}
                         className="w-16 md:w-20 bg-bg border border-border px-2 py-2.5 md:py-2.5 rounded-lg text-text font-bold focus:ring-2 focus:ring-yellow-400/20 focus:border-yellow-500 dark:focus:border-yellow-400 outline-none transition-all appearance-none cursor-pointer text-center text-[10px] md:text-xs"
                       >
-                        <option value="+1">+1</option>
-                        <option value="+91">+91</option>
-                        <option value="+44">+44</option>
+                        <option value="+1">+1 (US)</option>
+                        <option value="+91">+91 (IN)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+61">+61 (AU)</option>
+                        <option value="+1">+1 (CA)</option>
+                        <option value="+49">+49 (DE)</option>
+                        <option value="+33">+33 (FR)</option>
+                        <option value="+81">+81 (JP)</option>
+                        <option value="+86">+86 (CN)</option>
+                        <option value="+55">+55 (BR)</option>
+                        <option value="+52">+52 (MX)</option>
+                        <option value="+7">+7 (RU)</option>
+                        <option value="+34">+34 (ES)</option>
+                        <option value="+39">+39 (IT)</option>
+                        <option value="+82">+82 (KR)</option>
+                        <option value="+65">+65 (SG)</option>
+                        <option value="+971">+971 (AE)</option>
+                        <option value="+966">+966 (SA)</option>
+                        <option value="+27">+27 (ZA)</option>
+                        <option value="+234">+234 (NG)</option>
+                        <option value="+20">+20 (EG)</option>
+                        <option value="+54">+54 (AR)</option>
+                        <option value="+64">+64 (NZ)</option>
+                        <option value="+41">+41 (CH)</option>
+                        <option value="+31">+31 (NL)</option>
+                        <option value="+46">+46 (SE)</option>
+                        <option value="+47">+47 (NO)</option>
+                        <option value="+45">+45 (DK)</option>
+                        <option value="+358">+358 (FI)</option>
+                        <option value="+353">+353 (IE)</option>
+                        <option value="+32">+32 (BE)</option>
+                        <option value="+43">+43 (AT)</option>
+                        <option value="+351">+351 (PT)</option>
+                        <option value="+30">+30 (GR)</option>
+                        <option value="+972">+972 (IL)</option>
+                        <option value="+60">+60 (MY)</option>
+                        <option value="+66">+66 (TH)</option>
+                        <option value="+84">+84 (VN)</option>
+                        <option value="+63">+63 (PH)</option>
+                        <option value="+62">+62 (ID)</option>
+                        <option value="+90">+90 (TR)</option>
+                        <option value="+420">+420 (CZ)</option>
+                        <option value="+48">+48 (PL)</option>
+                        <option value="+36">+36 (HU)</option>
+                        <option value="+40">+40 (RO)</option>
+                        <option value="+359">+359 (BG)</option>
+                        <option value="+385">+385 (HR)</option>
+                        <option value="+380">+380 (UA)</option>
+                        <option value="+7">+7 (KZ)</option>
+                        <option value="+998">+998 (UZ)</option>
+                        <option value="+92">+92 (PK)</option>
+                        <option value="+880">+880 (BD)</option>
+                        <option value="+94">+94 (LK)</option>
+                        <option value="+977">+977 (NP)</option>
+                        <option value="+254">+254 (KE)</option>
+                        <option value="+251">+251 (ET)</option>
+                        <option value="+233">+233 (GH)</option>
+                        <option value="+212">+212 (MA)</option>
+                        <option value="+213">+213 (DZ)</option>
+                        <option value="+216">+216 (TN)</option>
+                        <option value="+255">+255 (TZ)</option>
+                        <option value="+256">+256 (UG)</option>
+                        <option value="+263">+263 (ZW)</option>
+                        <option value="+260">+260 (ZM)</option>
+                        <option value="+244">+244 (AO)</option>
+                        <option value="+225">+225 (CI)</option>
+                        <option value="+221">+221 (SN)</option>
+                        <option value="+237">+237 (CM)</option>
+                        <option value="+241">+241 (GA)</option>
+                        <option value="+242">+242 (CG)</option>
+                        <option value="+250">+250 (RW)</option>
+                        <option value="+264">+264 (NA)</option>
+                        <option value="+267">+267 (BW)</option>
+                        <option value="+230">+230 (MU)</option>
+                        <option value="+248">+248 (SC)</option>
                       </select>
                       <input 
                         type="text" 
@@ -197,9 +272,10 @@ const ContactForm = () => {
                       onChange={handleInputChange}
                       className="w-full bg-bg border border-border px-4 py-2.5 md:py-2.5 rounded-lg text-text font-bold focus:ring-2 focus:ring-yellow-400/20 outline-none appearance-none cursor-pointer text-xs md:text-xs"
                     >
-                      <option>$25k - $50k</option>
-                      <option>$50k - $100k</option>
-                      <option>$100k+</option>
+                      <option>$5k - $10k</option>
+                      <option>$10k - $15k</option>
+                      <option>$15k - $25k</option>
+                      <option>$25k+</option>
                     </select>
                   </div>
                 </div>
