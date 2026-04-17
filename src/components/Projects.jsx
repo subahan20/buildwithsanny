@@ -183,13 +183,13 @@ const Projects = () => {
   const hasMore = PROJECTS_DATA.length > getRequiredCount();
 
   return (
-    <section id="projects" className="py-4 md:py-8 bg-bg relative transition-colors duration-500 overflow-visible">
+    <section id="projects" className="pt-6 pb-0 md:py-8 bg-bg relative transition-colors duration-500 overflow-visible">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-20 relative z-10">
-        <div className="mb-2 md:mb-3">
-          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-0.5">Showcase</h3>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text tracking-tight leading-none transition-colors">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 relative z-10">
+        <div className="mb-8 md:mb-12 text-center">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-2">Showcase</h3>
+          <h2 className="text-[26px] font-black text-text tracking-tight leading-none transition-colors">
             What I've shipped.
           </h2>
         </div>
@@ -202,17 +202,17 @@ const Projects = () => {
 
         {/* Section Bottom CTA */}
          {hasMore && (
-          <div className="flex flex-row justify-center items-center gap-2 md:gap-4 mt-2 md:mt-4">
+          <div className="flex flex-row justify-center items-center gap-2 md:gap-4 mt-8 mb-2 md:my-12">
             <Button 
               variant="outline" 
-              className="px-6 sm:px-10 py-3 md:py-3.5 sm:w-auto min-w-[140px] md:min-w-[180px] border-2 border-slate-900/20 dark:border-white/20 hover:border-slate-900 dark:hover:border-white text-slate-950 dark:text-white text-[9px] sm:text-xs md:text-sm font-black tracking-widest uppercase shadow-sm whitespace-nowrap lg:flex-none"
+              className="w-full md:w-[260px] h-14"
               onClick={handleToggleVisible}
             >
               {isExpanded ? 'VIEW LESS' : 'VIEW MORE'}
             </Button>
             <Button 
               variant="yellow" 
-              className="px-6 sm:px-10 py-3 md:py-3.5 shadow-xl shadow-yellow-500/20 sm:w-auto min-w-[140px] md:min-w-[180px] border-2 border-yellow-600/50 text-[9px] sm:text-xs md:text-sm font-black tracking-widest uppercase whitespace-nowrap lg:flex-none"
+              className="w-full md:w-[260px] h-14 shadow-xl shadow-yellow-500/20 border-2 border-yellow-600/50 text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-all active:scale-95"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH

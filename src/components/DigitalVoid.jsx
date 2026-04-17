@@ -2,16 +2,19 @@ import React from 'react';
 
 const DigitalVoid = () => {
   return (
-    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500">
-      <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
+    <section className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500">
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
-      <div className="max-w-[1440px] mx-auto relative z-10 text-center animate-in fade-in slide-in-from-bottom-12 duration-1000">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight mb-12 leading-none max-w-5xl mx-auto transition-all">
-          Let's build your idea - <span className="text-yellow-500 italic">the right way</span>
-        </h2>
+      <div className="max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 relative z-10">
+        <div className="mb-4">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">Synthesis</h3>
+          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none transition-colors">
+            Let's build your <span className="text-yellow-500 italic">Idea.</span>
+          </h2>
+        </div>
         
-        <p className="text-text/70 text-sm sm:text-base md:text-lg font-bold tracking-tight max-w-3xl mx-auto leading-relaxed">
-          Tell me what you are building, where you are stuck, and where you want to achieve. I will help you turn it into a real product.
+        <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed max-w-2xl transition-colors">
+          Tell me what you are building, where you are stuck, and where you want to achieve. We provide the architectural synthesis required to turn abstract concepts into high-impact digital products.
         </p>
       </div>
     </section>

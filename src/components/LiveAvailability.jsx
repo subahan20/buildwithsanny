@@ -2,44 +2,44 @@ import React from 'react';
 
 const LiveAvailability = () => {
   return (
-    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
-      <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
+    <section className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         
-        {/* Simplified Availability Bar - Full Width */}
-        <div className="w-full bg-card/60 dark:bg-card/20 backdrop-blur-3xl rounded-2xl md:rounded-3xl border border-border shadow-xl p-6 transition-all duration-500 hover:border-yellow-500/30">
+        {/* Availability Card */}
+        <div className="w-full bg-card rounded-[1.5rem] md:rounded-[2rem] border border-border shadow-2xl p-5 md:p-8 transition-all duration-700 hover:border-green-500/20 group/card">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             
-            {/* Left Side: Status */}
-            <div className="flex items-center gap-5">
-              <div className="relative">
-                <div className="absolute inset-0 bg-green-500/40 blur-xl rounded-full animate-pulse"></div>
-                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-green-500/30 flex items-center justify-center relative z-10 bg-slate-900 dark:bg-black">
-                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"></div>
+            {/* Status Info */}
+            <div className="flex items-center gap-4 md:gap-6 w-full md:w-auto">
+              <div className="relative shrink-0">
+                <div className="absolute inset-0 bg-green-500/20 blur-2xl rounded-full animate-pulse"></div>
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-border flex items-center justify-center relative z-10 bg-bg shadow-[inset_0_0_20px_rgba(255,255,255,0.02)]">
+                  <div className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-green-500 shadow-[0_0_25px_6px_rgba(34,197,94,0.6)] relative animate-pulse">
+                    <div className="absolute inset-0 bg-white/30 rounded-full scale-[0.4] blur-[1px]"></div>
+                  </div>
                 </div>
               </div>
               
-              <div className="text-center md:text-left">
-                <h5 className="text-green-500 font-black tracking-tight text-lg sm:text-xl md:text-2xl leading-none mb-1 md:mb-2 transition-all">
+              <div className="text-left">
+                <h5 className="text-green-500 font-black tracking-tighter text-xl sm:text-2xl md:text-[26px] lg:text-[28px] leading-tight mb-1.5 transition-all">
                   Available for new projects
                 </h5>
-                <p className="text-text/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
+                <p className="text-text/30 text-[9px] md:text-[10px] font-bold uppercase tracking-widest md:tracking-[0.25em] leading-relaxed">
                   2 spots open · Onboarding from May 2025
                 </p>
               </div>
             </div>
 
-            {/* Right Side: CTA Button */}
+            {/* CTA Button */}
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full md:w-auto px-10 py-3.5 rounded-xl border border-text/10 text-[10px] sm:text-xs md:text-sm font-black text-text uppercase tracking-widest hover:bg-slate-900 hover:text-white dark:hover:bg-white/10 dark:hover:text-white transition-all duration-500 active:scale-95 cursor-pointer shadow-lg whitespace-nowrap group"
+              className="w-full md:w-[260px] h-14 rounded-full bg-bg border border-border text-xs md:text-sm font-black text-text uppercase tracking-[0.2em] hover:bg-card/50 transition-all duration-500 active:scale-95 group/btn shadow-2xl relative overflow-hidden"
             >
-              <span className="flex items-center justify-center gap-2">
-                Book a call 
-                <svg className="w-3.5 h-3.5 fill-current transition-transform group-hover:translate-x-1" viewBox="0 0 24 24">
-                  <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"/>
-                </svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+              <span className="flex items-center justify-center gap-3 relative z-10">
+                BOOK A CALL 
               </span>
             </button>
 

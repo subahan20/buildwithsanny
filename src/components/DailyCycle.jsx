@@ -41,42 +41,37 @@ const DailyCycle = () => {
   ];
 
   return (
-    <section className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
-      <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
+    <section className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       {/* Soft Ethereal Blooms */}
       <div className="absolute top-0 left-0 w-[1000px] h-[1000px] bg-yellow-500/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-orange-500/5 blur-[150px] rounded-full translate-x-1/4 translate-y-1/4"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-2 text-text transition-colors">
-            Our days consist of three things...
+        <div className="text-center mb-8">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">// CYCLE</h3>
+          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none transition-colors">
+            Our days consist <br className="sm:hidden" />of <span className="text-yellow-500 italic">three things...</span>
           </h2>
         </div>
 
-        {/* Shifting Step Cards */}
-        <div className="max-w-6xl space-y-6">
+        <div className="max-w-6xl space-y-5 mx-auto">
           {steps.map((step, idx) => (
             <div 
               key={idx} 
-              className={`flex flex-col lg:flex-row items-center gap-6 group transition-all duration-700 lg:${step.margin}`}
+              className="flex flex-col lg:flex-row items-center gap-3 group transition-all duration-700"
             >
-              {/* Giant Index Number - Hidden on mobile, visible from LG up */}
-              <span className="hidden lg:block text-9xl md:text-[12rem] font-medium leading-none text-transparent bg-clip-text bg-gradient-to-b from-yellow-500/40 dark:from-yellow-400/60 to-orange-500/10 dark:to-orange-400/20 tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity duration-700 select-none shrink-0">
-                {step.id}
-              </span>
-              
-              <div className="flex-1 bg-card backdrop-blur-xl border border-border rounded-[2.5rem] p-4 md:p-6 shadow-2xl shadow-yellow-950/20 max-w-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/30">
-                <div className="absolute top-10 right-10">
+              <div className="flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl max-w-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20">
+                <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                   {step.icon}
                 </div>
                 
                 <div className="relative z-10">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-text mb-1.5 tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-black text-text mb-3 tracking-tighter transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-text/70 text-sm sm:text-base md:text-lg font-bold leading-relaxed max-w-md transition-colors">
+                  <p className="text-text/50 text-xs md:text-sm font-bold leading-relaxed transition-colors">
                     {step.description}
                   </p>
                 </div>
@@ -86,10 +81,10 @@ const DailyCycle = () => {
         </div>
 
         {/* Final Action */}
-        <div className="mt-12 flex flex-col items-center">
+        <div className="mt-8 mb-0 flex flex-col items-center">
           <Button 
             variant="yellow" 
-            className="px-12 md:px-16 py-4 md:py-5 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"
+            className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-transform hover:scale-[1.03]"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             CONTACT US

@@ -39,19 +39,19 @@ const TailoredCollaborations = () => {
   ];
 
   return (
-    <section id="pricing" className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section id="pricing" className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
-        <div className="mb-12">
-          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[7px] md:text-[8px] block mb-0.5">
+        <div className="mb-12 text-center">
+          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-2">
             // WORK WITH US
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter text-text mb-1 max-w-4xl leading-none transition-all duration-500">
+          <h2 className="text-[26px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-none transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-text/60 text-[13px] md:text-sm font-bold leading-relaxed max-w-2xl transition-colors duration-500">
+          <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed max-w-2xl mx-auto mb-8 transition-colors duration-500">
             Pricing varies based on project complexity. Contact our sales team for a custom discovery call.
           </p>
         </div>
@@ -61,7 +61,7 @@ const TailoredCollaborations = () => {
           {engagementModels.map((model, idx) => (
             <div 
               key={idx}
-              className="group relative bg-card backdrop-blur-xl rounded-[1.5rem] p-3.5 lg:p-4 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
+              className="group relative bg-card backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 lg:p-14 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
             >
               {/* Watermark Icon */}
               <div className="absolute top-8 right-8 transition-transform duration-700 group-hover:scale-110">
@@ -95,7 +95,7 @@ const TailoredCollaborations = () => {
                 <a 
                   href="#contact"
                   className={`
-                    w-full h-11 md:h-12 flex items-center justify-center rounded-xl text-center font-black tracking-widest text-[9px] sm:text-[10px] md:text-xs transition-all duration-500 block cursor-pointer uppercase shadow-lg
+                    w-full h-14 flex items-center justify-center rounded-xl text-center font-black tracking-[0.2em] text-xs md:text-sm transition-all duration-500 block cursor-pointer uppercase shadow-lg
                     ${model.buttonVariant === 'solid' 
                       ? 'bg-yellow-500 text-slate-900 shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
                       : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50 hover:scale-[1.02]'}

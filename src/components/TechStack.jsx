@@ -91,17 +91,17 @@ const TechStack = () => {
 
   return (
     <section 
-      className="py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="py-3 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
-      <div className="max-w-[1440px] mx-auto mb-12 relative z-20 transition-all duration-500">
-        <div className="max-w-6xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight leading-none mb-4 md:mb-5 transition-all duration-300">
-            Custom Tech <span className="text-yellow-500">Architectures</span>
+      <div className="max-w-[1440px] mx-auto mb-3 relative z-20 transition-all duration-500 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none mb-4 transition-all duration-300">
+            Custom Tech <span className="text-yellow-500 italic">Architectures</span>
           </h2>
-          <p className="text-text/70 text-xs sm:text-sm md:text-base font-bold max-w-2xl leading-relaxed transition-all duration-300">
+          <p className="text-text/50 text-[13px] md:text-sm font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
              Built with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>
@@ -126,10 +126,10 @@ const TechStack = () => {
       <div className="absolute inset-y-0 left-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-r from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
       <div className="absolute inset-y-0 right-0 w-12 sm:w-32 lg:w-48 bg-gradient-to-l from-bg via-bg/80 to-transparent z-10 pointer-events-none transition-all duration-500"></div>
 
-      <div className="relative z-20 flex justify-center mt-12">
+      <div className="relative z-20 flex justify-center mt-8">
         <Button 
           variant="yellow" 
-          className="px-10 md:px-12 py-3 md:py-4 shadow-2xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase hover:scale-105"
+          className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-xs md:text-sm font-black tracking-[0.2em] uppercase hover:scale-[1.03] transition-transform"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           GET IN TOUCH

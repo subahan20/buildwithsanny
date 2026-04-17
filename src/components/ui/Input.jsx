@@ -16,10 +16,10 @@ const Input = ({ label, type = "text", name, value, onChange, placeholder, requi
         placeholder={placeholder}
         required={required}
         readOnly={readOnly}
-        className={`w-full px-5 py-3.5 rounded-2xl border border-slate-200 transition-all duration-300 outline-none
+        className={`w-full px-5 py-3.5 rounded-2xl border border-border/20 transition-all duration-300 outline-none
                    ${readOnly 
-                     ? 'bg-slate-50 text-slate-500 cursor-default border-dashed' 
-                     : 'bg-white/50 backdrop-blur-sm focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 placeholder:text-slate-400 text-slate-800'
+                     ? 'bg-slate-50 dark:bg-slate-900/50 text-text/50 cursor-default border-dashed' 
+                     : 'bg-white dark:bg-[#050608] focus:border-yellow-500 focus:ring-4 focus:ring-yellow-500/10 placeholder:text-text/30 text-text'
                    }`}
       />
     </div>

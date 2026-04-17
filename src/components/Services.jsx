@@ -65,8 +65,8 @@ const Services = () => {
   return (
     <section 
       id="services" 
-      className="py-4 md:py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
-      aria-label="Technologies and Frameworks we use"
+      className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
+      aria-label="Expertise and Services"
     >
       {/* Background patterns */}
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
@@ -80,7 +80,7 @@ const Services = () => {
               <div className="w-10 md:w-12 h-[2px] bg-yellow-500 rounded-full"></div>
               <span className="text-yellow-500 font-bold uppercase tracking-[0.4em] text-[7px] md:text-[8px]">Expertise</span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-text tracking-tighter leading-[1.15] transition-colors max-w-2xl">
+            <h2 className="text-[26px] font-black text-text tracking-tighter leading-[1.15] transition-colors max-w-2xl">
               We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span><br className="md:block" /> of modern business.
             </h2>
           </div>
@@ -100,7 +100,7 @@ const Services = () => {
           <div className="flex justify-center mt-8">
             <Button 
               variant="yellow" 
-              className="px-12 py-4 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"
+              className="w-[260px] h-14 rounded-full shadow-xl shadow-yellow-500/20 text-xs md:text-sm font-black tracking-[0.2em] uppercase"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH
@@ -111,7 +111,7 @@ const Services = () => {
         {/* --- MOBILE VIEW --- */}
         <div className="block md:hidden">
           <div className="mb-4 pl-1">
-            <h2 className="text-[19px] font-black text-text leading-[1.2] tracking-tight mb-2">
+            <h2 className="text-[26px] font-black text-text leading-[1.2] tracking-tight mb-2">
               We build the <span className="text-yellow-500 whitespace-nowrap">Neural Architecture</span><br />
               of modern business.
             </h2>
@@ -128,7 +128,7 @@ const Services = () => {
                   {srv.description}
                 </p>
                 
-                <div className="bg-[#111318] dark:bg-[#111318] rounded-xl p-3 border border-border/10">
+                <div className="bg-card rounded-xl p-3 border border-border/10">
                   <ul className="flex flex-col gap-2">
                     {srv.items.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
@@ -144,10 +144,10 @@ const Services = () => {
             ))}
           </div>
 
-          <div className="mt-5 mb-1">
+          <div className="mt-8 mb-4">
             <Button 
               variant="yellow" 
-              className="w-full py-3 rounded-[32px] text-[10px] shadow-none"
+              className="w-full h-14 rounded-full text-xs shadow-none font-black tracking-[0.2em] uppercase"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH

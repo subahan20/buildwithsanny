@@ -32,7 +32,7 @@ const SocialProof = () => {
   return (
     <section 
       id="stats" 
-      className="py-4 md:py-8 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500"
+      className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.15]"></div>
       
@@ -40,11 +40,10 @@ const SocialProof = () => {
         
         {/* --- DESKTOP VIEW --- */}
         <div className="hidden md:block">
-          <div className="mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-text tracking-tight uppercase leading-none transition-all duration-500">
-              Impact <span className="text-yellow-500">Numbers</span>
+          <div className="mb-12 text-center">
+            <h2 className="text-[26px] font-black text-text tracking-tighter leading-none transition-all duration-500">
+              Impact <span className="text-yellow-500 italic">Numbers</span>
             </h2>
-            <div className="w-16 md:w-24 h-1.5 md:h-1.5 bg-yellow-500 rounded-full mt-1.5 md:mt-2"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 max-w-6xl mx-auto">
@@ -80,10 +79,10 @@ const SocialProof = () => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-8">
             <Button 
               variant="yellow" 
-              className="px-12 py-4 shadow-xl shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm font-black tracking-widest uppercase"
+              className="w-[260px] h-14 rounded-full shadow-xl shadow-yellow-500/20 text-xs md:text-sm font-black tracking-[0.2em] uppercase"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               LET'S SCOPE YOUR MVP
@@ -93,14 +92,13 @@ const SocialProof = () => {
 
         {/* --- MOBILE VIEW (Exact Design Recreated) --- */}
         <div className="block md:hidden">
-          <div className="mb-4 pl-1">
-            <h2 className="text-[26px] font-black tracking-tight leading-none mb-2">
-              <span className="text-white">IMPACT</span> <span className="text-yellow-500">NUMBERS</span>
+          <div className="mb-8 text-center">
+            <h2 className="text-[26px] font-black tracking-tight leading-none mb-2 text-text">
+              IMPACT <span className="text-yellow-500 italic">NUMBERS</span>
             </h2>
-            <div className="w-16 h-[2px] bg-yellow-500"></div>
           </div>
 
-          <p className="text-[10px] text-text/60 leading-relaxed max-w-[240px] mb-6 pl-1 uppercase font-bold tracking-tight">
+          <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed mb-8 transition-colors text-center mx-auto max-w-2xl">
             Strategic execution meets architectural precision. Our track record in building the future of venture.
           </p>
 
@@ -121,16 +119,16 @@ const SocialProof = () => {
                 </div>
 
                 <div className="relative z-10 flex justify-between items-start">
-                  <span className="text-[7px] font-black uppercase tracking-[0.2em] text-white/50">
+                  <span className="text-[7px] font-black uppercase tracking-[0.2em] text-text/50">
                     {metric.label}
                   </span>
-                  <span className="text-sm font-black text-yellow-500">
+                  <span className="text-sm font-black text-yellow-600">
                     {metric.icon}
                   </span>
                 </div>
 
                 <div className="relative z-10">
-                  <p className="text-[42px] font-black tracking-tighter leading-none text-white font-inter">
+                  <p className="text-[42px] font-black tracking-tighter leading-none text-text font-inter">
                     {metric.value}
                   </p>
                 </div>
@@ -139,12 +137,12 @@ const SocialProof = () => {
           </div>
 
           <div className="flex flex-col items-center mt-8 gap-3">
-            <span className="text-[7px] font-black text-white/40 tracking-[0.2em] uppercase">
+            <span className="text-[7px] font-black text-text/40 tracking-[0.2em] uppercase">
               Ready to scale your impact?
             </span>
             <Button 
               variant="yellow" 
-              className="w-full py-4 rounded-[32px] text-[10px] shadow-none uppercase font-black tracking-widest"
+              className="w-full h-14 rounded-full text-xs shadow-none uppercase font-black tracking-[0.2em]"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               LET'S SCOPE YOUR MVP
