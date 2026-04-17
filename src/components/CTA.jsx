@@ -39,19 +39,19 @@ const TailoredCollaborations = () => {
   ];
 
   return (
-    <section id="pricing" className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section id="pricing" className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
         <div className="mb-12 text-center">
-          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-2">
+          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[10px] md:text-[15px] block mb-2">
             // WORK WITH US
           </span>
-          <h2 className="text-[26px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-none transition-all duration-500">
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-[1.1] transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed max-w-2xl mx-auto mb-8 transition-colors duration-500">
+          <p className="text-text/50 text-[13px] md:text-base lg:text-[18px] xl:text-[20px] font-bold leading-relaxed max-w-2xl mx-auto mb-8 transition-colors duration-500">
             Pricing varies based on project complexity. Contact our sales team for a custom discovery call.
           </p>
         </div>

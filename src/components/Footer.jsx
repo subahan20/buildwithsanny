@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="py-4 px-4 md:px-8 bg-bg text-text/50 relative overflow-hidden transition-colors duration-500 border-t border-border/50">
+    <footer className="py-4 px-4 md:px-4 bg-bg text-text/50 relative overflow-hidden transition-colors duration-500 border-t border-border/50">
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Main Information Layer */}
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-4 md:gap-8 mb-4">

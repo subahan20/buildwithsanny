@@ -186,11 +186,11 @@ const Projects = () => {
     <section id="projects" className="pt-6 pb-0 md:py-8 bg-bg relative transition-colors duration-500 overflow-visible">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
-      <div className="max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 relative z-10">
-        <div className="mb-8 md:mb-12 text-center">
-          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-2">Showcase</h3>
-          <h2 className="text-[26px] font-black text-text tracking-tight leading-none transition-colors">
-            What I've shipped.
+      <div className="max-w-[1440px] mx-auto px-4 md:px-4  relative z-10">
+        <div className="mb-8 md:mb-5 text-center">
+          <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-2">Showcase</h3>
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tight leading-[1.1] transition-colors">
+            What <span className="text-yellow-500 italic">I've shipped.</span>
           </h2>
         </div>
 

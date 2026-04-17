@@ -66,19 +66,19 @@ const Testimonials = () => {
   const marqueeItems = [...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA];
 
   return (
-    <section className="pt-4 pb-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="pt-4 pb-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05]"></div>
       
-      <div className="max-w-[1440px] mx-auto relative z-10 mb-8 text-center md:text-left">
+      <div className="max-w-[1440px] mx-auto relative z-10 mb-8 text-center">
         {/* Header */}
-        <div className="flex flex-col items-center md:items-start">
-          <h3 className="text-yellow-500 font-extrabold uppercase tracking-[0.4em] text-[10px] mb-2">
+        <div className="flex flex-col items-center">
+          <h3 className="text-yellow-500 font-extrabold uppercase tracking-[0.4em] text-[10px] md:text-[15px] mb-2">
             // Client Voices
           </h3>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-text tracking-tighter leading-tight mb-4 transition-colors">
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-tight mb-4 transition-colors">
             What clients say
           </h2>
-          <p className="text-text/50 text-sm md:text-base lg:text-lg font-bold max-w-2xl transition-colors leading-relaxed mx-auto md:mx-0">
+          <p className="text-text/50 text-[13px] md:text-[16px] xl:text-[18px] font-bold max-w-2xl transition-colors leading-relaxed mx-auto md:mx-0">
             A few words from the people I've worked closely with.
           </p>
         </div>

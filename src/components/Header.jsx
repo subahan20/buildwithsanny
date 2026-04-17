@@ -52,7 +52,7 @@ const Header = () => {
         ? 'bg-bg/95 backdrop-blur-md py-2 shadow-2xl shadow-yellow-950/10' 
         : 'bg-bg py-4'
     }`}>
-      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 flex items-center justify-between transition-all duration-500">
+      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-4 flex items-center justify-between transition-all duration-500">
         
         {/* Brand Mark */}
         <div 
@@ -116,16 +116,6 @@ const Header = () => {
             <ThemeToggle />
           </div>
 
-          <button 
-            onClick={() => {
-              const element = document.getElementById('contact');
-              element?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="hidden md:block px-8 py-2.5 rounded-full text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-lg bg-yellow-500 text-slate-900 shadow-yellow-500/20 hover:shadow-yellow-500/40 hover:scale-105 transition-all active:scale-95 duration-500 cursor-pointer"
-          >
-            CONTACT US
-          </button>
-          
           {/* Mobile Menu Trigger Area */}
           <div className="flex items-center gap-3 lg:hidden">
             <button 

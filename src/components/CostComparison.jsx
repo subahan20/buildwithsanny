@@ -32,17 +32,16 @@ const CostComparison = () => {
   ];
 
   return (
-    <section className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-[26px] font-black text-text tracking-tighter mb-4 leading-none transition-colors">
-            Build your startup <br />
-            without hiring a team.
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter mb-4 leading-[1.1] transition-colors">
+            Build your startup <br className="hidden md:block" /> without hiring a team.
           </h2>
-          <p className="text-text/50 text-[13px] md:text-sm font-bold max-w-2xl mx-auto transition-colors">
+          <p className="text-text/50 text-[13px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-bold max-w-2xl mx-auto transition-colors">
             From idea → MVP → first revenue. I handle everything.
           </p>
         </div>
@@ -84,7 +83,7 @@ const CostComparison = () => {
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-xs sm:text-xl md:text-2xl font-black text-red-500 tracking-tight block leading-tight whitespace-nowrap">
+                  <span className="text-xs sm:text-xl md:text-[15px] lg:text-[18px] xl:text-[20px] font-black text-red-500 tracking-tight block leading-tight whitespace-nowrap">
                     Typical Market Rate ₹70L-90L+/yr
                   </span>
                 </div>
@@ -127,7 +126,7 @@ const CostComparison = () => {
                 </div>
 
                 <div className="mb-4 relative z-10">
-                  <span className="text-xs sm:text-xl md:text-2xl font-black text-green-400 tracking-tight block leading-tight whitespace-nowrap">
+                  <span className="text-xs sm:text-xl md:text-[15px] lg:text-[18px] xl:text-[20px] font-black text-green-400 tracking-tight block leading-tight whitespace-nowrap">
                     STARTING FROM 10% Market Rate
                   </span>
                 </div>
@@ -165,18 +164,18 @@ const CostComparison = () => {
         {/* External Stats Footer */}
         <div className="max-w-4xl mx-auto mt-6 flex flex-row justify-between items-center gap-2 border-t border-white/5 pt-6">
           <div className="flex-1 text-center">
-            <p className="text-sm md:text-base font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Trusted by 50+</p>
-            <p className="text-[7px] md:text-[8px] font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
+            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Trusted by 50+</p>
+            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
           </div>
           <div className="w-px h-4 bg-white/5"></div>
           <div className="flex-1 text-center">
-            <p className="text-sm md:text-base font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Built 100+</p>
-            <p className="text-[7px] md:text-[8px] font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Products Shipped</p>
+            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Built 100+</p>
+            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Products Shipped</p>
           </div>
           <div className="w-px h-4 bg-white/5"></div>
           <div className="flex-1 text-center">
-            <p className="text-sm md:text-base font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Reach Revenue</p>
-            <p className="text-[7px] md:text-[8px] font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Fast & Profitable</p>
+            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Reach Revenue</p>
+            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Fast & Profitable</p>
           </div>
         </div>
       </div>

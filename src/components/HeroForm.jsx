@@ -55,7 +55,7 @@ const HeroForm = () => {
   const { bio, features, ctaHint } = content ?? {};
 
   return (
-    <section id="hero" className="bg-bg flex items-center justify-center pt-24 pb-12 px-4 md:px-8 relative overflow-hidden transition-all duration-700">
+    <section id="hero" className="bg-bg flex items-center justify-center pt-24 pb-12 px-4 md:px-4 relative overflow-hidden transition-all duration-700">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.1]"></div>
       
       {/* Cinematic Blooms */}

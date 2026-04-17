@@ -3,7 +3,7 @@ import Button from './ui/Button';
 
 const ProofOfConcept = () => {
   return (
-    <section id="poc" className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500">
+    <section id="poc" className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-all duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
@@ -11,12 +11,12 @@ const ProofOfConcept = () => {
         <div className="text-center mb-8 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-2">
             <div className="w-10 h-[1.5px] bg-yellow-400 rounded-full"></div>
-            <span className="text-yellow-400 font-bold uppercase tracking-[0.3em] text-[10px]">Case Study</span>
+            <span className="text-yellow-400 font-bold uppercase tracking-[0.3em] text-[10px] md:text-[15px]">Case Study</span>
           </div>
-          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none mb-4 transition-colors">
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-colors">
             Our Proof of <span className="text-yellow-400 italic">Concept</span>
           </h2>
-          <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed transition-colors">
+          <p className="text-text/50 text-[13px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-bold leading-relaxed transition-colors">
             High-impact AI deployments including scalable data pipelines and precision computer vision.
           </p>
         </div>
@@ -28,23 +28,23 @@ const ProofOfConcept = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16 items-center">
               
               {/* Left Column: The Visual (Annotation) - Reduced for better balance */}
-              <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-border bg-bg shadow-inner group/img">
+              <div className="lg:col-span-5 relative rounded-2xl overflow-hidden border border-border bg-bg shadow-inner group/img flex items-center justify-center">
                 <img 
                   src="/poc/zastra_repro.png" 
                   alt="Computer Vision Annotation Pipeline" 
-                  className="w-full h-auto object-cover opacity-95 group-hover/img:scale-105 transition-all duration-700"
+                  className="w-full h-full max-h-[200px] md:max-h-[250px] lg:max-h-[300px] object-cover opacity-95 group-hover/img:scale-105 transition-all duration-700"
                 />
               </div>
     
               {/* Right Column: The Content - Increased Typographic Presence */}
               <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-2 py-0">
-                <h2 className="text-[26px] font-black text-text leading-[1.1] tracking-tighter">
+                <h2 className="text-[26px] xl:text-[60px] font-black text-text leading-[1.1] tracking-tighter">
                   How to Build a Scalable Data Annotation Pipeline with <span className="text-yellow-400">Zastra™</span>
                 </h2>
     
                 <div className="space-y-2">
                   <h3 className="text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] border-l-2 border-yellow-500 pl-4 py-1">Abstract</h3>
-                  <p className="text-text/50 text-[13px] md:text-sm leading-relaxed font-bold">
+                  <p className="text-text/50 text-[13px] md:text-sm xl:text-[18px] leading-relaxed font-bold">
                     Poorly processed data is a major reason machine learning projects fail. 
                     Your dataset's construction and annotation directly affect the model you develop. 
                     When trying to scale pipelines, enterprises face substantial challenges. 

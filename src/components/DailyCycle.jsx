@@ -41,7 +41,7 @@ const DailyCycle = () => {
   ];
 
   return (
-    <section className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       {/* Soft Ethereal Blooms */}
@@ -50,9 +50,9 @@ const DailyCycle = () => {
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="text-center mb-8">
-          <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">// CYCLE</h3>
-          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none transition-colors">
-            Our days consist <br className="sm:hidden" />of <span className="text-yellow-500 italic">three things...</span>
+          <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">// CYCLE</h3>
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors">
+            Our days consist of <span className="text-yellow-500 italic">three things...</span>
           </h2>
         </div>
 
@@ -62,16 +62,16 @@ const DailyCycle = () => {
               key={idx} 
               className="flex flex-col lg:flex-row items-center gap-3 group transition-all duration-700"
             >
-              <div className="flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl max-w-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20">
+              <div className="w-full flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20">
                 <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                   {step.icon}
                 </div>
                 
                 <div className="relative z-10">
-                  <h3 className="text-2xl sm:text-3xl font-black text-text mb-3 tracking-tighter transition-colors">
+                  <h3 className="text-2xl sm:text-3xl md:text-[30px] lg:text-[35px] xl:text-[40px] font-black text-text mb-3 tracking-tighter transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-text/50 text-xs md:text-sm font-bold leading-relaxed transition-colors">
+                  <p className="text-text/50 text-xs md:text-sm xl:text-[18px] font-bold leading-relaxed transition-colors">
                     {step.description}
                   </p>
                 </div>

@@ -91,17 +91,17 @@ const TechStack = () => {
 
   return (
     <section 
-      className="py-3 px-4 md:px-8 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="py-3 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Technologies and Frameworks we use"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1]"></div>
       
       <div className="max-w-[1440px] mx-auto mb-3 relative z-20 transition-all duration-500 text-center">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-[26px] font-black text-text tracking-tighter leading-none mb-4 transition-all duration-300">
+          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-all duration-300">
             Custom Tech <span className="text-yellow-500 italic">Architectures</span>
           </h2>
-          <p className="text-text/50 text-[13px] md:text-sm font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
+          <p className="text-text/50 text-[15px] md:text-base xl:text-[18px] font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
              Built with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>

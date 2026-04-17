@@ -32,16 +32,16 @@ const SocialProof = () => {
   return (
     <section 
       id="stats" 
-      className="py-4 px-4 md:px-8 bg-bg relative overflow-hidden transition-all duration-500"
+      className="py-[2px] px-4 md:px-4 bg-bg relative overflow-hidden transition-all duration-500"
     >
       <div className="absolute inset-0 bg-dot-grid opacity-[0.05] dark:opacity-[0.15]"></div>
       
-      <div className="max-w-[1440px] mx-auto md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-[1440px] mx-auto md:px-4  relative z-10">
         
         {/* --- DESKTOP VIEW --- */}
         <div className="hidden md:block">
           <div className="mb-12 text-center">
-            <h2 className="text-[26px] font-black text-text tracking-tighter leading-none transition-all duration-500">
+            <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-none transition-all duration-500">
               Impact <span className="text-yellow-500 italic">Numbers</span>
             </h2>
           </div>
@@ -98,7 +98,7 @@ const SocialProof = () => {
             </h2>
           </div>
 
-          <p className="text-text/50 text-[13px] md:text-sm font-bold leading-relaxed mb-8 transition-colors text-center mx-auto max-w-2xl">
+          <p className="text-text/50 text-[13px] md:text-sm xl:text-[18px] font-bold leading-relaxed mb-8 transition-colors text-center mx-auto max-w-2xl">
             Strategic execution meets architectural precision. Our track record in building the future of venture.
           </p>
 
