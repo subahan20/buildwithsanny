@@ -399,9 +399,9 @@ const ContactForm = () => {
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <div className="flex gap-2">
-                      <div className="relative w-[110px] md:w-32" ref={countryRef}>
+                      <div className="relative w-[85px] md:w-32" ref={countryRef}>
                         <div 
-                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[14px] md:text-[15px] outline-none flex items-center justify-center gap-1"
                           onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
                         >
                           <span className="truncate">{formData.country_code}</span>
@@ -448,8 +448,8 @@ const ContactForm = () => {
                         name="phone_number"
                         value={phone_number}
                         onChange={handleInputChange}
-                        placeholder="Enter your 10-digit mobile number" 
-                        className={`flex-1 min-w-0 bg-bg border ${formErrors.phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
+                        placeholder="Enter 10-digit mobile number" 
+                        className={`flex-1 min-w-0 bg-bg border ${formErrors.phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-3 md:px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[11px] sm:placeholder:text-[13px] text-[14px] md:text-[15px] outline-none`} 
                       />
                     </div>
                     {formErrors.phone_number && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.phone_number}</p>}
@@ -460,9 +460,9 @@ const ContactForm = () => {
                       Alternative Mobile (WhatsApp)
                     </label>
                     <div className="flex gap-2">
-                      <div className="relative w-[110px] md:w-32" ref={altCountryRef}>
+                      <div className="relative w-[85px] md:w-32" ref={altCountryRef}>
                         <div 
-                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[14px] md:text-[15px] outline-none flex items-center justify-center gap-1"
                           onClick={() => setIsAltCountryDropdownOpen(!isAltCountryDropdownOpen)}
                         >
                           <span className="truncate">{formData.alt_country_code}</span>
@@ -509,8 +509,8 @@ const ContactForm = () => {
                         name="alt_phone_number"
                         value={alt_phone_number}
                         onChange={handleInputChange}
-                        placeholder="Enter your WhatsApp number" 
-                        className={`flex-1 min-w-0 bg-bg border ${formErrors.alt_phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
+                        placeholder="Enter WhatsApp number" 
+                        className={`flex-1 min-w-0 bg-bg border ${formErrors.alt_phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-3 md:px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[11px] sm:placeholder:text-[13px] text-[14px] md:text-[15px] outline-none`} 
                       />
                     </div>
                     {formErrors.alt_phone_number && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.alt_phone_number}</p>}
