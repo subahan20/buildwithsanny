@@ -54,56 +54,49 @@ const SERVICES_DATA = [
     description: "Tailored cognitive layers designed to integrate seamlessly with existing legacy infrastructure.",
     icon: <BrainIcon />,
     thumbnail: "/expertise/custom_ai.png",
-    items: ["Custom Models", "Database Integration", "Knowledge Systems"],
-    showOnMobile: true
+    items: ["Custom Models", "Database Integration", "Knowledge Systems"]
   },
   {
     title: "Autonomous Systems",
     description: "Self-optimizing workflows that adapt to market fluctuations and operational demands in real-time.",
     icon: <NetworkIcon />,
     thumbnail: "/expertise/autonomous.png",
-    items: ["Automated Pipeline", "Edge Computing", "Self-healing Nodes"],
-    showOnMobile: true
+    items: ["Automated Pipeline", "Edge Computing", "Self-healing Nodes"]
   },
   {
     title: "Cognitive Intelligence",
     description: "Advanced predictive engines that translate raw data into strategic execution pathways.",
     icon: <AnalyticsIcon />,
     thumbnail: "/expertise/cognitive.png",
-    items: ["Predictive Analysis", "NLP Interface", "Real-time Dashboard"],
-    showOnMobile: true
+    items: ["Predictive Analysis", "NLP Interface", "Real-time Dashboard"]
   },
   {
     title: "AI Products",
     description: "Scalable AI-native software solutions for immediate business impact.",
     icon: <PackageIcon />,
     thumbnail: "/expertise/ai_products.png",
-    items: ["hirecruite", "Style.ai", "Zastra"],
-    showOnMobile: false
+    items: ["hirecruite", "Style.ai", "Zastra"]
   },
   {
     title: "AI Calling Agents",
     description: "Autonomous voice systems that handle lead generation and customer support 24/7.",
     icon: <VoiceIcon />,
     thumbnail: "/expertise/ai_calling.png",
-    items: ["Voice AI Integration", "Autonomous Care", "Outbound Lead Gen"],
-    showOnMobile: false
+    items: ["Voice AI Integration", "Autonomous Care", "Outbound Lead Gen"]
   },
   {
     title: "Custom CRM/ERP",
     description: "Enterprise management systems built with AI at the core of every workflow.",
     icon: <SystemIcon />,
     thumbnail: "/expertise/crm_erp.png",
-    items: ["Workflow Automation", "Inventory Forecasting", "Data Hubs"],
-    showOnMobile: false
+    items: ["Workflow Automation", "Inventory Forecasting", "Data Hubs"]
   },
   {
     title: "Web Ecosystems",
     description: "High-performance web platforms designed for global scale and security.",
     icon: <GlobalIcon />,
     thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-    items: ["Next.js Hubs", "Scalable Cloud Portals", "Enterprise Dashboards"],
-    showOnMobile: false
+    items: ["Next.js Hubs", "Scalable Cloud Portals", "Enterprise Dashboards"]
   }
 ];
 
@@ -111,7 +104,7 @@ const Services = () => {
   return (
     <section 
       id="services" 
-      className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500"
+      className="py-5 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500"
       aria-label="Expertise and Services"
     >
       {/* Background patterns */}
@@ -121,7 +114,7 @@ const Services = () => {
         
         {/* --- DESKTOP VIEW --- */}
         <div className="hidden md:block">
-          <div className="mb-4 flex flex-col items-center text-center">
+          <div className="mb-12 flex flex-col items-center text-center">
             <div className="flex items-center gap-4 mb-0.5">
               <div className="w-10 md:w-12 h-[2px] bg-yellow-500 rounded-full"></div>
               <span className="text-yellow-500 font-bold uppercase tracking-[0.4em] text-[10px] md:text-[15px]">Expertise</span>
@@ -143,7 +136,7 @@ const Services = () => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-12">
             <Button 
               variant="yellow" 
               className="w-[260px] h-14 rounded-full shadow-xl shadow-yellow-500/20 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase"
@@ -156,7 +149,7 @@ const Services = () => {
 
         {/* --- MOBILE VIEW --- */}
         <div className="block md:hidden">
-          <div className="mb-4 pl-1">
+          <div className="mb-[30px] pl-1">
             <h2 className="text-[27px] font-black text-text leading-[1.2] tracking-tight mb-2">
               We build the <span className="text-yellow-500 whitespace-nowrap">Neural Architecture</span><br />
               of modern business.
@@ -164,22 +157,22 @@ const Services = () => {
             <div className="w-8 h-[1px] bg-yellow-500/60"></div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            {SERVICES_DATA.filter(s => s.showOnMobile).map((srv) => (
-              <div key={srv.title} className="flex flex-col pl-1">
-                <h3 className="text-[17px] font-bold text-text mb-1">
+          <div className="flex flex-col gap-[30px] pb-0">
+            {SERVICES_DATA.map((srv) => (
+              <div key={srv.title} className="flex flex-col w-[92%] mx-auto mb-[5px]">
+                <h3 className="text-[24px] font-extrabold text-text mb-1 transition-colors">
                   {srv.title}
                 </h3>
-                <p className="text-[13px] text-text/80 mb-2 leading-relaxed pr-2">
+                <p className="text-[16px] text-text/80 mb-[5px] leading-relaxed">
                   {srv.description}
                 </p>
                 
-                <div className="bg-card rounded-xl p-3 border border-border/10">
-                  <ul className="flex flex-col gap-2">
+                <div className="bg-card rounded-2xl p-5 border border-border/20 shadow-lg shadow-black/5">
+                  <ul className="flex flex-col gap-3">
                     {srv.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <div className="w-1 h-1 bg-yellow-500 rounded-sm shadow-[0_0_8px_rgba(234,179,8,0.4)]"></div>
-                        <span className="text-[11px] font-bold text-text/90 tracking-widest uppercase">
+                      <li key={idx} className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-yellow-500 rounded-sm shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
+                        <span className="text-[14px] font-bold text-text/90 tracking-widest uppercase">
                           {item}
                         </span>
                       </li>
@@ -190,7 +183,7 @@ const Services = () => {
             ))}
           </div>
 
-          <div className="mt-8 mb-4 flex justify-center">
+          <div className="mt-[30px] mb-0 flex justify-center">
             <Button 
               variant="yellow" 
               className="w-[280px] h-14 rounded-full text-[14px] md:text-[14px] shadow-none font-black tracking-[0.2em] uppercase"

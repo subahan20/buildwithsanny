@@ -101,7 +101,7 @@ const TechStack = () => {
           <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-all duration-300">
             Custom Tech <span className="text-yellow-500 italic">Architectures</span>
           </h2>
-          <p className="text-text/50 text-[18px] md:text-[19px] xl:text-[21px] font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
+          <p className="text-text/50 text-[15px] md:text-[19px] xl:text-[21px] font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
              Built with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>

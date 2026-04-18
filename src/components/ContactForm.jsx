@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -97,6 +97,8 @@ const ContactForm = () => {
     company_name: '',
     phone_number: '',
     country_code: '+1',
+    alt_phone_number: '',
+    alt_country_code: '+1',
     address: '',
     city: '',
     country: '',
@@ -110,62 +112,113 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Searchable Country Code State
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const [isAltCountryDropdownOpen, setIsAltCountryDropdownOpen] = useState(false);
+  const [countrySearch, setCountrySearch] = useState('');
+  const [altCountrySearch, setAltCountrySearch] = useState('');
+  
+  const countryRef = useRef(null);
+  const altCountryRef = useRef(null);
+
+  // Click outside detection
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (countryRef.current && !countryRef.current.contains(event.target)) {
+        setIsCountryDropdownOpen(false);
+      }
+      if (altCountryRef.current && !altCountryRef.current.contains(event.target)) {
+        setIsAltCountryDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const filteredCountryCodes = countryCodesList.filter(c => 
+    c.code.includes(countrySearch) || 
+    c.label.toLowerCase().includes(countrySearch.toLowerCase())
+  );
+
+  const filteredAltCountryCodes = countryCodesList.filter(c => 
+    c.code.includes(altCountrySearch) || 
+    c.label.toLowerCase().includes(altCountrySearch.toLowerCase())
+  );
+
   const validateForm = () => {
+    const {
+      full_name, email, company_name, phone_number,
+      alt_phone_number, address, city, country,
+      interested_in, message
+    } = formData;
+
     const errors = {};
     const alphabeticRegex = /^[a-zA-Z\s]+$/;
     const phoneRegex = /^\d{10}$/; // exactly 10 digits
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const addressRegex = /^[a-zA-Z0-9\s,.'#-]+$/;
 
-    if (!formData.full_name.trim()) {
+    const trimmedFullName = (full_name || '').trim();
+    if (!trimmedFullName) {
       errors.full_name = 'Full Name is required.';
-    } else if (!alphabeticRegex.test(formData.full_name)) {
+    } else if (!alphabeticRegex.test(trimmedFullName)) {
       errors.full_name = 'Full Name must contain only alphabets.';
     }
 
-    if (!formData.email.trim()) {
+    const trimmedEmail = (email || '').trim();
+    if (!trimmedEmail) {
       errors.email = 'Email Address is required.';
-    } else if (!emailRegex.test(formData.email)) {
+    } else if (!emailRegex.test(trimmedEmail)) {
       errors.email = 'Please enter a valid email address.';
     }
 
-    if (!formData.company_name.trim()) {
-      errors.company_name = 'Company Name is required.';
-    } else if (!alphabeticRegex.test(formData.company_name)) {
+    const trimmedCompany = (company_name || '').trim();
+    if (trimmedCompany && !alphabeticRegex.test(trimmedCompany)) {
       errors.company_name = 'Company Name must contain only alphabets.';
     }
 
-    if (!formData.phone_number.trim()) {
+    const trimmedPhone = (phone_number || '').trim();
+    if (!trimmedPhone) {
       errors.phone_number = 'Phone Number is required.';
-    } else if (!phoneRegex.test(formData.phone_number)) {
-      errors.phone_number = 'Mobile number must be exactly 10 digits without spaces or dashes.';
+    } else if (!phoneRegex.test(trimmedPhone)) {
+      errors.phone_number = 'Mobile number must be exactly 10 digits.';
     }
 
-    if (!formData.address.trim()) {
+    const trimmedAltPhone = (alt_phone_number || '').trim();
+    if (trimmedAltPhone && !phoneRegex.test(trimmedAltPhone)) {
+      errors.alt_phone_number = 'WhatsApp number must be exactly 10 digits.';
+    }
+
+    const trimmedAddress = (address || '').trim();
+    if (!trimmedAddress) {
       errors.address = 'Address is required.';
-    } else if (!addressRegex.test(formData.address)) {
+    } else if (!addressRegex.test(trimmedAddress)) {
       errors.address = 'Address must contain only alphanumeric characters and basic punctuation.';
     }
 
-    if (!formData.city.trim()) {
+    const trimmedCity = (city || '').trim();
+    if (!trimmedCity) {
       errors.city = 'City is required.';
-    } else if (!alphabeticRegex.test(formData.city)) {
+    } else if (!alphabeticRegex.test(trimmedCity)) {
       errors.city = 'City must contain only alphabets.';
     }
 
-    if (!formData.country.trim()) {
+    const trimmedCountry = (country || '').trim();
+    if (!trimmedCountry) {
       errors.country = 'Country is required.';
-    } else if (!alphabeticRegex.test(formData.country)) {
+    } else if (!alphabeticRegex.test(trimmedCountry)) {
       errors.country = 'Country must contain only alphabets.';
     }
 
-    if (!formData.interested_in.trim()) {
+    const trimmedInterested = (interested_in || '').trim();
+    if (!trimmedInterested) {
       errors.interested_in = 'This field is required.';
-    } else if (!alphabeticRegex.test(formData.interested_in)) {
+    } else if (!alphabeticRegex.test(trimmedInterested)) {
       errors.interested_in = 'Must contain only alphabets.';
     }
 
-    if (!formData.message.trim()) {
+    const trimmedMessage = (message || '').trim();
+    if (!trimmedMessage) {
       errors.message = 'Vision Brief is required.';
     }
 
@@ -184,11 +237,20 @@ const ContactForm = () => {
 
     setLoading(true);
 
-    // Concatenate country code and phone number, then remove country_code from the payload
-    const { country_code, ...dataToSubmit } = formData;
+    const { 
+      country_code, alt_country_code, phone_number, alt_phone_number, ...dataToSubmit 
+    } = formData;
+
+    const now = new Date();
+    const localTimeForDB = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString();
+
     const submissionData = {
       ...dataToSubmit,
-      phone_number: `${country_code} ${formData.phone_number.replace(/\D/g, '')}`
+      phone_number: `${country_code || '+1'} ${(phone_number || '').replace(/\D/g, '')}`,
+      alt_phone_number: (alt_phone_number || '').trim() 
+        ? `${alt_country_code || '+1'} ${(alt_phone_number || '').replace(/\D/g, '')}` 
+        : null,
+      created_at: localTimeForDB
     };
 
     try {
@@ -201,21 +263,17 @@ const ContactForm = () => {
       toast.success('Form successfully submitted!', {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         theme: "dark",
       });
 
-      // Reset form immediately
       setFormData({
         full_name: '',
         email: '',
         company_name: '',
         phone_number: '',
         country_code: '+1',
+        alt_phone_number: '',
+        alt_country_code: '+1',
         address: '',
         city: '',
         country: '',
@@ -242,6 +300,13 @@ const ContactForm = () => {
     }
   };
 
+  const {
+    full_name, email, company_name, phone_number,
+    country_code, alt_phone_number, alt_country_code,
+    address, city, country, interested_in,
+    budget, timeline, message
+  } = formData;
+
   return (
     <section 
       id="contact" 
@@ -262,7 +327,7 @@ const ContactForm = () => {
               <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-6 transition-colors">
                 Initiate your <span className="text-yellow-500 italic">Project.</span>
               </h2>
-              <p className="text-text/50 text-[13px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed max-w-md mx-auto lg:mx-0 transition-colors">
+              <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed max-w-2xl mx-auto transition-colors">
                 We are currently accepting high-impact architectural mandates. Provide your project brief to begin the synthesis process.
               </p>
             </div>
@@ -287,121 +352,214 @@ const ContactForm = () => {
               <form className="space-y-2.5" onSubmit={handleSubmit} noValidate>
                 {/* Grid 1: Basic Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="text" 
                       name="full_name"
-                      value={formData.full_name}
+                      value={full_name}
                       onChange={handleInputChange}
-                      placeholder="ALEXANDER VANCE" 
-                      className={`w-full bg-bg border ${formErrors.full_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                      placeholder="Enter your full name" 
+                      className={`w-full bg-bg border ${formErrors.full_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                     />
                     {formErrors.full_name && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.full_name}</p>}
                   </div>
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       Email Address <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="email" 
                       name="email"
-                      value={formData.email}
+                      value={email}
                       onChange={handleInputChange}
-                      placeholder="ALEX@SYNTHESIS.LAB" 
-                      className={`w-full bg-bg border ${formErrors.email ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                      placeholder="Enter your email address" 
+                      className={`w-full bg-bg border ${formErrors.email ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[15px] text-[15px] outline-none`} 
                     />
                     {formErrors.email && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.email}</p>}
                   </div>
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
-                      Company Name <span className="text-red-500">*</span>
+                  <div className="space-y-[2px] relative md:col-span-2">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                      Company Name
                     </label>
                     <input 
                       type="text" 
                       name="company_name"
-                      value={formData.company_name}
+                      value={company_name}
                       onChange={handleInputChange}
-                      placeholder="GLOBAL DYNAMICS" 
-                      className={`w-full bg-bg border ${formErrors.company_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                      placeholder="Enter your company name" 
+                      className={`w-full bg-bg border ${formErrors.company_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                     />
                     {formErrors.company_name && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.company_name}</p>}
                   </div>
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <div className="flex gap-2">
-                      <select 
-                        name="country_code"
-                        value={formData.country_code}
-                        onChange={handleInputChange}
-                        className="w-16 md:w-20 bg-bg border border-border/20 px-2 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all appearance-none cursor-pointer text-center text-xs outline-none"
-                      >
-                        {countryCodesList.map((country, index) => (
-                          <option key={index} value={country.code}>
-                            {country.code} ({country.label})
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative w-[110px] md:w-32" ref={countryRef}>
+                        <div 
+                          className="w-full bg-bg border border-border/20 px-1 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                        >
+                          <span className="truncate">{formData.country_code}</span>
+                          <svg className={`w-3 h-3 transition-transform duration-300 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        
+                        {isCountryDropdownOpen && (
+                          <div className="absolute top-full left-0 w-48 mt-2 bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div className="p-2 border-b border-border">
+                              <input 
+                                type="text"
+                                className="w-full bg-bg border border-border/20 px-3 py-2 rounded-lg text-[13px] font-bold text-text focus:border-yellow-500 outline-none"
+                                placeholder="Search code/country..."
+                                value={countrySearch}
+                                onChange={(e) => setCountrySearch(e.target.value)}
+                                autoFocus
+                              />
+                            </div>
+                            <div className="max-h-60 overflow-y-auto custom-scrollbar">
+                              {filteredCountryCodes.length > 0 ? (
+                                filteredCountryCodes.map((country, index) => (
+                                  <div 
+                                    key={index}
+                                    className="px-4 py-2 hover:bg-yellow-500/10 cursor-pointer text-[13px] font-bold text-text/70 hover:text-yellow-500 transition-colors flex justify-between items-center"
+                                    onClick={() => {
+                                      setFormData(prev => ({ ...prev, country_code: country.code }));
+                                      setIsCountryDropdownOpen(false);
+                                      setCountrySearch('');
+                                    }}
+                                  >
+                                    <span>{country.label}</span>
+                                    <span className="text-yellow-500">{country.code}</span>
+                                  </div>
+                                ))
+                              ) : (
+                                <div className="px-4 py-3 text-[12px] font-bold text-text/30 italic">No matches found</div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
                       <input 
                         type="text" 
                         name="phone_number"
-                        value={formData.phone_number}
+                        value={phone_number}
                         onChange={handleInputChange}
-                        placeholder="000-000-0000" 
-                        className={`flex-1 bg-bg border ${formErrors.phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                        placeholder="Enter your 10-digit mobile number" 
+                        className={`flex-1 min-w-0 bg-bg border ${formErrors.phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                       />
                     </div>
                     {formErrors.phone_number && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.phone_number}</p>}
                   </div>
+
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                      Alternative Mobile (WhatsApp)
+                    </label>
+                    <div className="flex gap-2">
+                      <div className="relative w-[110px] md:w-32" ref={altCountryRef}>
+                        <div 
+                          className="w-full bg-bg border border-border/20 px-1 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          onClick={() => setIsAltCountryDropdownOpen(!isAltCountryDropdownOpen)}
+                        >
+                          <span className="truncate">{formData.alt_country_code}</span>
+                          <svg className={`w-3 h-3 transition-transform duration-300 ${isAltCountryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        
+                        {isAltCountryDropdownOpen && (
+                          <div className="absolute top-full left-0 w-48 mt-2 bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div className="p-2 border-b border-border">
+                              <input 
+                                type="text"
+                                className="w-full bg-bg border border-border/20 px-3 py-2 rounded-lg text-[13px] font-bold text-text focus:border-yellow-500 outline-none"
+                                placeholder="Search code/country..."
+                                value={altCountrySearch}
+                                onChange={(e) => setAltCountrySearch(e.target.value)}
+                                autoFocus
+                              />
+                            </div>
+                            <div className="max-h-60 overflow-y-auto custom-scrollbar">
+                              {filteredAltCountryCodes.length > 0 ? (
+                                filteredAltCountryCodes.map((country, index) => (
+                                  <div 
+                                    key={index}
+                                    className="px-4 py-2 hover:bg-yellow-500/10 cursor-pointer text-[13px] font-bold text-text/70 hover:text-yellow-500 transition-colors flex justify-between items-center"
+                                    onClick={() => {
+                                      setFormData(prev => ({ ...prev, alt_country_code: country.code }));
+                                      setIsAltCountryDropdownOpen(false);
+                                      setAltCountrySearch('');
+                                    }}
+                                  >
+                                    <span>{country.label}</span>
+                                    <span className="text-yellow-500">{country.code}</span>
+                                  </div>
+                                ))
+                              ) : (
+                                <div className="px-4 py-3 text-[12px] font-bold text-text/30 italic">No matches found</div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <input 
+                        type="text" 
+                        name="alt_phone_number"
+                        value={alt_phone_number}
+                        onChange={handleInputChange}
+                        placeholder="Enter your WhatsApp number" 
+                        className={`flex-1 min-w-0 bg-bg border ${formErrors.alt_phone_number ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
+                      />
+                    </div>
+                    {formErrors.alt_phone_number && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.alt_phone_number}</p>}
+                  </div>
                 </div>
 
                 {/* Address Field: Full Width */}
-                <div className="space-y-1.5 relative mt-2">
-                  <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="space-y-[2px] relative mt-2">
+                  <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                     Address <span className="text-red-500">*</span>
                   </label>
                   <input 
                     type="text" 
                     name="address"
-                    value={formData.address}
+                    value={address}
                     onChange={handleInputChange}
-                    placeholder="123 INNOVATION BLVD, SUITE 400..." 
-                    className={`w-full bg-bg border ${formErrors.address ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                    placeholder="Enter your complete address" 
+                    className={`w-full bg-bg border ${formErrors.address ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                   />
                   {formErrors.address && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.address}</p>}
                 </div>
 
                 {/* City and Country Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       City <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="text" 
                       name="city"
-                      value={formData.city}
+                      value={city}
                       onChange={handleInputChange}
-                      placeholder="NEW YORK" 
-                      className={`w-full bg-bg border ${formErrors.city ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                      placeholder="Enter your city" 
+                      className={`w-full bg-bg border ${formErrors.city ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                     />
                     {formErrors.city && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.city}</p>}
                   </div>
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       Country <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="text" 
                       name="country"
-                      value={formData.country}
+                      value={country}
                       onChange={handleInputChange}
-                      placeholder="UNITED STATES" 
-                      className={`w-full bg-bg border ${formErrors.country ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                      placeholder="Enter your country" 
+                      className={`w-full bg-bg border ${formErrors.country ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                     />
                     {formErrors.country && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.country}</p>}
                   </div>
@@ -409,29 +567,29 @@ const ContactForm = () => {
 
                 {/* Grid 2: Selection */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
-                   <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                   <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       What do you want to build? <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="text" 
                       name="interested_in"
-                      value={formData.interested_in}
+                      value={interested_in}
                       onChange={handleInputChange}
-                      placeholder="E.G. DIGITAL INFRASTRUCTURE" 
-                      className={`w-full bg-bg border ${formErrors.interested_in ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 uppercase text-xs outline-none`} 
+                      placeholder="e.g., AI Platform, SaaS, CRM..." 
+                      className={`w-full bg-bg border ${formErrors.interested_in ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] uppercase text-[15px] outline-none`} 
                     />
                     {formErrors.interested_in && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.interested_in}</p>}
                   </div>
-                  <div className="space-y-1.5 relative">
-                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                  <div className="space-y-[2px] relative">
+                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       Budget (USD) <span className="text-red-500">*</span>
                     </label>
                     <select 
                       name="budget"
-                      value={formData.budget}
+                      value={budget}
                       onChange={handleInputChange}
-                      className="w-full bg-bg border border-border/20 px-4 py-3 rounded-xl text-text font-bold focus:border-yellow-500 outline-none appearance-none cursor-pointer text-xs"
+                      className="w-full bg-bg border border-border/20 px-4 py-3 rounded-xl text-text font-bold focus:border-yellow-500 outline-none appearance-none cursor-pointer text-[15px]"
                     >
                       <option>$5k - $10k</option>
                       <option>$10k - $15k</option>
@@ -442,8 +600,8 @@ const ContactForm = () => {
                 </div>
 
                 {/* Selection 3: Timeline Pills */}
-                <div className="space-y-1.5 mt-2">
-                  <label className="text-[10px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="space-y-[2px] mt-2">
+                  <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                     Project Timeline <span className="text-red-500">*</span>
                   </label>
                   <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 no-scrollbar">
@@ -453,7 +611,7 @@ const ContactForm = () => {
                         type="button"
                         onClick={() => setFormData(prev => ({ ...prev, timeline: p }))}
                         className={`px-4 py-1.5 rounded-lg text-[12px] md:text-[12px] font-black tracking-[0.2em] uppercase transition-all duration-300 border cursor-pointer whitespace-nowrap ${
-                          formData.timeline === p 
+                          timeline === p 
                           ? 'bg-yellow-500/10 border-yellow-500 text-yellow-500' 
                           : 'bg-bg border-border/10 text-text/40 hover:border-border/20'
                         }`}
@@ -465,17 +623,17 @@ const ContactForm = () => {
                 </div>
 
                 {/* Message */}
-                <div className="space-y-1.5 relative mt-2">
-                  <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="space-y-[2px] relative mt-2">
+                  <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                     Vision Brief <span className="text-red-500">*</span>
                   </label>
                   <textarea 
                     name="message"
-                    value={formData.message}
+                    value={message}
                     onChange={handleInputChange}
                     rows="2" 
-                    placeholder="DESCRIBE YOUR VISION..." 
-                    className={`w-full bg-bg border ${formErrors.message ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-medium transition-all placeholder:text-text/30 text-xs resize-none outline-none`}
+                    placeholder="Briefly describe your project mission and goals..." 
+                    className={`w-full bg-bg border ${formErrors.message ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-medium transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] resize-none outline-none`}
                   ></textarea>
                   {formErrors.message && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.message}</p>}
                 </div>

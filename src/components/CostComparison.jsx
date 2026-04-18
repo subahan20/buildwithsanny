@@ -32,7 +32,7 @@ const CostComparison = () => {
   ];
 
   return (
-    <section className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
+    <section className="pt-4 pb-0 px-4 md:px-4 bg-bg relative overflow-hidden transition-colors duration-500">
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
       
       <div className="max-w-[1440px] mx-auto relative z-10">
@@ -41,7 +41,7 @@ const CostComparison = () => {
           <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter mb-4 leading-[1.1] transition-colors">
             Build your startup <br className="hidden md:block" /> without hiring a team.
           </h2>
-          <p className="text-text/50 text-[13px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-bold max-w-2xl mx-auto transition-colors">
+          <p className="text-text/50 text-[15px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-bold max-w-2xl mx-auto transition-colors">
             From idea → MVP → first revenue. I handle everything.
           </p>
         </div>
@@ -83,7 +83,7 @@ const CostComparison = () => {
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-xs sm:text-xl md:text-[15px] lg:text-[18px] xl:text-[20px] font-black text-red-500 tracking-tight block leading-tight whitespace-nowrap">
+                  <span className="text-[19px] lg:text-[23px] xl:text-[25px] font-black text-red-500 tracking-tight block w-full whitespace-normal md:whitespace-nowrap leading-tight">
                     Typical Market Rate ₹70L-90L+/yr
                   </span>
                 </div>
@@ -125,8 +125,8 @@ const CostComparison = () => {
                   ))}
                 </div>
 
-                <div className="mb-4 relative z-10">
-                  <span className="text-xs sm:text-xl md:text-[15px] lg:text-[18px] xl:text-[20px] font-black text-green-400 tracking-tight block leading-tight whitespace-nowrap">
+                <div className="mb-4">
+                  <span className="text-[19px] lg:text-[23px] xl:text-[25px] font-black text-green-400 tracking-tight block w-full whitespace-normal md:whitespace-nowrap leading-tight">
                     STARTING FROM 10% Market Rate
                   </span>
                 </div>
@@ -160,19 +160,47 @@ const CostComparison = () => {
             </div>
           </div>
         </div>
-        
-        {/* External Stats Footer */}
-        <div className="max-w-4xl mx-auto mt-6 flex flex-row justify-between items-center gap-2 border-t border-white/5 pt-6">
-          <div className="flex gap-5 justify-center items-center mx-auto">
-            {["Trusted by 50+", "Built 100+", "Reach Revenue"].map((item, idx) => (
-              <div key={idx} className="flex-1 text-center">
-                <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">{item}</p>
-                <p className="text-[8px] md:text-[10px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
-              </div>
-            ))}
+
+        <div className="max-w-5xl mx-auto mt-10 mb-10 px-6 md:px-10">
+          <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 md:gap-5">
+            {/* Item 1 */}
+            <div className="flex-1 text-left md:text-center border-l-2 border-yellow-500/50 md:border-none pl-4 md:pl-0 py-2 md:py-0">
+              <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Trusted by 50+</p>
+              <p className="text-[10px] md:text-[10px] lg:text-sm font-bold text-text/60 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
+            </div>
+            
+            {/* Desktop Separator 1 */}
+            <div className="hidden md:block self-center w-px h-6 bg-border"></div>
+            
+            {/* Item 2 */}
+            <div className="flex-1 text-left md:text-center border-l-2 border-yellow-500/50 md:border-none pl-4 md:pl-0 py-2 md:py-0">
+              <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Built 100+</p>
+              <p className="text-[10px] md:text-[10px] lg:text-sm font-bold text-text/60 uppercase tracking-widest whitespace-nowrap">Products Shipped</p>
+            </div>
+            
+            {/* Desktop Separator 2 */}
+            <div className="hidden md:block self-center w-px h-6 bg-border"></div>
+            
+            {/* Item 3 */}
+            <div className="flex-1 text-left md:text-center border-l-2 border-yellow-500/50 md:border-none pl-4 md:pl-0 py-2 md:py-0">
+              <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Reach Revenue</p>
+              <p className="text-[10px] md:text-[10px] lg:text-sm font-bold text-text/60 uppercase tracking-widest whitespace-nowrap">Fast & Profitable</p>
+            </div>
           </div>
         </div>
       </div>
+        
+      {/* External Stats Footer */}
+      {/* <div className="max-w-4xl mx-auto mt-6 flex flex-row justify-between items-center gap-2 border-t border-white/5 pt-6">
+        <div className="flex gap-5 justify-center items-center mx-auto">
+          {["Trusted by 50+", "Built 100+", "Reach Revenue"].map((item, idx) => (
+            <div key={idx} className="flex-1 text-center">
+              <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">{item}</p>
+              <p className="text-[10px] md:text-[10px] lg:text-sm font-bold text-text/60 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
+            </div>
+          ))}
+        </div>
+      </div> */}
     </section>
   );
 };

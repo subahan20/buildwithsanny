@@ -80,7 +80,7 @@ const HeroForm = () => {
  
           {/* Bio & Features */}
           <div className="flex flex-col gap-6">
-            <p className="text-text/70 text-[13px] md:text-[15px] mx-auto lg:mx-0 font-bold leading-relaxed max-w-xl transition-colors text-center lg:text-left drop-shadow-sm mb-0">
+            <p className="text-text/70 text-[15px] mx-auto lg:mx-0 font-bold leading-relaxed max-w-xl transition-colors text-center lg:text-left drop-shadow-sm mb-0">
               {bio}
             </p>
  
@@ -111,7 +111,7 @@ const HeroForm = () => {
               </Button>
               <Button  
                 variant="outline"
-                className="w-full sm:w-[260px] h-14 border-2 border-border text-text font-black shadow-sm text-[14px] md:text-[14px] tracking-[0.2em] uppercase transition-all rounded-full"
+                className="w-full sm:w-[260px] h-14 font-black shadow-sm text-[14px] md:text-[14px] tracking-[0.2em] uppercase transition-all rounded-full"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 LET'S SCOPE MVP

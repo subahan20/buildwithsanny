@@ -98,7 +98,7 @@ const SocialProof = () => {
             </h2>
           </div>
 
-          <p className="text-text/50 text-[16px] md:text-[17px] xl:text-[21px] font-bold leading-relaxed mb-8 transition-colors text-center mx-auto max-w-2xl">
+          <p className="text-text/50 text-[15px] md:text-[17px] xl:text-[21px] font-bold leading-relaxed mb-8 transition-colors text-center mx-auto max-w-2xl">
             Strategic execution meets architectural precision. Our track record in building the future of venture.
           </p>
 
@@ -106,29 +106,26 @@ const SocialProof = () => {
             {SOCIAL_METRICS.map((metric, idx) => (
               <div 
                 key={idx} 
-                className="relative overflow-hidden p-4 rounded-2xl min-h-[120px] flex flex-col justify-between bg-card border border-white/5 active:scale-[0.98] transition-all"
+                className="relative overflow-hidden p-6 rounded-2xl min-h-[160px] flex flex-col items-center justify-center text-center bg-card border border-white/5 active:scale-[0.98] transition-all"
               >
                 {/* Image Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img 
                     src={metric.image} 
                     alt={metric.label} 
-                    className="w-full h-full object-cover opacity-20 filter grayscale brightness-50"
+                    className="w-full h-full object-cover opacity-[0.15] filter grayscale brightness-50"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg/40 to-bg"></div>
                 </div>
 
-                <div className="relative z-10 flex justify-between items-start">
-                  <span className="text-[7px] font-black uppercase tracking-[0.2em] text-text/50">
+                <div className="relative z-10 mb-2">
+                  <span className="text-[9px] font-black uppercase tracking-[0.3em] text-text/40">
                     {metric.label}
-                  </span>
-                  <span className="text-sm font-black text-yellow-600">
-                    {metric.icon}
                   </span>
                 </div>
 
                 <div className="relative z-10">
-                  <p className="text-[42px] font-black tracking-tighter leading-none text-text font-inter">
+                  <p className="text-[72px] font-black tracking-tighter leading-none text-text">
                     {metric.value}
                   </p>
                 </div>

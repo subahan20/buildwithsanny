@@ -16,7 +16,7 @@ const ProofOfConcept = () => {
           <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-colors">
             Our Proof of <span className="text-yellow-400 italic">Concept</span>
           </h2>
-          <p className="text-text/50 text-[16px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-bold leading-relaxed transition-colors">
+          <p className="text-text/50 text-[15px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-bold leading-relaxed transition-colors">
             High-impact AI deployments including scalable data pipelines and precision computer vision.
           </p>
         </div>
@@ -44,7 +44,7 @@ const ProofOfConcept = () => {
     
                 <div className="space-y-2">
                   <h3 className="text-yellow-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] border-l-2 border-yellow-500 pl-4 py-1">Abstract</h3>
-                  <p className="text-text/50 text-[13px] md:text-sm xl:text-[18px] leading-relaxed font-bold">
+                  <p className="text-text/50 text-[15px] md:text-sm xl:text-[18px] leading-relaxed font-bold">
                     Poorly processed data is a major reason machine learning projects fail. 
                     Your dataset's construction and annotation directly affect the model you develop. 
                     When trying to scale pipelines, enterprises face substantial challenges. 

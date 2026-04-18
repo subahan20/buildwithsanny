@@ -6,7 +6,7 @@ const Button = ({ children, onClick, type = "button", variant = "primary", class
   const variants = {
     primary: "bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-xl shadow-slate-900/10 dark:shadow-white/10",
     secondary: "bg-slate-100 dark:bg-slate-800/50 text-slate-900 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700/50 border border-slate-200 dark:border-white/10 backdrop-blur-md",
-    outline: "bg-transparent border-2 border-border text-text hover:bg-slate-900 hover:text-white dark:hover:bg-white/10 dark:hover:text-white shadow-sm",
+    outline: "bg-transparent border-2 border-[color:var(--text)] text-[color:var(--text)] hover:bg-[color:var(--text)] hover:text-[color:var(--bg)] shadow-sm",
     yellow: "bg-yellow-500 text-slate-900 hover:bg-yellow-400 shadow-xl shadow-yellow-500/20"
   };
 

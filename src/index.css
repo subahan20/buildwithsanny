@@ -185,6 +185,31 @@ body {
   scrollbar-width: none;
 }
 
+/* Custom Stylish Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #facc15; /* Yellow primary */
+  border-radius: 10px;
+  border: 1px solid transparent; /* Padding around thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ca8a04; /* Darker yellow on hover */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 transparent;
+}
+
 button, [role="button"], input[type="submit"], input[type="button"] {
   cursor: pointer;
 }

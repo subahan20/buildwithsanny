@@ -71,7 +71,7 @@ const DailyCycle = () => {
                   <h3 className="text-2xl sm:text-3xl md:text-[30px] lg:text-[35px] xl:text-[40px] font-black text-text mb-3 tracking-tighter transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-text/50 text-xs md:text-sm xl:text-[18px] font-bold leading-relaxed transition-colors">
+                  <p className="text-text/50 text-[15px] md:text-sm xl:text-[18px] font-bold leading-relaxed transition-colors">
                     {step.description}
                   </p>
                 </div>

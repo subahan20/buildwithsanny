@@ -51,7 +51,7 @@ const TailoredCollaborations = () => {
           <h2 className="text-[30px] md:text-[48px] lg:text-[60px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-[1.1] transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-text/50 text-[16px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-bold leading-relaxed max-w-2xl mx-auto mb-0 transition-colors duration-500">
+          <p className="text-text/50 text-[15px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-bold leading-relaxed max-w-2xl mx-auto mb-0 transition-colors duration-500">
             Pricing varies based on project complexity. Contact our sales team for a custom discovery call.
           </p>
         </div>
