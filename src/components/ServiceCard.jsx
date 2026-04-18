@@ -1,4 +1,4 @@
-const ServiceCard = ({ title, items, icon }) => {
+const ServiceCard = ({ title, items, icon, highlight }) => {
   return (
     <div className="group relative w-full py-2.5 md:py-3 xl:py-4 border-b border-border/10 last:border-0 hover:bg-card/30 transition-all duration-500 cursor-default overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto flex items-center gap-4 xl:gap-8 px-2 sm:px-4">
@@ -13,7 +13,7 @@ const ServiceCard = ({ title, items, icon }) => {
 
         {/* Content */}
         <div className="flex flex-col gap-1 md:gap-2 lg:gap-2.5 flex-1 min-w-0">
-          <h3 className="text-[20px] sm:text-xl md:text-[23px] lg:text-[25px] font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 leading-none">
+          <h3 className={`text-[20px] sm:text-xl md:text-[23px] lg:text-[25px] font-black tracking-tight transition-colors duration-500 leading-none ${highlight ? 'text-yellow-500 dark:text-yellow-400' : 'text-text group-hover:text-yellow-600 dark:group-hover:text-yellow-400'}`}>
             {title}
           </h3>
 

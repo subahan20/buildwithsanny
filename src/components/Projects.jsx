@@ -18,8 +18,19 @@ import touchUILogo from '../assets/projects/touch-ui-logo.png';
 import zastraLogo from '../assets/projects/zastra-logo.png';
 import almaLogo from '../assets/projects/alma-clinics-logo.png';
 import adelphoiLogo from '../assets/projects/adelphoi-logo.png';
+import epratibhaLogo from '../assets/projects/epratibha.png';
+import tenThousandCodersLogo from '../assets/projects/ten-thousand-coders.png';
 
 const PROJECTS_DATA = [
+  {
+    name: "10000 Coders",
+    type: "EdTech Platform",
+    duration: "Built in 84 Weeks",
+    description: "South India’s large-scale outcome-driven coding platform transforming beginners into job-ready software engineers. Features an end-to-end LMS, mentorship ecosystems, and robust placement workflows.",
+    logo: tenThousandCodersLogo,
+    demoLink: "https://10000coders.co/",
+    studyLink: "#"
+  },
   {
     name: "Hirecruite",
     type: "AI Recruitment",
@@ -48,12 +59,48 @@ const PROJECTS_DATA = [
     studyLink: "#"
   },
   {
-    name: "Touch UI",
-    type: "Social Media Platform",
+    name: "Zaap",
+    type: "On-Demand Delivery",
     duration: "Built in 10 Weeks",
-    description: "Social media ecosystem with React Native mobile app and TypeScript admin dashboard, supporting real-time ZegoCloud connectivity.",
-    logo: touchUILogo,
+    description: "Multi-service on-demand delivery platform for the Canadian market, streamlining logistics and local commerce.",
+    logo: zaapLogo,
+    demoLink: "https://zaapondemand.ca/",
+    studyLink: "#"
+  },
+  {
+    name: "Medmate",
+    type: "Healthcare Marketplace",
+    duration: "Built in 12 Weeks",
+    description: "Australia's leading healthcare app for prescription delivery and e-health services, connecting patients with local pharmacies.",
+    logo: medmateLogo,
+    demoLink: "https://medmate.com.au/",
+    studyLink: "#"
+  },
+  {
+    name: "Touch",
+    type: "Encrypted Social",
+    duration: "Built in 6 Weeks",
+    description: "A next-generation social networking application focused on privacy and real-time community engagement through encrypted channels.",
+    logo: touchLogo,
     demoLink: "https://touch.net.in/",
+    studyLink: "#"
+  },
+  {
+    name: "Adelphoi",
+    type: "Healthcare Tech",
+    duration: "Built in 16 Weeks",
+    description: "Full Stack Lead for healthcare domain applications serving at-risk youth and families, focused on scalable system architecture.",
+    logo: adelphoiLogo,
+    demoLink: "https://adelphoi.org/",
+    studyLink: "#"
+  },
+  {
+    name: "EPratibha",
+    type: "Ed-Tech Platform",
+    duration: "Built in 16 Weeks",
+    description: "Comprehensive online education platform for competitive exam prep, featuring real-time test simulations, interactive quizzes, and Zoom SDK integration.",
+    logo: epratibhaLogo,
+    demoLink: "https://epratibha.net/",
     studyLink: "#"
   },
   {
@@ -75,30 +122,12 @@ const PROJECTS_DATA = [
     studyLink: "#"
   },
   {
-    name: "Adelphoi",
-    type: "Healthcare Tech",
-    duration: "Built in 16 Weeks",
-    description: "Full Stack Lead for healthcare domain applications serving at-risk youth and families, focused on scalable system architecture.",
-    logo: adelphoiLogo,
-    demoLink: "https://adelphoi.org/",
-    studyLink: "#"
-  },
-  {
     name: "Expertrons",
     type: "AI Career Platform",
     duration: "Built in 8 Weeks",
     description: "World's largest AI video bot-assisted career platform, connecting job seekers with industry experts through immersive tech.",
     logo: expertronsLogo,
     demoLink: "https://www.expertrons.com/",
-    studyLink: "#"
-  },
-  {
-    name: "Touch",
-    type: "Encrypted Social",
-    duration: "Built in 6 Weeks",
-    description: "A next-generation social networking application focused on privacy and real-time community engagement through encrypted channels.",
-    logo: touchLogo,
-    demoLink: "https://touch.net.in/",
     studyLink: "#"
   },
   {
@@ -128,24 +157,6 @@ const PROJECTS_DATA = [
     demoLink: "https://click2clean.in/",
     studyLink: "#"
   },
-  {
-    name: "Medmate",
-    type: "Healthcare Marketplace",
-    duration: "Built in 12 Weeks",
-    description: "Australia's leading healthcare app for prescription delivery and e-health services, connecting patients with local pharmacies.",
-    logo: medmateLogo,
-    demoLink: "https://medmate.com.au/",
-    studyLink: "#"
-  },
-  {
-    name: "Zaap",
-    type: "On-Demand Delivery",
-    duration: "Built in 10 Weeks",
-    description: "Multi-service on-demand delivery platform for the Canadian market, streamlining logistics and local commerce.",
-    logo: zaapLogo,
-    demoLink: "https://zaapondemand.ca/",
-    studyLink: "#"
-  }
 ];
 
 const Projects = () => {

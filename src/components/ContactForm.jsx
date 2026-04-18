@@ -310,7 +310,7 @@ const ContactForm = () => {
   return (
     <section 
       id="contact" 
-      className="py-4 px-4 md:px-4 bg-bg relative overflow-hidden transition-all duration-500"
+      className="py-2 md:py-6 px-4 md:px-4 bg-bg relative overflow-hidden transition-all duration-500"
     >
       <ToastContainer />
       <div className="absolute inset-0 bg-dot-grid opacity-[0.03]"></div>
@@ -324,16 +324,16 @@ const ContactForm = () => {
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2 block">
                 INQUIRY HUB
               </span>
-              <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-6 transition-colors">
+              <h2 className="text-[27px] md:text-[45px] lg:text-[42px] font-black text-text tracking-tighter leading-[1] mb-3 transition-colors">
                 Initiate your <span className="text-yellow-500 italic">Project.</span>
               </h2>
-              <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed max-w-2xl mx-auto transition-colors">
+              <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[17px] font-bold leading-relaxed max-w-2xl mx-auto transition-colors">
                 We are currently accepting high-impact architectural mandates. Provide your project brief to begin the synthesis process.
               </p>
             </div>
 
             {/* Contact Tiers */}
-            <div className="hidden md:block space-y-6 pt-2">
+            <div className="hidden md:block space-y-4 pt-1">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 rounded-lg border border-yellow-500/20 shrink-0">
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -348,8 +348,8 @@ const ContactForm = () => {
           </div>
 
           {/* Right Column: Form Card */}
-          <div className="bg-card rounded-[2.5rem] p-5 sm:p-8 md:p-9 border border-border/5 shadow-2xl transition-all">
-              <form className="space-y-2.5" onSubmit={handleSubmit} noValidate>
+          <div className="bg-card rounded-[2.5rem] p-4 sm:p-6 md:p-7 border border-border/5 shadow-2xl transition-all">
+              <form className="space-y-1.5" onSubmit={handleSubmit} noValidate>
                 {/* Grid 1: Basic Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                   <div className="space-y-[2px] relative">
@@ -362,7 +362,7 @@ const ContactForm = () => {
                       value={full_name}
                       onChange={handleInputChange}
                       placeholder="Enter your full name" 
-                      className={`w-full bg-bg border ${formErrors.full_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
+                      className={`w-full bg-bg border ${formErrors.full_name ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-2.5 rounded-xl text-text font-bold transition-all placeholder:text-text/30 placeholder:text-[13px] text-[15px] outline-none`} 
                     />
                     {formErrors.full_name && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.full_name}</p>}
                   </div>
@@ -401,7 +401,7 @@ const ContactForm = () => {
                     <div className="flex gap-2">
                       <div className="relative w-[110px] md:w-32" ref={countryRef}>
                         <div 
-                          className="w-full bg-bg border border-border/20 px-1 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
                           onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
                         >
                           <span className="truncate">{formData.country_code}</span>
@@ -462,7 +462,7 @@ const ContactForm = () => {
                     <div className="flex gap-2">
                       <div className="relative w-[110px] md:w-32" ref={altCountryRef}>
                         <div 
-                          className="w-full bg-bg border border-border/20 px-1 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
+                          className="w-full bg-bg border border-border/20 px-1 py-2.5 rounded-xl text-text font-bold focus:border-yellow-500 transition-all cursor-pointer text-center text-[15px] outline-none flex items-center justify-center gap-1"
                           onClick={() => setIsAltCountryDropdownOpen(!isAltCountryDropdownOpen)}
                         >
                           <span className="truncate">{formData.alt_country_code}</span>
@@ -518,8 +518,8 @@ const ContactForm = () => {
                 </div>
 
                 {/* Address Field: Full Width */}
-                <div className="space-y-[2px] relative mt-2">
-                  <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="space-y-[1px] relative mt-1">
+                  <label className="text-[11px] md:text-[13px] lg:text-[14px] xl:text-[14px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                     Address <span className="text-red-500">*</span>
                   </label>
                   <input 
@@ -566,9 +566,9 @@ const ContactForm = () => {
                 </div>
 
                 {/* Grid 2: Selection */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
-                   <div className="space-y-[2px] relative">
-                    <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-1">
+                   <div className="space-y-[1px] relative">
+                    <label className="text-[11px] md:text-[13px] lg:text-[14px] xl:text-[14px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                       What do you want to build? <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -600,8 +600,8 @@ const ContactForm = () => {
                 </div>
 
                 {/* Selection 3: Timeline Pills */}
-                <div className="space-y-[2px] mt-2">
-                  <label className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                <div className="space-y-[1px] mt-1">
+                  <label className="text-[11px] md:text-[13px] lg:text-[14px] xl:text-[14px] font-black text-text uppercase tracking-widest px-1 opacity-80">
                     Project Timeline <span className="text-red-500">*</span>
                   </label>
                   <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 no-scrollbar">
@@ -639,7 +639,7 @@ const ContactForm = () => {
                 </div>
 
                 {/* Submit */}
-                <div className="mt-4">
+                <div className="mt-2.5">
                   <button 
                     type="submit"
                     disabled={loading}

@@ -54,49 +54,56 @@ const SERVICES_DATA = [
     description: "Tailored cognitive layers designed to integrate seamlessly with existing legacy infrastructure.",
     icon: <BrainIcon />,
     thumbnail: "/expertise/custom_ai.png",
-    items: ["Custom Models", "Database Integration", "Knowledge Systems"]
+    items: ["Custom Models", "Database Integration", "Knowledge Systems"],
+    highlight: true
   },
   {
     title: "Autonomous Systems",
     description: "Self-optimizing workflows that adapt to market fluctuations and operational demands in real-time.",
     icon: <NetworkIcon />,
     thumbnail: "/expertise/autonomous.png",
-    items: ["Automated Pipeline", "Edge Computing", "Self-healing Nodes"]
+    items: ["Automated Pipeline", "Edge Computing", "Self-healing Nodes"],
+    highlight: true
   },
   {
     title: "Cognitive Intelligence",
     description: "Advanced predictive engines that translate raw data into strategic execution pathways.",
     icon: <AnalyticsIcon />,
     thumbnail: "/expertise/cognitive.png",
-    items: ["Predictive Analysis", "NLP Interface", "Real-time Dashboard"]
+    items: ["Predictive Analysis", "NLP Interface", "Real-time Dashboard"],
+    highlight: true
   },
   {
     title: "AI Products",
     description: "Scalable AI-native software solutions for immediate business impact.",
     icon: <PackageIcon />,
     thumbnail: "/expertise/ai_products.png",
-    items: ["hirecruite", "Style.ai", "Zastra"]
+    items: ["hirecruite", "Style.ai", "Zastra"],
+    highlight: true
   },
   {
     title: "AI Calling Agents",
     description: "Autonomous voice systems that handle lead generation and customer support 24/7.",
     icon: <VoiceIcon />,
     thumbnail: "/expertise/ai_calling.png",
-    items: ["Voice AI Integration", "Autonomous Care", "Outbound Lead Gen"]
+    items: ["Voice AI Integration", "Autonomous Care", "Outbound Lead Gen"],
+    highlight: true
   },
   {
     title: "Custom CRM/ERP",
     description: "Enterprise management systems built with AI at the core of every workflow.",
     icon: <SystemIcon />,
     thumbnail: "/expertise/crm_erp.png",
-    items: ["Workflow Automation", "Inventory Forecasting", "Data Hubs"]
+    items: ["Workflow Automation", "Inventory Forecasting", "Data Hubs"],
+    highlight: true
   },
   {
     title: "Web Ecosystems",
     description: "High-performance web platforms designed for global scale and security.",
     icon: <GlobalIcon />,
     thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-    items: ["Next.js Hubs", "Scalable Cloud Portals", "Enterprise Dashboards"]
+    items: ["Next.js Hubs", "Scalable Cloud Portals", "Enterprise Dashboards"],
+    highlight: true
   }
 ];
 
@@ -132,6 +139,7 @@ const Services = () => {
                 items={service.items}
                 icon={service.icon}
                 thumbnail={service.thumbnail}
+                highlight={service.highlight}
               />
             ))}
           </div>
@@ -160,7 +168,7 @@ const Services = () => {
           <div className="flex flex-col gap-[30px] pb-0">
             {SERVICES_DATA.map((srv) => (
               <div key={srv.title} className="flex flex-col w-[92%] mx-auto mb-[5px]">
-                <h3 className="text-[24px] font-extrabold text-text mb-1 transition-colors">
+                <h3 className={`text-[24px] font-extrabold mb-1 transition-colors ${srv.highlight ? 'text-yellow-500 dark:text-yellow-400' : 'text-text'}`}>
                   {srv.title}
                 </h3>
                 <p className="text-[16px] text-text/80 mb-[5px] leading-relaxed">
