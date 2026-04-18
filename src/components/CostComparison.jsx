@@ -38,7 +38,7 @@ const CostComparison = () => {
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter mb-4 leading-[1.1] transition-colors">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter mb-4 leading-[1.1] transition-colors">
             Build your startup <br className="hidden md:block" /> without hiring a team.
           </h2>
           <p className="text-text/50 text-[13px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-bold max-w-2xl mx-auto transition-colors">
@@ -146,14 +146,14 @@ const CostComparison = () => {
 
             {/* Inner Footer CTA */}
             <div className="p-6 md:p-10 border-t border-border/50 bg-card flex flex-col items-center text-center">
-              <h4 className="text-[26px] font-black text-text mb-2 tracking-tighter leading-none">
+              <h4 className="text-[27px] font-black text-text mb-2 tracking-tighter leading-none">
                 You don't need a team. <span className="text-yellow-500">You need execution.</span>
               </h4>
               <p className="text-text/50 font-bold mb-8 uppercase tracking-[0.4em] text-[10px]">Save 90% cost. Start from 10% Market Rate</p>
               
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-[260px] h-14 rounded-full bg-yellow-500 text-slate-900 font-black uppercase tracking-[0.2em] text-xs md:text-sm shadow-2xl shadow-yellow-500/30 hover:scale-[1.03] transition-transform active:scale-95"
+                className="w-[260px] h-14 rounded-full bg-yellow-500 text-slate-900 font-black uppercase tracking-[0.2em] text-[14px] md:text-sm shadow-2xl shadow-yellow-500/30 hover:scale-[1.03] transition-transform active:scale-95"
               >
                 Build My MVP
               </button>
@@ -163,19 +163,13 @@ const CostComparison = () => {
         
         {/* External Stats Footer */}
         <div className="max-w-4xl mx-auto mt-6 flex flex-row justify-between items-center gap-2 border-t border-white/5 pt-6">
-          <div className="flex-1 text-center">
-            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Trusted by 50+</p>
-            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
-          </div>
-          <div className="w-px h-4 bg-white/5"></div>
-          <div className="flex-1 text-center">
-            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Built 100+</p>
-            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Products Shipped</p>
-          </div>
-          <div className="w-px h-4 bg-white/5"></div>
-          <div className="flex-1 text-center">
-            <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">Reach Revenue</p>
-            <p className="text-[7px] md:text-[8px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Fast & Profitable</p>
+          <div className="flex gap-5 justify-center items-center mx-auto">
+            {["Trusted by 50+", "Built 100+", "Reach Revenue"].map((item, idx) => (
+              <div key={idx} className="flex-1 text-center">
+                <p className="text-sm md:text-base lg:text-lg font-black text-text tracking-tighter mb-0.5 whitespace-nowrap">{item}</p>
+                <p className="text-[8px] md:text-[10px] lg:text-sm font-bold text-text/30 uppercase tracking-widest whitespace-nowrap">Global Founders</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -98,10 +98,10 @@ const TechStack = () => {
       
       <div className="max-w-[1440px] mx-auto mb-3 relative z-20 transition-all duration-500 text-center">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-all duration-300">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-4 transition-all duration-300">
             Custom Tech <span className="text-yellow-500 italic">Architectures</span>
           </h2>
-          <p className="text-text/50 text-[15px] md:text-base xl:text-[18px] font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
+          <p className="text-text/50 text-[18px] md:text-[19px] xl:text-[21px] font-bold max-w-2xl mx-auto leading-relaxed mb-8 transition-all duration-300">
              Built with a foundation designed for scale, speed, and absolute reliability.
           </p>
         </div>
@@ -129,7 +129,7 @@ const TechStack = () => {
       <div className="relative z-20 flex justify-center mt-8">
         <Button 
           variant="yellow" 
-          className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-xs md:text-sm font-black tracking-[0.2em] uppercase hover:scale-[1.03] transition-transform"
+          className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase hover:scale-[1.03] transition-transform"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           GET IN TOUCH

@@ -75,10 +75,10 @@ const Testimonials = () => {
           <h3 className="text-yellow-500 font-extrabold uppercase tracking-[0.4em] text-[10px] md:text-[15px] mb-2">
             // Client Voices
           </h3>
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-tight mb-4 transition-colors">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-tight mb-4 transition-colors">
             What clients say
           </h2>
-          <p className="text-text/50 text-[13px] md:text-[16px] xl:text-[18px] font-bold max-w-2xl transition-colors leading-relaxed mx-auto md:mx-0">
+          <p className="text-text/50 text-[16px] md:text-[19px] xl:text-[21px] font-bold max-w-2xl transition-colors leading-relaxed mx-auto md:mx-0">
             A few words from the people I've worked closely with.
           </p>
         </div>

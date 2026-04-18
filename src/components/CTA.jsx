@@ -44,14 +44,14 @@ const TailoredCollaborations = () => {
       
       <div className="max-w-[1440px] mx-auto relative z-10">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[10px] md:text-[15px] block mb-2">
+        <div className="mb-6 text-center">
+          <span className="text-yellow-400 font-bold uppercase tracking-[0.4em] text-[13px] md:text-[18px] block mb-2">
             // WORK WITH US
           </span>
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-[1.1] transition-all duration-500">
+          <h2 className="text-[30px] md:text-[48px] lg:text-[60px] font-black italic tracking-tighter text-text mb-4 max-w-4xl mx-auto leading-[1.1] transition-all duration-500">
             Tailored Collaborations
           </h2>
-          <p className="text-text/50 text-[13px] md:text-base lg:text-[18px] xl:text-[20px] font-bold leading-relaxed max-w-2xl mx-auto mb-8 transition-colors duration-500">
+          <p className="text-text/50 text-[16px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-bold leading-relaxed max-w-2xl mx-auto mb-0 transition-colors duration-500">
             Pricing varies based on project complexity. Contact our sales team for a custom discovery call.
           </p>
         </div>
@@ -61,7 +61,7 @@ const TailoredCollaborations = () => {
           {engagementModels.map((model, idx) => (
             <div 
               key={idx}
-              className="group relative bg-card backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 lg:p-14 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
+              className="group relative bg-card backdrop-blur-xl rounded-[2.5rem] p-8 border border-border shadow-2xl shadow-yellow-950/10 hover:border-yellow-500/50 transition-all duration-700 overflow-hidden"
             >
               {/* Watermark Icon */}
               <div className="absolute top-8 right-8 transition-transform duration-700 group-hover:scale-110">
@@ -69,13 +69,13 @@ const TailoredCollaborations = () => {
               </div>
 
               <div className="relative z-10">
-                <span className="text-[9px] font-black text-text/50 tracking-[0.3em] uppercase mb-0.5 block transition-colors">
+                <span className="text-[12px] font-black text-text/50 tracking-[0.3em] uppercase mb-0.5 block transition-colors">
                   {model.label}
                 </span>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-text tracking-tighter mb-1 transition-colors">
+                <h3 className="text-[23px] sm:text-[27px] md:text-[33px] font-extrabold text-text tracking-tighter mb-1 transition-colors">
                   {model.title}
                 </h3>
-                <p className="text-text/70 text-[12px] md:text-[13px] font-bold leading-relaxed mb-2.5 max-w-sm transition-colors">
+                <p className="text-text/70 text-[15px] md:text-[16px] font-bold leading-relaxed mb-2.5 max-w-sm transition-colors">
                   {model.description}
                 </p>
 
@@ -87,7 +87,7 @@ const TailoredCollaborations = () => {
                           <path d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-[11px] md:text-xs font-bold text-text/80 tracking-tight transition-colors">{feature}</span>
+                      <span className="text-[14px] md:text-[15px] font-bold text-text/80 tracking-tight transition-colors">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -95,7 +95,7 @@ const TailoredCollaborations = () => {
                 <a 
                   href="#contact"
                   className={`
-                    w-full h-14 flex items-center justify-center rounded-xl text-center font-black tracking-[0.2em] text-xs md:text-sm transition-all duration-500 block cursor-pointer uppercase shadow-lg
+                    w-full h-14 flex items-center justify-center rounded-xl text-center font-black tracking-[0.2em] text-[14px] md:text-[14px] transition-all duration-500 block cursor-pointer uppercase shadow-lg
                     ${model.buttonVariant === 'solid' 
                       ? 'bg-yellow-500 text-slate-900 shadow-yellow-500/20 hover:bg-yellow-400 hover:scale-[1.02]' 
                       : 'bg-card text-text hover:bg-yellow-500/10 border border-border hover:border-yellow-500/50 hover:scale-[1.02]'}

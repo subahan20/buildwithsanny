@@ -35,7 +35,7 @@ const LiveAvailability = () => {
             {/* CTA Button */}
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full md:w-[280px] h-14 rounded-full bg-bg border border-border text-xs md:text-sm font-black text-text uppercase tracking-[0.2em] hover:bg-card/50 transition-all duration-500 active:scale-95 group/btn shadow-2xl relative overflow-hidden"
+              className="w-full md:w-[280px] h-14 rounded-full bg-bg border border-border text-[14px] md:text-[14px] font-black text-text uppercase tracking-[0.2em] hover:bg-card/50 transition-all duration-500 active:scale-95 group/btn shadow-2xl relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
               <span className="flex items-center justify-center gap-3 relative z-10">

@@ -67,13 +67,13 @@ const HeroForm = () => {
 
           {/* Main Heading Group */}
           <div className="flex flex-col items-center lg:items-start p-0 m-0 gap-1 md:gap-1.5 border-b border-white/5 lg:border-none">
-            <span className="text-text/70 text-[26px] font-black italic tracking-tight leading-none m-0 p-0 whitespace-nowrap">
+            <span className="text-text/70 text-[27px] font-black italic tracking-tight leading-none m-0 p-0 whitespace-nowrap">
               Helping founders ship
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-yellow-500 leading-none tracking-tighter transition-colors m-0 p-0 whitespace-nowrap">
               AI products fast.
             </h1>
-            <span className="text-text/60 text-[26px] font-black italic tracking-tighter leading-none m-0 p-0 whitespace-nowrap">
+            <span className="text-text/60 text-[27px] font-black italic tracking-tighter leading-none m-0 p-0 whitespace-nowrap">
               Making them profitable.
             </span>
           </div>
@@ -104,14 +104,14 @@ const HeroForm = () => {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mx-auto sm:px-0">
               <Button 
                 variant="yellow"
-                className="w-full sm:w-[260px] h-14 shadow-2xl shadow-yellow-500/30 text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-transform active:scale-95 rounded-full"
+                className="w-full sm:w-[260px] h-14 shadow-2xl shadow-yellow-500/30 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase transition-transform active:scale-95 rounded-full"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 DISCOVER OUR WORK
               </Button>
               <Button  
                 variant="outline"
-                className="w-full sm:w-[260px] h-14 border-2 border-border text-text font-black shadow-sm text-xs md:text-sm tracking-[0.2em] uppercase transition-all rounded-full"
+                className="w-full sm:w-[260px] h-14 border-2 border-border text-text font-black shadow-sm text-[14px] md:text-[14px] tracking-[0.2em] uppercase transition-all rounded-full"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 LET'S SCOPE MVP

@@ -126,7 +126,7 @@ const Services = () => {
               <div className="w-10 md:w-12 h-[2px] bg-yellow-500 rounded-full"></div>
               <span className="text-yellow-500 font-bold uppercase tracking-[0.4em] text-[10px] md:text-[15px]">Expertise</span>
             </div>
-            <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors max-w-4xl">
+            <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors max-w-4xl">
               We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span><br className="hidden md:block" /> of modern business.
             </h2>
           </div>
@@ -146,7 +146,7 @@ const Services = () => {
           <div className="flex justify-center mt-8">
             <Button 
               variant="yellow" 
-              className="w-[260px] h-14 rounded-full shadow-xl shadow-yellow-500/20 text-xs md:text-sm font-black tracking-[0.2em] uppercase"
+              className="w-[260px] h-14 rounded-full shadow-xl shadow-yellow-500/20 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH
@@ -157,7 +157,7 @@ const Services = () => {
         {/* --- MOBILE VIEW --- */}
         <div className="block md:hidden">
           <div className="mb-4 pl-1">
-            <h2 className="text-[26px] font-black text-text leading-[1.2] tracking-tight mb-2">
+            <h2 className="text-[27px] font-black text-text leading-[1.2] tracking-tight mb-2">
               We build the <span className="text-yellow-500 whitespace-nowrap">Neural Architecture</span><br />
               of modern business.
             </h2>
@@ -167,10 +167,10 @@ const Services = () => {
           <div className="flex flex-col gap-4">
             {SERVICES_DATA.filter(s => s.showOnMobile).map((srv) => (
               <div key={srv.title} className="flex flex-col pl-1">
-                <h3 className="text-[15px] font-bold text-text mb-1">
+                <h3 className="text-[17px] font-bold text-text mb-1">
                   {srv.title}
                 </h3>
-                <p className="text-[11px] text-text/80 mb-2 leading-relaxed pr-2">
+                <p className="text-[13px] text-text/80 mb-2 leading-relaxed pr-2">
                   {srv.description}
                 </p>
                 
@@ -179,7 +179,7 @@ const Services = () => {
                     {srv.items.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <div className="w-1 h-1 bg-yellow-500 rounded-sm shadow-[0_0_8px_rgba(234,179,8,0.4)]"></div>
-                        <span className="text-[9px] font-bold text-text/90 tracking-widest uppercase">
+                        <span className="text-[11px] font-bold text-text/90 tracking-widest uppercase">
                           {item}
                         </span>
                       </li>
@@ -190,10 +190,10 @@ const Services = () => {
             ))}
           </div>
 
-          <div className="mt-8 mb-4">
+          <div className="mt-8 mb-4 flex justify-center">
             <Button 
               variant="yellow" 
-              className="w-full h-14 rounded-full text-xs shadow-none font-black tracking-[0.2em] uppercase"
+              className="w-[280px] h-14 rounded-full text-[14px] md:text-[14px] shadow-none font-black tracking-[0.2em] uppercase"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH

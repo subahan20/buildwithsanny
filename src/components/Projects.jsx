@@ -189,7 +189,7 @@ const Projects = () => {
       <div className="max-w-[1440px] mx-auto px-4 md:px-4  relative z-10">
         <div className="mb-8 md:mb-5 text-center">
           <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-2">Showcase</h3>
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tight leading-[1.1] transition-colors">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tight leading-[1.1] transition-colors">
             What <span className="text-yellow-500 italic">I've shipped.</span>
           </h2>
         </div>
@@ -212,7 +212,7 @@ const Projects = () => {
             </Button>
             <Button 
               variant="yellow" 
-              className="w-full md:w-[260px] h-14 shadow-xl shadow-yellow-500/20 border-2 border-yellow-600/50 text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-all active:scale-95"
+              className="w-full md:w-[260px] h-14 shadow-xl shadow-yellow-500/20 border-2 border-yellow-600/50 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase transition-all active:scale-95"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               GET IN TOUCH

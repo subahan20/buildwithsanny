@@ -104,7 +104,7 @@ const Header = () => {
           <div className="flex items-center gap-2 md:gap-4">
           <div 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10 cursor-pointer hover:bg-green-500/10 transition-colors"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/5 border border-green-500/10 cursor-pointer hover:bg-green-500/10 transition-colors"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-green"></div>
             <span className="text-[10px] font-black text-green-500 uppercase tracking-[0.2em]">
@@ -123,7 +123,7 @@ const Header = () => {
                 const element = document.getElementById('contact');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] bg-yellow-500 text-slate-900 shadow-lg shadow-yellow-500/20 active:scale-95 transition-all cursor-pointer"
+              className="px-5 py-2 rounded-xl text-[12px] md:text-[10px] font-black uppercase tracking-[0.2em] bg-yellow-500 text-slate-900 shadow-lg shadow-yellow-500/20 active:scale-95 transition-all cursor-pointer"
             >
               CALL
             </button>
@@ -160,7 +160,7 @@ const Header = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xl font-black tracking-tight text-text">
+              <span className="text-[18px] md:text-[20px] font-black tracking-tighter text-text drop-shadow-[0_0_10px_rgba(255,255,255,0.1)] transition-all duration-300">
                 ScaleBySanny
               </span>
             </div>
@@ -211,7 +211,7 @@ const Header = () => {
                   transitionDelay: `${isMenuOpen ? 200 + (idx * 100) : 0}ms`,
                 }}
               >
-                <span className={`text-2xl md:text-3xl font-black uppercase tracking-[0.4em] transition-all duration-500 group-hover:scale-110 group-hover:tracking-[0.6em] ${
+                <span className={`text-[16px] md:text-[20px] font-black uppercase tracking-[0.3em] transition-all duration-500 group-hover:scale-110 group-hover:tracking-[0.4em] ${
                    activeSection === link.name.toUpperCase() ? 'text-yellow-500' : 'text-text'
                 }`}>
                   {link.name}

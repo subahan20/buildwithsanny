@@ -14,7 +14,7 @@ const Process = () => {
       <div className="max-w-[1440px] mx-auto px-8 relative z-10">
         {/* Section Header */}
         <div className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black tracking-tighter leading-[0.85] max-w-4xl text-transparent bg-clip-text bg-gradient-to-br from-slate-950 via-slate-900 to-slate-500 pb-2">
+          <h2 className="text-[26px] md:text-[45px] lg:text-[60px] font-black tracking-tighter leading-[0.85] max-w-4xl text-transparent bg-clip-text bg-gradient-to-br from-slate-950 via-slate-900 to-slate-500 pb-2">
             Strategic Deployment Cycle<span className="text-yellow-500">.</span>
           </h2>
         </div>

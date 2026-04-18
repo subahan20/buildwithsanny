@@ -10,7 +10,7 @@ const ThemeToggle = () => {
         console.log('Toggle button clicked');
         toggleTheme();
       }}
-      className="p-2 transition-all duration-300 group relative bg-transparent border-none"
+      className="p-2 transition-all duration-300 group relative bg-transparent border-none cursor-pointer"
       aria-label="Toggle Theme"
     >
       <div className="relative z-10 flex items-center justify-center">

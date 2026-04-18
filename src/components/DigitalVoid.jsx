@@ -8,7 +8,7 @@ const DigitalVoid = () => {
       <div className="max-w-[1440px] mx-auto px-4 md:px-4  relative z-10 flex flex-col items-center text-center">
         <div className="mb-4">
           <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">Synthesis</h3>
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors">
             Let's build your <span className="text-yellow-500 italic">Idea.</span>
           </h2>
         </div>

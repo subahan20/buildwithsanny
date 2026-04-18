@@ -10,6 +10,7 @@ const ContactForm = () => {
     company_name: '',
     phone_number: '',
     country_code: '+1',
+    address: '',
     interested_in: '',
     budget: '$5k - $10k',
     timeline: 'IMMEDIATE',
@@ -25,6 +26,7 @@ const ContactForm = () => {
     const alphabeticRegex = /^[a-zA-Z\s]+$/;
     const phoneRegex = /^\d{10}$/; // exactly 10 digits
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const addressRegex = /^[a-zA-Z0-9\s,.'#-]+$/;
 
     if (!formData.full_name.trim()) {
       errors.full_name = 'Full Name is required.';
@@ -48,6 +50,12 @@ const ContactForm = () => {
       errors.phone_number = 'Phone Number is required.';
     } else if (!phoneRegex.test(formData.phone_number)) {
       errors.phone_number = 'Mobile number must be exactly 10 digits without spaces or dashes.';
+    }
+
+    if (!formData.address.trim()) {
+      errors.address = 'Address is required.';
+    } else if (!addressRegex.test(formData.address)) {
+      errors.address = 'Address must contain only alphanumeric characters and basic punctuation.';
     }
 
     if (!formData.interested_in.trim()) {
@@ -107,6 +115,7 @@ const ContactForm = () => {
         company_name: '',
         phone_number: '',
         country_code: '+1',
+        address: '',
         interested_in: '',
         budget: '$5k - $10k',
         timeline: 'IMMEDIATE',
@@ -147,7 +156,7 @@ const ContactForm = () => {
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2 block">
                 INQUIRY HUB
               </span>
-              <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-6 transition-colors">
+              <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] mb-6 transition-colors">
                 Initiate your <span className="text-yellow-500 italic">Project.</span>
               </h2>
               <p className="text-text/50 text-[13px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed max-w-md mx-auto lg:mx-0 transition-colors">
@@ -248,6 +257,22 @@ const ContactForm = () => {
                   </div>
                 </div>
 
+                {/* Address Field: Full Width */}
+                <div className="space-y-1.5 relative mt-2">
+                  <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                    Address <span className="text-red-500">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    placeholder="123 INNOVATION BLVD, SUITE 400..." 
+                    className={`w-full bg-bg border ${formErrors.address ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                  />
+                  {formErrors.address && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.address}</p>}
+                </div>
+
                 {/* Grid 2: Selection */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
                    <div className="space-y-1.5 relative">
@@ -293,7 +318,7 @@ const ContactForm = () => {
                         key={p}
                         type="button"
                         onClick={() => setFormData(prev => ({ ...prev, timeline: p }))}
-                        className={`px-4 py-1.5 rounded-lg text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 border cursor-pointer whitespace-nowrap ${
+                        className={`px-4 py-1.5 rounded-lg text-[12px] md:text-[12px] font-black tracking-[0.2em] uppercase transition-all duration-300 border cursor-pointer whitespace-nowrap ${
                           formData.timeline === p 
                           ? 'bg-yellow-500/10 border-yellow-500 text-yellow-500' 
                           : 'bg-bg border-border/10 text-text/40 hover:border-border/20'
@@ -326,7 +351,7 @@ const ContactForm = () => {
                   <button 
                     type="submit"
                     disabled={loading}
-                    className="w-full md:w-[380px] mx-auto block bg-yellow-500 text-slate-900 h-14 rounded-full font-black uppercase tracking-[0.2em] text-[10px] md:text-sm shadow-2xl shadow-yellow-500/30 hover:scale-[1.02] transition-all active:scale-95 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="w-full md:w-[380px] mx-auto block bg-yellow-500 text-slate-900 h-14 rounded-full font-black uppercase tracking-[0.2em] text-[12px] md:text-sm shadow-2xl shadow-yellow-500/30 hover:scale-[1.02] transition-all active:scale-95 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {loading ? (
                       <div className="w-5 h-5 border-2 border-slate-900/30 border-t-slate-900 rounded-full animate-spin"></div>

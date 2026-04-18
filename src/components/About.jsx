@@ -23,7 +23,7 @@ const About = () => {
         <div className="flex-1 space-y-8 text-left">
           <div className="space-y-4">
             <span className="text-yellow-600 font-black uppercase tracking-[0.3em] text-[10px] md:text-[15px] bg-yellow-50 border border-yellow-100 px-3 py-1 rounded-full">About Me</span>
-            <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-slate-900 tracking-tighter leading-none">
+            <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-slate-900 tracking-tighter leading-none">
               Hey, I'm Sanny 👋
             </h2>
           </div>

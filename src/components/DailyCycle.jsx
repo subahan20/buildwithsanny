@@ -51,18 +51,18 @@ const DailyCycle = () => {
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="text-center mb-8">
           <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2">// CYCLE</h3>
-          <h2 className="text-[26px] md:text-[45px] xl:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors">
+          <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors">
             Our days consist of <span className="text-yellow-500 italic">three things...</span>
           </h2>
         </div>
 
-        <div className="max-w-6xl space-y-5 mx-auto">
+        <div className="max-w-[1440px] grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto">
           {steps.map((step, idx) => (
             <div 
               key={idx} 
-              className="flex flex-col lg:flex-row items-center gap-3 group transition-all duration-700"
+              className="group transition-all duration-700 flex w-full"
             >
-              <div className="w-full flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20">
+              <div className="w-full flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20 flex flex-col justify-start">
                 <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                   {step.icon}
                 </div>
@@ -84,7 +84,7 @@ const DailyCycle = () => {
         <div className="mt-8 mb-0 flex flex-col items-center">
           <Button 
             variant="yellow" 
-            className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-xs md:text-sm font-black tracking-[0.2em] uppercase transition-transform hover:scale-[1.03]"
+            className="w-[260px] h-14 rounded-full shadow-2xl shadow-yellow-500/30 text-[14px] md:text-[14px] font-black tracking-[0.2em] uppercase transition-transform hover:scale-[1.03]"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             CONTACT US

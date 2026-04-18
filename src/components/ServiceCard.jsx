@@ -12,16 +12,16 @@ const ServiceCard = ({ title, items, icon }) => {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-          <h3 className="text-lg sm:text-xl md:text-[22px] lg:text-[26px] xl:text-[30px] font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 leading-none">
+        <div className="flex flex-col gap-1 md:gap-2 lg:gap-2.5 flex-1 min-w-0">
+          <h3 className="text-[20px] sm:text-xl md:text-[23px] lg:text-[25px] font-black text-text tracking-tight group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-500 leading-none">
             {title}
           </h3>
 
-          <div className="flex flex-wrap items-center gap-x-3 md:gap-x-5 gap-y-0.5">
+          <div className="flex flex-wrap items-center gap-x-3 md:gap-x-5 gap-y-1 md:gap-y-2">
             {items.map((item, idx) => (
               <div key={idx} className="flex items-center gap-1.5 group/item">
                 <span className="w-1 h-1 rounded-full bg-yellow-500 shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.4)]"></span>
-                <span className="text-[9px] md:text-[10px] xl:text-[12px] font-black uppercase tracking-[0.2em] text-text/40 group-hover:text-text/70 transition-colors whitespace-nowrap">
+                <span className="text-[9px] md:text-[15px] lg:text-[16px] xl:text-[17px] font-black uppercase tracking-[0.2em] text-text/40 group-hover:text-text/70 transition-colors whitespace-nowrap">
                   {item}
                 </span>
               </div>
