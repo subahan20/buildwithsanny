@@ -3,6 +3,93 @@ import { supabase } from '../lib/supabase';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const countryCodesList = [
+  { code: '+1', label: 'US' },
+  { code: '+7', label: 'RU' },
+  { code: '+20', label: 'EG' },
+  { code: '+27', label: 'ZA' },
+  { code: '+30', label: 'GR' },
+  { code: '+31', label: 'NL' },
+  { code: '+32', label: 'BE' },
+  { code: '+33', label: 'FR' },
+  { code: '+34', label: 'ES' },
+  { code: '+36', label: 'HU' },
+  { code: '+39', label: 'IT' },
+  { code: '+40', label: 'RO' },
+  { code: '+41', label: 'CH' },
+  { code: '+43', label: 'AT' },
+  { code: '+44', label: 'UK' },
+  { code: '+45', label: 'DK' },
+  { code: '+46', label: 'SE' },
+  { code: '+47', label: 'NO' },
+  { code: '+48', label: 'PL' },
+  { code: '+49', label: 'DE' },
+  { code: '+51', label: 'PE' },
+  { code: '+52', label: 'MX' },
+  { code: '+53', label: 'CU' },
+  { code: '+54', label: 'AR' },
+  { code: '+55', label: 'BR' },
+  { code: '+56', label: 'CL' },
+  { code: '+57', label: 'CO' },
+  { code: '+58', label: 'VE' },
+  { code: '+60', label: 'MY' },
+  { code: '+61', label: 'AU' },
+  { code: '+62', label: 'ID' },
+  { code: '+63', label: 'PH' },
+  { code: '+64', label: 'NZ' },
+  { code: '+65', label: 'SG' },
+  { code: '+66', label: 'TH' },
+  { code: '+81', label: 'JP' },
+  { code: '+82', label: 'KR' },
+  { code: '+84', label: 'VN' },
+  { code: '+86', label: 'CN' },
+  { code: '+90', label: 'TR' },
+  { code: '+91', label: 'IN' },
+  { code: '+92', label: 'PK' },
+  { code: '+93', label: 'AF' },
+  { code: '+94', label: 'LK' },
+  { code: '+95', label: 'MM' },
+  { code: '+98', label: 'IR' },
+  { code: '+212', label: 'MA' },
+  { code: '+213', label: 'DZ' },
+  { code: '+216', label: 'TN' },
+  { code: '+218', label: 'LY' },
+  { code: '+220', label: 'GM' },
+  { code: '+221', label: 'SN' },
+  { code: '+222', label: 'MR' },
+  { code: '+223', label: 'ML' },
+  { code: '+224', label: 'GN' },
+  { code: '+225', label: 'CI' },
+  { code: '+226', label: 'BF' },
+  { code: '+227', label: 'NE' },
+  { code: '+228', label: 'TG' },
+  { code: '+229', label: 'BJ' },
+  { code: '+230', label: 'MU' },
+  { code: '+231', label: 'LR' },
+  { code: '+232', label: 'SL' },
+  { code: '+233', label: 'GH' },
+  { code: '+234', label: 'NG' },
+  { code: '+254', label: 'KE' },
+  { code: '+255', label: 'TZ' },
+  { code: '+256', label: 'UG' },
+  { code: '+260', label: 'ZM' },
+  { code: '+263', label: 'ZW' },
+  { code: '+351', label: 'PT' },
+  { code: '+353', label: 'IE' },
+  { code: '+354', label: 'IS' },
+  { code: '+358', label: 'FI' },
+  { code: '+375', label: 'BY' },
+  { code: '+380', label: 'UA' },
+  { code: '+381', label: 'RS' },
+  { code: '+385', label: 'HR' },
+  { code: '+420', label: 'CZ' },
+  { code: '+421', label: 'SK' },
+  { code: '+880', label: 'BD' },
+  { code: '+966', label: 'SA' },
+  { code: '+971', label: 'AE' },
+  { code: '+972', label: 'IL' }
+];
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     full_name: '',
@@ -11,6 +98,8 @@ const ContactForm = () => {
     phone_number: '',
     country_code: '+1',
     address: '',
+    city: '',
+    country: '',
     interested_in: '',
     budget: '$5k - $10k',
     timeline: 'IMMEDIATE',
@@ -56,6 +145,18 @@ const ContactForm = () => {
       errors.address = 'Address is required.';
     } else if (!addressRegex.test(formData.address)) {
       errors.address = 'Address must contain only alphanumeric characters and basic punctuation.';
+    }
+
+    if (!formData.city.trim()) {
+      errors.city = 'City is required.';
+    } else if (!alphabeticRegex.test(formData.city)) {
+      errors.city = 'City must contain only alphabets.';
+    }
+
+    if (!formData.country.trim()) {
+      errors.country = 'Country is required.';
+    } else if (!alphabeticRegex.test(formData.country)) {
+      errors.country = 'Country must contain only alphabets.';
     }
 
     if (!formData.interested_in.trim()) {
@@ -116,6 +217,8 @@ const ContactForm = () => {
         phone_number: '',
         country_code: '+1',
         address: '',
+        city: '',
+        country: '',
         interested_in: '',
         budget: '$5k - $10k',
         timeline: 'IMMEDIATE',
@@ -237,12 +340,11 @@ const ContactForm = () => {
                         onChange={handleInputChange}
                         className="w-16 md:w-20 bg-bg border border-border/20 px-2 py-3 rounded-xl text-text font-bold focus:border-yellow-500 transition-all appearance-none cursor-pointer text-center text-xs outline-none"
                       >
-                        <option value="+1">+1 (US)</option>
-                        <option value="+91">+91 (IN)</option>
-                        <option value="+44">+44 (UK)</option>
-                        <option value="+61">+61 (AU)</option>
-                        <option value="+49">+49 (DE)</option>
-                        <option value="+33">+33 (FR)</option>
+                        {countryCodesList.map((country, index) => (
+                          <option key={index} value={country.code}>
+                            {country.code} ({country.label})
+                          </option>
+                        ))}
                       </select>
                       <input 
                         type="text" 
@@ -271,6 +373,38 @@ const ContactForm = () => {
                     className={`w-full bg-bg border ${formErrors.address ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
                   />
                   {formErrors.address && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.address}</p>}
+                </div>
+
+                {/* City and Country Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-2">
+                  <div className="space-y-1.5 relative">
+                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                      City <span className="text-red-500">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      name="city"
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      placeholder="NEW YORK" 
+                      className={`w-full bg-bg border ${formErrors.city ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                    />
+                    {formErrors.city && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.city}</p>}
+                  </div>
+                  <div className="space-y-1.5 relative">
+                    <label className="text-[9px] md:text-[12px] font-black text-text uppercase tracking-widest px-1 opacity-80">
+                      Country <span className="text-red-500">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      name="country"
+                      value={formData.country}
+                      onChange={handleInputChange}
+                      placeholder="UNITED STATES" 
+                      className={`w-full bg-bg border ${formErrors.country ? 'border-red-500 focus:border-red-500' : 'border-border/20 focus:border-yellow-500'} px-4 py-3 rounded-xl text-text font-bold transition-all placeholder:text-text/30 text-xs outline-none`} 
+                    />
+                    {formErrors.country && <p className="text-red-500 text-[10px] font-bold px-1 mt-0.5">{formErrors.country}</p>}
+                  </div>
                 </div>
 
                 {/* Grid 2: Selection */}
