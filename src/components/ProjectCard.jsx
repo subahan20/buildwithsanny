@@ -1,8 +1,14 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
-const ProjectCard = ({ name, type, duration, description, logo, demoLink = "#", studyLink = "#" }) => {
+const ProjectCard = ({ name, type, duration, description, logo, darkLogo, demoLink = "#", studyLink = "#" }) => {
+  const { theme } = useTheme();
+  const activeLogo = (theme === 'dark' && darkLogo) ? darkLogo : logo;
   return (
-    <div className="bg-card p-4 md:p-5 rounded-[2rem] border border-border hover:bg-card/70 hover:border-yellow-500 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 flex flex-col group cursor-default h-full relative overflow-hidden">
+    <div 
+      className="bg-card p-4 md:p-5 rounded-[2rem] border border-border hover:bg-card/70 hover:border-yellow-500 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 flex flex-col group cursor-pointer h-full relative overflow-hidden hover:-translate-y-1 hover:scale-[1.01]"
+      onClick={() => demoLink !== "#" && window.open(demoLink, '_blank')}
+    >
       {/* Top Section: Title & Logo */}
       <div className="flex justify-between items-start mb-2 md:mb-3">
         <div className="space-y-0.5 flex-1 min-w-0">
@@ -25,16 +31,16 @@ const ProjectCard = ({ name, type, duration, description, logo, demoLink = "#", 
           </div>
         </div>
 
-        {/* Project Logo Square */}
-        <div className={`w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-500 shadow-sm border border-yellow-500/20 group-hover:scale-110 shrink-0 ml-4 ${
+        {/* Project Logo Slot (Clean & Large) */}
+        <div className={`w-20 md:w-32 h-12 md:h-16 flex items-center justify-center transition-all duration-500 group-hover:scale-110 shrink-0 ml-4 ${
           typeof logo === 'string' && logo.length <= 4 
-            ? 'bg-yellow-500/10 text-lg group-hover:bg-yellow-500 group-hover:text-slate-900' 
-            : 'bg-bg dark:bg-slate-800'
+            ? 'bg-yellow-500/10 rounded-lg text-lg group-hover:bg-yellow-500 group-hover:text-slate-900 border border-yellow-500/20' 
+            : ''
         }`}>
           {typeof logo === 'string' && logo.length <= 4 ? (
             logo || "🚀"
           ) : (
-            <img src={logo} alt={name} className="w-full h-full object-cover" />
+            <img src={activeLogo} alt={name} className="w-full h-full object-contain" />
           )}
         </div>
       </div>

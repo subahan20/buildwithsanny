@@ -19,15 +19,17 @@ import zastraLogo from '../assets/projects/zastra-logo.png';
 import almaLogo from '../assets/projects/alma-clinics-logo.png';
 import adelphoiLogo from '../assets/projects/adelphoi-logo.png';
 import epratibhaLogo from '../assets/projects/epratibha.png';
-import tenThousandCodersLogo from '../assets/projects/ten-thousand-coders.png';
+import tenThousandCodersLogo from '../assets/logo-10k.png';
+import tenThousandCodersLogoWhite from '../assets/logo-10k-white.png';
 
 const PROJECTS_DATA = [
   {
-    name: "10000 Coders",
+    name: "10000coders",
     type: "EdTech Platform",
     duration: "Built in 84 Weeks",
     description: "South India’s large-scale outcome-driven coding platform transforming beginners into job-ready software engineers. Features an end-to-end LMS, mentorship ecosystems, and robust placement workflows.",
     logo: tenThousandCodersLogo,
+    darkLogo: tenThousandCodersLogoWhite,
     demoLink: "https://10000coders.co/",
     studyLink: "#"
   },

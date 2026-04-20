@@ -62,7 +62,7 @@ const DailyCycle = () => {
               key={idx} 
               className="group transition-all duration-700 flex w-full"
             >
-              <div className="w-full flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20 flex flex-col justify-start">
+              <div className="w-full flex-1 bg-card border border-border/10 rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden transition-all hover:-translate-y-2 group-hover:border-yellow-500/20 flex flex-col justify-start cursor-pointer">
                 <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-30 transition-opacity duration-700">
                   {step.icon}
                 </div>
