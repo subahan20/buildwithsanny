@@ -203,7 +203,7 @@ const Projects = () => {
         <div className="mb-8 md:mb-5 text-center">
           <h3 className="text-[10px] md:text-[15px] font-black uppercase tracking-[0.3em] text-yellow-500 mb-2">Showcase</h3>
           <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tight leading-[1.1] transition-colors">
-            What <span className="text-yellow-500 italic">I've shipped.</span>
+            What <span className="text-yellow-500 italic">we've shipped.</span>
           </h2>
         </div>
 

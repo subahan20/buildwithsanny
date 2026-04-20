@@ -23,7 +23,7 @@ const HeroForm = () => {
   ];
 
   const content = {
-    bio: "\"The Startup Builder Who Speaks and Builds Both AI and Code\" - I turn founder ideas into live products - SaaS, mobile, AI agents - shipped fast.",
+    bio: "\"The Startup Builder Who Speaks and Builds Both AI and Code\" - We turn founder ideas into live products - SaaS, mobile, AI agents - shipped fast.",
     features: [
       { icon: "⚡", text: "From MVP -> Scale -> Automation" },
       { 

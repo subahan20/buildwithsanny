@@ -127,7 +127,7 @@ const Services = () => {
               <span className="text-yellow-500 font-bold uppercase tracking-[0.4em] text-[10px] md:text-[15px]">Expertise</span>
             </div>
             <h2 className="text-[27px] md:text-[45px] lg:text-[60px] font-black text-text tracking-tighter leading-[1.1] transition-colors max-w-4xl">
-              I build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span><br className="hidden md:block" /> of modern business.
+              We build the <span className="text-yellow-500 dark:text-yellow-400">Neural Architecture</span><br className="hidden md:block" /> of modern business.
             </h2>
           </div>
 
@@ -159,7 +159,7 @@ const Services = () => {
         <div className="block md:hidden">
           <div className="mb-[30px] pl-1">
             <h2 className="text-[27px] font-black text-text leading-[1.2] tracking-tight mb-2">
-              I build the <span className="text-yellow-500 whitespace-nowrap">Neural Architecture</span><br />
+              We build the <span className="text-yellow-500 whitespace-nowrap">Neural Architecture</span><br />
               of modern business.
             </h2>
             <div className="w-8 h-[1px] bg-yellow-500/60"></div>

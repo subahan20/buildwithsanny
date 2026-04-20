@@ -96,9 +96,9 @@ const ContactForm = () => {
     email: '',
     company_name: '',
     phone_number: '',
-    country_code: '+1',
+    country_code: '+91',
     alt_phone_number: '',
-    alt_country_code: '+1',
+    alt_country_code: '+91',
     address: '',
     city: '',
     country: '',
@@ -246,9 +246,9 @@ const ContactForm = () => {
 
     const submissionData = {
       ...dataToSubmit,
-      phone_number: `${country_code || '+1'} ${(phone_number || '').replace(/\D/g, '')}`,
+      phone_number: `${country_code || '+91'} ${(phone_number || '').replace(/\D/g, '')}`,
       alt_phone_number: (alt_phone_number || '').trim() 
-        ? `${alt_country_code || '+1'} ${(alt_phone_number || '').replace(/\D/g, '')}` 
+        ? `${alt_country_code || '+91'} ${(alt_phone_number || '').replace(/\D/g, '')}` 
         : null,
       created_at: localTimeForDB
     };
@@ -271,9 +271,9 @@ const ContactForm = () => {
         email: '',
         company_name: '',
         phone_number: '',
-        country_code: '+1',
+        country_code: '+91',
         alt_phone_number: '',
-        alt_country_code: '+1',
+        alt_country_code: '+91',
         address: '',
         city: '',
         country: '',
