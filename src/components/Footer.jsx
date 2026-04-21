@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-text/50 text-[15px] md:text-[16px] lg:text-[18px] font-bold leading-relaxed max-w-xs lg:max-w-sm transition-colors">
-              <span className="text-text">One builder. Any domain. Every founder.</span> I selected few clients at a time - giving each product the full attention it deserves. AI solutions, web apps, UI/UX, and complex backend systems - if it helps your business grow, I build it.
+              <span className="text-text">One builder. Any domain. Every founder.</span> we selected few clients at a time - giving each product the full attention it deserves. AI solutions, web apps, UI/UX, and complex backend systems - if it helps your business grow, we build it.
             </p>
           </div>
 
