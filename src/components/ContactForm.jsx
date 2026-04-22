@@ -153,40 +153,80 @@ const ContactForm = () => {
     } = formData;
 
     const errors = {};
-    const alphabeticRegex = /^[a-zA-Z\s]+$/;
+    const alphabeticRegex = /^[a-zA-Z\s.'-]+$/;
     const phoneRegex = /^\d{10}$/; // exactly 10 digits
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const addressRegex = /^[a-zA-Z0-9\s,.'#-]+$/;
 
     // Helper: Detect repetitive, sequential, or gibberish junk
-    const isJunkText = (str) => {
-      if (!str) return false;
-      // Clean to only lowercase letters
+    const getJunkRejectionReason = (str) => {
+      if (!str) return { isValid: true };
       const cleaned = str.toLowerCase().trim().replace(/[^a-z]/g, '');
-      if (!cleaned) return false; // Non-alphabetic strings handled by other regexes
+      if (!cleaned || cleaned.length < 2) return { isValid: true };
+
+      // Trusted short names/acronyms/abbreviations
+      const trustedShorts = ['tcs', 'ibm', 'hcl', 'hp', 'it', 'ai', 'ui', 'ux', 'ml', 'dev', 'saas', 'crm', 'erp', 'lms', 'app', 'web', 'kphb', 'dr', 'st', 'rd', 'hno', 'plot'];
+      if (trustedShorts.includes(cleaned)) return { isValid: true };
       
-      // 1. Repetitive characters (e.g., "aaaaa")
-      if (/(.)\1{4,}/.test(cleaned)) return true;
+      // 1. Repetitive characters
+      if (/(.)\1{2,}/.test(cleaned)) return { isValid: false, reason: 'Please avoid using too many repeating characters.' };
       
-      // 2. Keyboard mash patterns & Placeholders
-      const patterns = ['abc', 'xyz', 'asdf', 'qwerty', 'ghjkl', 'test', 'demo', 'user', 'none', 'qwer', 'zxcv', 'fghj'];
-      if (patterns.some(p => cleaned === p || (cleaned.length < 8 && cleaned.includes(p)))) return true;
+      // 2. Keyboard patterns & Greetings
+      const patterns = [
+        'abc', 'xyz', 'asdf', 'qwerty', 'ghjkl', 'test', 'demo', 'user', 'none', 
+        'qwer', 'zxcv', 'fghj', 'sdfg', 'dfgh', 'hjkl', 'tyui', 'uiop', 'bnm',
+        'jkl', 'xcv', 'vbn', 'ert', 'rty', 'asd', 'fgh', 'qaz', 'wsx', 'edc', 
+        'rfv', 'tgb', 'yhn', 'ujm', 'ik', 'ol', 'hii', 'hello', 'hey', 'hola'
+      ];
+      if (patterns.some(p => cleaned === p)) return { isValid: false, reason: 'Please enter a valid word instead of a greeting or placeholder.' };
+      if (patterns.some(p => p.length >= 3 && cleaned.length < 12 && cleaned.includes(p))) return { isValid: false, reason: 'Please ensure you are entering a meaningful word.' };
       
-      if (cleaned.length > 4) {
-        // 3. Vowel & Consonant Heuristics (Gibberish Detection)
+      // 3. Adjacency & Repeat Ratio
+      if (cleaned.length >= 4) {
+        const adjPairs = [
+          'qw','we','er','rt','ty','yu','ui','io','op',
+          'as','sd','df','fg','gh','hj','jk','kl',
+          'zx','xc','cv','vb','bn','nm',
+          'aq','sw','de','fr','gt','hy','ju','ki','lo',
+          'za','xs','cd','vf','bg','nh','mj'
+        ];
+        let adjCount = 0;
+        for (let i = 0; i < cleaned.length - 1; i++) {
+          const pair = cleaned[i] + cleaned[i+1];
+          const revPair = cleaned[i+1] + cleaned[i];
+          if (adjPairs.includes(pair) || adjPairs.includes(revPair) || cleaned[i] === cleaned[i+1]) {
+            adjCount++;
+          }
+        }
+        if (adjCount / (cleaned.length - 1) > 0.85) return { isValid: false, reason: 'Please ensure you have entered a proper name or word.' };
+      }
+
+      if (cleaned.length >= 3) {
+        // 4. Vowel & Consonant Heuristics
         const vowels = cleaned.match(/[aeiouy]/g) || [];
         const vowelRatio = vowels.length / cleaned.length;
         
-        // Typical human names/words have 25-50% vowels. 
-        // Random typing like "dfdfkskdop" (1/10 = 10%) will fail.
-        if (vowelRatio < 0.25) return true;
+        if (vowelRatio < 0.15 && !trustedShorts.includes(cleaned)) return { isValid: false, reason: 'Please check the spelling of your entry.' };
+        if (vowelRatio > 0.90) return { isValid: false, reason: 'Please provide a valid name or word.' };
 
-        // Long consonant cluster check (e.g. "dfdfksk")
-        // 5+ consecutive consonants is very suspicious
-        if (/[bcdfghjklmnpqrstvwxz]{5,}/.test(cleaned)) return true;
+        // 5. Cluster checks
+        if (/[aeiouy]{4,}/.test(cleaned)) return { isValid: false, reason: 'Please provide a valid and readable word.' };
+        // Relaxed consonant cluster limit for addresses/abbreviations
+        if (/[bcdfghjklmnpqrstvwxz]{6,}/.test(cleaned)) return { isValid: false, reason: 'Please ensure the spelling of your entry is correct.' };
+
+        // 6. Specific rare combinations
+        const rareBigrams = ['qj', 'qx', 'qk', 'qz', 'qv', 'qp', 'qm', 'vj', 'vx', 'vk', 'vq', 'vw', 'jk', 'jx', 'jq', 'jv', 'jf', 'jg', 'jh', 'jz'];
+        if (rareBigrams.some(p => cleaned.includes(p))) return { isValid: false, reason: 'Please enter a valid and professional name.' };
+      }
+
+      if (cleaned.length > 5) {
+        // 7. Character Diversity
+        const uniqueChars = new Set(cleaned).size;
+        const diversityRatio = uniqueChars / cleaned.length;
+        if (diversityRatio < 0.40) return { isValid: false, reason: 'Please provide a more unique and descriptive entry.' };
       }
       
-      return false;
+      return { isValid: true };
     };
 
     // Helper: Detect suspicious phone patterns
@@ -202,43 +242,54 @@ const ContactForm = () => {
 
     const trimmedFullName = (full_name || '').trim();
     if (!trimmedFullName) {
-      errors.full_name = 'Full Name is required.';
+      errors.full_name = 'Please provide your full name.';
     } else if (trimmedFullName.length < 3) {
-      errors.full_name = 'Full Name must be at least 3 characters.';
+      errors.full_name = 'Please enter a name with at least 3 characters.';
     } else if (!alphabeticRegex.test(trimmedFullName)) {
-      errors.full_name = 'Full Name must contain only alphabets.';
-    } else if (isJunkText(trimmedFullName)) {
-      errors.full_name = 'Please enter a valid full name.';
+      errors.full_name = 'Please use only alphabetic characters for your name.';
+    } else {
+      const words = trimmedFullName.split(' ');
+      for (const word of words) {
+        const check = getJunkRejectionReason(word);
+        if (!check.isValid) {
+          errors.full_name = check.reason;
+          break;
+        }
+      }
     }
 
     const trimmedEmail = (email || '').trim();
     if (!trimmedEmail) {
-      errors.email = 'Email Address is required.';
+      errors.email = 'Please provide your email address.';
     } else if (!emailRegex.test(trimmedEmail)) {
-      errors.email = 'Please enter a valid email address.';
+      errors.email = 'Please enter a valid email address format.';
     } else {
       const emailPrefix = trimmedEmail.split('@')[0];
-      if (isJunkText(emailPrefix) || trimmedEmail.includes('example.com') || trimmedEmail.startsWith('test@')) {
-        errors.email = 'Please provide a legitimate email address.';
+      const check = getJunkRejectionReason(emailPrefix);
+      if (!check.isValid || trimmedEmail.includes('example.com') || trimmedEmail.startsWith('test@')) {
+        errors.email = !check.isValid ? check.reason : 'Please provide a legitimate business email address.';
       }
     }
 
     const trimmedCompany = (company_name || '').trim();
     if (trimmedCompany) {
       if (!alphabeticRegex.test(trimmedCompany)) {
-        errors.company_name = 'Company Name must contain only alphabets.';
-      } else if (isJunkText(trimmedCompany)) {
-        errors.company_name = 'Please enter a valid company name.';
+        errors.company_name = 'Please use only alphabets for the company name.';
+      } else {
+        const check = getJunkRejectionReason(trimmedCompany);
+        if (!check.isValid) {
+          errors.company_name = check.reason;
+        }
       }
     }
 
     const trimmedPhone = (phone_number || '').trim();
     if (!trimmedPhone) {
-      errors.phone_number = 'Phone Number is required.';
+      errors.phone_number = 'Please enter your phone number.';
     } else if (!phoneRegex.test(trimmedPhone)) {
-      errors.phone_number = 'Mobile number must be exactly 10 digits.';
+      errors.phone_number = 'Please enter exactly 10 digits for your mobile number.';
     } else if (isFakePhone(trimmedPhone)) {
-      errors.phone_number = 'Please enter a valid mobile number.';
+      errors.phone_number = 'Please enter a valid and active mobile number.';
     }
 
     const trimmedAltPhone = (alt_phone_number || '').trim();
@@ -252,57 +303,93 @@ const ContactForm = () => {
 
     const trimmedAddress = (address || '').trim();
     if (!trimmedAddress) {
-      errors.address = 'Address is required.';
-    } else if (trimmedAddress.length < 10) {
-      errors.address = 'Please enter a complete address (minimum 10 characters).';
+      errors.address = 'Please provide your address.';
     } else if (!addressRegex.test(trimmedAddress)) {
-      errors.address = 'Address contains invalid characters.';
-    } else if (isJunkText(trimmedAddress)) {
-      errors.address = 'Please provide a valid address.';
+      errors.address = 'Please check for invalid characters in your address.';
+    } else {
+      const check = getJunkRejectionReason(trimmedAddress);
+      if (!check.isValid) {
+        errors.address = check.reason;
+      }
     }
 
     const trimmedCity = (city || '').trim();
     if (!trimmedCity) {
-      errors.city = 'City is required.';
-    } else if (trimmedCity.length < 2) {
-      errors.city = 'Please enter a valid city name.';
-    } else if (!alphabeticRegex.test(trimmedCity)) {
-      errors.city = 'City must contain only alphabets.';
-    } else if (isJunkText(trimmedCity)) {
-      errors.city = 'Please enter a valid city name.';
+      errors.city = 'Please enter your city.';
+    } else {
+      const cityInput = trimmedCity.toLowerCase();
+      const majorCities = [
+        'mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'ahmedabad', 'surat', 'jaipur', 'lucknow',
+        'new york', 'london', 'dubai', 'singapore', 'tokyo', 'paris', 'hong kong', 'chicago', 'shanghai', 'los angeles', 'sydney',
+        'toronto', 'san francisco', 'berlin', 'madrid', 'seoul', 'beijing', 'amsterdam', 'rome', 'vancouver', 'melbourne',
+        'mexico city', 'sao paulo', 'buenos aires', 'istanbul', 'riyadh', 'bangkok', 'jakarta', 'manila', 'cairo', 'johannesburg',
+        'moscow', 'vienna', 'zurich', 'abu dhabi', 'doha', 'kuwait city', 'manama', 'muscat', 'shiraz', 'tehran'
+      ];
+      
+      const check = getJunkRejectionReason(trimmedCity);
+      const partialMatch = majorCities.find(c => c.startsWith(cityInput) && c !== cityInput && cityInput.length >= 3);
+      
+      if (partialMatch) {
+        errors.city = 'Please enter the full city name.';
+      } else if (!majorCities.includes(cityInput) && !check.isValid) {
+        errors.city = check.reason;
+      } else if (trimmedCity.length < 2) {
+        errors.city = 'Please enter a valid city name.';
+      }
     }
 
     const trimmedCountry = (country || '').trim();
     if (!trimmedCountry) {
       errors.country = 'Country is required.';
-    } else if (trimmedCountry.length < 2) {
-      errors.country = 'Please enter a valid country name.';
-    } else if (!alphabeticRegex.test(trimmedCountry)) {
-      errors.country = 'Country must contain only alphabets.';
-    } else if (isJunkText(trimmedCountry)) {
-      errors.country = 'Please enter a valid country name.';
+    } else {
+      const countryInput = trimmedCountry.toLowerCase();
+      const validCountries = [
+        'afghanistan', 'albania', 'algeria', 'andorra', 'angola', 'antigua and barbuda', 'argentina', 'armenia', 'australia', 'austria', 'azerbaijan',
+        'bahamas', 'bahrain', 'bangladesh', 'barbados', 'belarus', 'belgium', 'belize', 'benin', 'bhutan', 'bolivia', 'bosnia and herzegovina', 'botswana', 'brazil', 'brunei', 'bulgaria', 'burkina faso', 'burundi',
+        'cabo verde', 'cambodia', 'cameroon', 'canada', 'central african republic', 'chad', 'chile', 'china', 'colombia', 'comoros', 'congo', 'costa rica', 'croatia', 'cuba', 'cyprus', 'czech republic',
+        'denmark', 'djibouti', 'dominica', 'dominican republic', 'ecuador', 'egypt', 'el salvador', 'equatorial guinea', 'eritrea', 'estonia', 'eswatini', 'ethiopia',
+        'fiji', 'finland', 'france', 'gabon', 'gambia', 'georgia', 'germany', 'ghana', 'greece', 'grenada', 'guatemala', 'guinea', 'guinea-bissau', 'guyana',
+        'haiti', 'honduras', 'hungary', 'iceland', 'india', 'indonesia', 'iran', 'iraq', 'ireland', 'israel', 'italy', 'ivory coast',
+        'jamaica', 'japan', 'jordan', 'kazakhstan', 'kenya', 'kiribati', 'kuwait', 'kyrgyzstan', 'laos', 'latvia', 'lebanon', 'lesotho', 'liberia', 'libya', 'liechtenstein', 'lithuania', 'luxembourg',
+        'madagascar', 'malawi', 'malaysia', 'maldives', 'mali', 'malta', 'marshall islands', 'mauritania', 'mauritius', 'mexico', 'micronesia', 'moldova', 'monaco', 'mongolia', 'montenegro', 'morocco', 'mozambique', 'myanmar',
+        'namibia', 'nauru', 'nepal', 'netherlands', 'new zealand', 'nicaragua', 'niger', 'nigeria', 'north korea', 'north macedonia', 'norway', 'oman',
+        'pakistan', 'palau', 'palestine', 'panama', 'papua new guinea', 'paraguay', 'peru', 'philippines', 'poland', 'portugal', 'qatar',
+        'romania', 'russia', 'rwanda', 'saint kitts and nevis', 'saint lucia', 'saint vincent and the grenadines', 'samoa', 'san marino', 'sao tome and principe', 'saudi arabia', 'senegal', 'serbia', 'seychelles', 'sierra leone', 'singapore', 'slovakia', 'slovenia', 'solomon islands', 'somalia', 'south africa', 'south korea', 'south sudan', 'spain', 'sri lanka', 'sudan', 'suriname', 'sweden', 'switzerland', 'syria',
+        'taiwan', 'tajikistan', 'tanzania', 'thailand', 'timor-leste', 'togo', 'tonga', 'trinidad and tobago', 'tunisia', 'turkey', 'turkmenistan', 'tuvalu',
+        'uganda', 'ukraine', 'united arab emirates', 'uae', 'united kingdom', 'uk', 'united states', 'usa', 'us', 'uruguay', 'uzbekistan',
+        'vanuatu', 'vatican city', 'venezuela', 'vietnam', 'yemen', 'zambia', 'zimbabwe'
+      ];
+      if (!validCountries.includes(countryInput)) {
+        errors.country = 'Please enter a valid country name.';
+      }
     }
 
     const trimmedInterested = (interested_in || '').trim();
     if (!trimmedInterested) {
-      errors.interested_in = 'This field is required.';
+      errors.interested_in = 'Please let us know what you would like to build.';
     } else if (trimmedInterested.length < 3) {
-      errors.interested_in = 'Please provide more detail.';
-    } else if (isJunkText(trimmedInterested)) {
-      errors.interested_in = 'Please enter a valid response.';
+      errors.interested_in = 'Please provide a bit more detail.';
+    } else {
+      const check = getJunkRejectionReason(trimmedInterested);
+      if (!check.isValid) {
+        errors.interested_in = check.reason;
+      }
     }
 
     const trimmedMessage = (message || '').trim();
     if (!trimmedMessage) {
-      errors.message = 'Vision Brief is required.';
+      errors.message = 'Please provide a brief overview of your vision.';
     } else {
       const words = trimmedMessage.split(/\s+/).filter(w => w.length > 0);
       const commonGreetings = ['hi', 'hello', 'hey', 'hii', 'hellooo', 'heyya', 'test', 'demo', 'asdf', 'asdfgh'];
+      const check = getJunkRejectionReason(trimmedMessage);
       
       if (words.length < 5 || trimmedMessage.length < 20 || 
           words.every(word => commonGreetings.includes(word.toLowerCase().replace(/[^a-z]/g, ''))) || 
-          isJunkText(trimmedMessage)) {
-        errors.message = 'Please enter a clear and meaningful message. This field is intended for business communication.';
+          !check.isValid) {
+        errors.message = !check.isValid 
+          ? check.reason 
+          : 'Please enter a more descriptive message (minimum 5 words).';
       }
     }
 
