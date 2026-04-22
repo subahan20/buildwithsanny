@@ -493,7 +493,7 @@ const ContactForm = () => {
           <div className="space-y-8 text-center lg:text-left">
             <div>
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-yellow-500 mb-2 block">
-                INQUIRY HUB
+                INQUIRY
               </span>
               <h2 className="text-[27px] md:text-[45px] lg:text-[42px] font-black text-text tracking-tighter leading-[1] mb-3 transition-colors">
                 Initiate your <span className="text-yellow-500 italic">Project.</span>
