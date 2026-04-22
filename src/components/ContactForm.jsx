@@ -158,11 +158,57 @@ const ContactForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const addressRegex = /^[a-zA-Z0-9\s,.'#-]+$/;
 
+    // Helper: Detect repetitive, sequential, or gibberish junk
+    const isJunkText = (str) => {
+      if (!str) return false;
+      // Clean to only lowercase letters
+      const cleaned = str.toLowerCase().trim().replace(/[^a-z]/g, '');
+      if (!cleaned) return false; // Non-alphabetic strings handled by other regexes
+      
+      // 1. Repetitive characters (e.g., "aaaaa")
+      if (/(.)\1{4,}/.test(cleaned)) return true;
+      
+      // 2. Keyboard mash patterns & Placeholders
+      const patterns = ['abc', 'xyz', 'asdf', 'qwerty', 'ghjkl', 'test', 'demo', 'user', 'none', 'qwer', 'zxcv', 'fghj'];
+      if (patterns.some(p => cleaned === p || (cleaned.length < 8 && cleaned.includes(p)))) return true;
+      
+      if (cleaned.length > 4) {
+        // 3. Vowel & Consonant Heuristics (Gibberish Detection)
+        const vowels = cleaned.match(/[aeiouy]/g) || [];
+        const vowelRatio = vowels.length / cleaned.length;
+        
+        // Typical human names/words have 25-50% vowels. 
+        // Random typing like "dfdfkskdop" (1/10 = 10%) will fail.
+        if (vowelRatio < 0.25) return true;
+
+        // Long consonant cluster check (e.g. "dfdfksk")
+        // 5+ consecutive consonants is very suspicious
+        if (/[bcdfghjklmnpqrstvwxz]{5,}/.test(cleaned)) return true;
+      }
+      
+      return false;
+    };
+
+    // Helper: Detect suspicious phone patterns
+    const isFakePhone = (str) => {
+      if (!str) return false;
+      const digits = str.replace(/\D/g, '');
+      if (digits.length < 10) return false;
+      // Repetitive (0000000000) or sequential (1234567890)
+      if (/^(.)\1{9}$/.test(digits)) return true;
+      if (/0123456789|1234567890|9876543210/.test(digits)) return true;
+      return false;
+    };
+
     const trimmedFullName = (full_name || '').trim();
     if (!trimmedFullName) {
       errors.full_name = 'Full Name is required.';
+    } else if (trimmedFullName.length < 3) {
+      errors.full_name = 'Full Name must be at least 3 characters.';
     } else if (!alphabeticRegex.test(trimmedFullName)) {
       errors.full_name = 'Full Name must contain only alphabets.';
+    } else if (isJunkText(trimmedFullName)) {
+      errors.full_name = 'Please enter a valid full name.';
     }
 
     const trimmedEmail = (email || '').trim();
@@ -170,11 +216,20 @@ const ContactForm = () => {
       errors.email = 'Email Address is required.';
     } else if (!emailRegex.test(trimmedEmail)) {
       errors.email = 'Please enter a valid email address.';
+    } else {
+      const emailPrefix = trimmedEmail.split('@')[0];
+      if (isJunkText(emailPrefix) || trimmedEmail.includes('example.com') || trimmedEmail.startsWith('test@')) {
+        errors.email = 'Please provide a legitimate email address.';
+      }
     }
 
     const trimmedCompany = (company_name || '').trim();
-    if (trimmedCompany && !alphabeticRegex.test(trimmedCompany)) {
-      errors.company_name = 'Company Name must contain only alphabets.';
+    if (trimmedCompany) {
+      if (!alphabeticRegex.test(trimmedCompany)) {
+        errors.company_name = 'Company Name must contain only alphabets.';
+      } else if (isJunkText(trimmedCompany)) {
+        errors.company_name = 'Please enter a valid company name.';
+      }
     }
 
     const trimmedPhone = (phone_number || '').trim();
@@ -182,44 +237,73 @@ const ContactForm = () => {
       errors.phone_number = 'Phone Number is required.';
     } else if (!phoneRegex.test(trimmedPhone)) {
       errors.phone_number = 'Mobile number must be exactly 10 digits.';
+    } else if (isFakePhone(trimmedPhone)) {
+      errors.phone_number = 'Please enter a valid mobile number.';
     }
 
     const trimmedAltPhone = (alt_phone_number || '').trim();
-    if (trimmedAltPhone && !phoneRegex.test(trimmedAltPhone)) {
-      errors.alt_phone_number = 'WhatsApp number must be exactly 10 digits.';
+    if (trimmedAltPhone) {
+      if (!phoneRegex.test(trimmedAltPhone)) {
+        errors.alt_phone_number = 'WhatsApp number must be exactly 10 digits.';
+      } else if (isFakePhone(trimmedAltPhone)) {
+        errors.alt_phone_number = 'Please enter a valid WhatsApp number.';
+      }
     }
 
     const trimmedAddress = (address || '').trim();
     if (!trimmedAddress) {
       errors.address = 'Address is required.';
+    } else if (trimmedAddress.length < 10) {
+      errors.address = 'Please enter a complete address (minimum 10 characters).';
     } else if (!addressRegex.test(trimmedAddress)) {
-      errors.address = 'Address must contain only alphanumeric characters and basic punctuation.';
+      errors.address = 'Address contains invalid characters.';
+    } else if (isJunkText(trimmedAddress)) {
+      errors.address = 'Please provide a valid address.';
     }
 
     const trimmedCity = (city || '').trim();
     if (!trimmedCity) {
       errors.city = 'City is required.';
+    } else if (trimmedCity.length < 2) {
+      errors.city = 'Please enter a valid city name.';
     } else if (!alphabeticRegex.test(trimmedCity)) {
       errors.city = 'City must contain only alphabets.';
+    } else if (isJunkText(trimmedCity)) {
+      errors.city = 'Please enter a valid city name.';
     }
 
     const trimmedCountry = (country || '').trim();
     if (!trimmedCountry) {
       errors.country = 'Country is required.';
+    } else if (trimmedCountry.length < 2) {
+      errors.country = 'Please enter a valid country name.';
     } else if (!alphabeticRegex.test(trimmedCountry)) {
       errors.country = 'Country must contain only alphabets.';
+    } else if (isJunkText(trimmedCountry)) {
+      errors.country = 'Please enter a valid country name.';
     }
 
     const trimmedInterested = (interested_in || '').trim();
     if (!trimmedInterested) {
       errors.interested_in = 'This field is required.';
-    } else if (!alphabeticRegex.test(trimmedInterested)) {
-      errors.interested_in = 'Must contain only alphabets.';
+    } else if (trimmedInterested.length < 3) {
+      errors.interested_in = 'Please provide more detail.';
+    } else if (isJunkText(trimmedInterested)) {
+      errors.interested_in = 'Please enter a valid response.';
     }
 
     const trimmedMessage = (message || '').trim();
     if (!trimmedMessage) {
       errors.message = 'Vision Brief is required.';
+    } else {
+      const words = trimmedMessage.split(/\s+/).filter(w => w.length > 0);
+      const commonGreetings = ['hi', 'hello', 'hey', 'hii', 'hellooo', 'heyya', 'test', 'demo', 'asdf', 'asdfgh'];
+      
+      if (words.length < 5 || trimmedMessage.length < 20 || 
+          words.every(word => commonGreetings.includes(word.toLowerCase().replace(/[^a-z]/g, ''))) || 
+          isJunkText(trimmedMessage)) {
+        errors.message = 'Please enter a clear and meaningful message. This field is intended for business communication.';
+      }
     }
 
     return errors;
