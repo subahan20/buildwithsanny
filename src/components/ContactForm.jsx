@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WarningCard from './WarningCard';
 
 const countryCodesList = [
   { code: '+1', label: 'US' },
@@ -496,7 +497,7 @@ const ContactForm = () => {
                 INQUIRY HUB
               </span>
               <h2 className="text-[27px] md:text-[45px] lg:text-[42px] font-black text-text tracking-tighter leading-[1] mb-3 transition-colors">
-                Initiate your <span className="text-yellow-500 italic">Project.</span>
+                We work only with serious business ready to <span className="text-yellow-500 italic">invest</span>
               </h2>
               <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[17px] font-bold leading-relaxed max-w-2xl mx-auto transition-colors">
                 We are currently accepting high-impact architectural mandates. Provide your project brief to begin the synthesis process.
@@ -514,6 +515,10 @@ const ContactForm = () => {
                   <p className="text-text font-bold text-xs md:text-sm transition-colors">buildwithsanny7@gmail.com</p>
                 </div>
               </div>
+            </div>
+            
+            <div className="py-[5px]">
+              <WarningCard />
             </div>
 
           </div>

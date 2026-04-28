@@ -13,7 +13,7 @@ const DigitalVoid = () => {
           </h2>
         </div>
         
-        <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed max-w-2xl transition-colors">
+        <p className="text-text/50 text-[15px] md:text-[16px] xl:text-[18px] font-bold leading-relaxed w-full transition-colors">
           Tell me what you are building, where you are stuck, and where you want to achieve. We provide the architectural synthesis required to turn abstract concepts into high-impact digital products.
         </p>
       </div>
